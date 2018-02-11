@@ -9,14 +9,30 @@
 
     <title>About TechFloor</title>
 
+      <!-- JavaScript -->
+      <script src="http://code.jquery.com/jquery-3.3.1.min.js"
+              integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+              crossorigin="anonymous"></script><!-- JQuery -->
+      <!-- Custom JS -->
+      <script src="./js/techfloorsite.js"></script>
+
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="./css/bootstrap.css">
 
     <!-- Custom CSS-->
     <link rel="stylesheet" href="./css/custom.css">
+
+
+
   </head>
 
   <body class="about-template">
+    <!-- NAVBAR this div should cal the navbar using js and jquery functions -->
+    <div id="navbar">
+        <script>
+            window.onload=loadNavBar();
+        </script>
+    </div> <!-- end of NAVBAR -->
 
     <div class="container-fluid"> <!-- container-fluid allows for more flexibility and moving easier -->
         <!-- adds rows within the container -->
