@@ -1,8 +1,46 @@
+/*
+Authors: Breanna Greggs and Rebecca Bailey
+Purpose: Create our custom css sheet in order to get the website looking how we want.
+I organized it alphabetically and by classes and Id's separately
+ */
+
 body {
     padding-top: 5rem;
+}
+
+/* -------------------------- CLASSES ---------------------------*/
+
+/*
+Class: about-template
+Purpose: Becky;s messing around with the about layout.
+ */
+.about-template {
+    padding: 3rem 1.5rem;
+    text-align: center;
+    background-color: #191919;
+}
+
+/*
+Class: bg-navbar
+Purpose: indicate the color fo the background of the navbar
+ */
+.bg-navbar-tf{
+    background-color: #343A40;
 }
 
 .index-template {
     padding: 3rem 1.5rem;
     text-align: center;
 }
+
+/*
+Class: spacer
+Purpose: Used to create a space between two div elements
+ */
+.spacer{
+    margin: 0;
+    padding: 0;
+    height: 50px;
+}
+
+/* ----------------------- ID'S -------------------------- */
