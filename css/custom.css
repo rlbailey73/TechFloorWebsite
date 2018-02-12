@@ -43,6 +43,7 @@ Purpose: indicate the color fo the background of the navbar
     padding: 3rem 1.5rem;
     text-align: center;
     background: #9fcdff;
+
 }
 
 /*
@@ -63,7 +64,7 @@ Purpose: Indicates where our moving pictures will be going
 .pictures
 {
     height: 200px;
-    background: #e83e8c;
+    background-image: url("../images/tfBackground.png");
 }
 
 /*
