@@ -9,11 +9,7 @@ body {
     background-color: #191919;
 }
 
-/* List Item  but going for all so we neeed to make this a classy class dewd*/
-li
-{
-   border-bottom: 2px solid white;
-}
+
 
 /* -------------------------- CLASSES ---------------------------*/
 
@@ -34,6 +30,15 @@ Purpose: indicate the color fo the background of the navbar
     background-color: #343A40;
 }
 
+/* List Item  but going for all so we neeed to make this a classy class dewd*/
+.feed
+{
+    /*text-align: left;
+    list-style: none; wanted no bullets but they wont align to the left all the way so i got mad and quit*/
+    border-bottom: 2px solid white;
+}
+
+/*Section on the body that contains our actual content*/
 .index-template {
     padding: 3rem 1.5rem;
     text-align: center;
@@ -41,7 +46,7 @@ Purpose: indicate the color fo the background of the navbar
 }
 
 /*
-
+The space behind any text on the index template
  */
 .message_box
 {
