@@ -13,41 +13,85 @@
     <link rel="stylesheet" href="./css/bootstrap.css">
 
     <link rel="stylesheet" href="./css/custom.css">
-    <!-- Custom styles for this template
-    <style>
-        body {
-            padding-top: 5rem;
-        }
 
-        .index-template {
-            padding: 3rem 1.5rem;
-            text-align: center;
-        }
-    </style>-->
   </head>
 
   <body>
+  <!-- Nav Start -->
+  <nav class="navbar navbar-expand-md navbar-blue bg-dark fixed-top">
+      <a class="navbar-brand" href="#">TechFloor</a> <!--delete line if we dont want name here *Becky -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+          <ul class="navbar-nav mr-auto">
+
+              <!--this is the home navigation item-->
+              <li class="nav-item active">
+                  <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+              </li>
+              <!--this is the Events page navigation dropdown item-->
+              <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="http://example.com" id="events_dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Events</a>
+                  <div class="dropdown-menu" aria-labelledby="dropdown01">
+                      <a class="dropdown-item" href="#">Current Events</a>
+                      <a class="dropdown-item" href="#">Past Events</a>
+                      <a class="dropdown-item" href="#">Create Event</a>
+                  </div>
+              </li>
+              <!--this is the brackets page navigation dropdown item-->
+              <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="http://example.com" id="brackets_dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Brackets</a>
+                  <div class="dropdown-menu" aria-labelledby="dropdown01">
+                      <a class="dropdown-item" href="#">Create Bracket</a>
+                      <a class="dropdown-item" href="#">Current Bracket(s)</a>
+                      <a class="dropdown-item" href="#">Past Brackets</a>
+                  </div>
+              </li>
+
+              <li class="nav-item">
+                  <a class="nav-link" href="#">Resources</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link disabled" href="#">Disabled</a>
+              </li>
+          </ul>
+          <form class="form-inline my-2 my-lg-0">
+              <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          </form>
+      </div>
+  </nav><!---end of navigation bar -->
 
     <div class="container-fluid "><!--according to the j-man adding "fluid" adds for a smoother resizing-->
 
       <div class="index-template">
-          <div class = "col-6 offset-3 border border-thick">
-              <h1>WELCOME!</h1>
-              <h4>TO THE CLARION UNIVERSITY TECHFLOOR</h4>
-                  <p class="lead">We are a recognized student organization where we do homework, <br> work with computers, and play video games.</p>
-          </div>
-          <div class = "col-6 border border-thick">
-              <h1>WELCOME!</h1>
-              <h4>TO THE CLARION UNIVERSITY TECHFLOOR</h4>
-              <p class="lead">We are a recognized student organization where we do homework, <br> work with computers, and play video games.</p>
-          </div>
-          <div class = "col-6 border border-thick">
-              <h1>WELCOME!</h1>
-              <h4>TO THE CLARION UNIVERSITY TECHFLOOR</h4>
-              <p class="lead">We are a recognized student organization where we do homework, <br> work with computers, and play video games.</p>
-          </div>
-      </div>
+          <div class = "row">
+              <div class = "col-10 offset-1 pictures">
 
+              </div>
+              <div class = "col-lg-6 offset-3 message_box"><!-- start Welcome message_box -->
+                  <h1>WELCOME!</h1>
+                  <h5>TO THE CLARION UNIVERSITY TECHFLOOR</h5>
+                  <p class="lead">We are a recognized student organization where we do homework, work with computers, and play video games.</p>
+              </div><!-- end Welcome message_box -->
+
+              <div class = "col-4 offset-1 message_box"><!-- start News Feed message_box -->
+                  <h3>News Feed</h3>
+                  <p class="lead">
+                      <ul>
+                        <li>D&D will be cancelled this week but will continue next week</li>
+                        <li>There will be $100 for everyone who attends the TechFloor courtesy of the J-Man</li>
+                      </ul>
+                  </p><!--end News Feed paragraph-->
+              </div><!-- end News Feed message_box -->
+              <div class = "col-4 offset-2 message_box"><!-- start Twitter Feed message_box -->
+                  <h3>Twitter</h3>
+              </div><!-- end Twitter Feed message_box -->
+
+          </div><!-- end row -->
+      </div><!--end index-template-->
 
 
     </div><!-- /.container -->
