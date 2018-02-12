@@ -9,8 +9,7 @@ body {
     background-color: #191919;
 }
 
-
-
+/* List Item  but going for all so we neeed to make this a classy class dewd*/
 li
 {
    border-bottom: 2px solid white;
@@ -25,7 +24,6 @@ Purpose: Becky;s messing around with the about layout.
 .about-template {
     padding: 3rem 1.5rem;
     text-align: center;
-    background-color: #191919;
 }
 
 /*
