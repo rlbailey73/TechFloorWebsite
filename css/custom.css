@@ -38,6 +38,12 @@ Purpose: indicate the color fo the background of the navbar
     border-bottom: 2px solid white;
 }
 
+/* footer styles to carry over on each page */
+.footer-template {
+    text-align: center;
+    background-color: #343A40;
+}
+
 /*Section on the body that contains our actual content*/
 .index-template {
     padding: 3rem 1.5rem;

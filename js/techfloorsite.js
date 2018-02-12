@@ -19,9 +19,13 @@ function displayFooter()
     //displays the copyright symbol and the current year plus the makers of the site
     tfSiteFooter.innerHTML=("&copy"+currentDate.getFullYear() + " Rebecca Bailey and Breanna Greggs");
 
-    var clarionImage = document.createElement("IMG");
+    // creates an element of type IMG
+    var techFloorLogo = document.createElement("IMG"); //techfloor logo
+    var clarionImage = document.createElement("IMG"); //clarion logo
 
+    //techfloor logo things
 
+    //clarion logo things
 }
 
 /*
