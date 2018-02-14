@@ -27,6 +27,7 @@ Class: bg-navbar
 Purpose: indicate the color fo the background of the navbar
  */
 .bg-navbar-tf{
+    color: #FFFFFF;
     background-color: #343A40;
 }
 
