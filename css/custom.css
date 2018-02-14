@@ -37,8 +37,7 @@ Purpose: indicate the color fo the background of the navbar
     text-align: left;
     list-style: none; /*wanted no bullets but they wont align to the left all the way so i got mad and quit*/
     border-bottom: 2px solid white;
-    height: auto;
-    font-size: 20px;
+
 }
 
 /* footer styles to carry over on each page */
@@ -71,6 +70,7 @@ The space behind any text on the index template
     /*margin-bottom: 1rem;*/
     color: white;
     border: 2px solid #0478D9;
+    font-size: 20px;
 }
 
 /*
@@ -92,6 +92,12 @@ Purpose: Used to create a space between two div elements
     margin: 0;
     padding: 0;
     height: 50px;
+}
+
+/*format for the suggestion items*/
+.suggestion_item
+{
+    margin: 5px;
 }
 
 /* ----------------------- ID'S -------------------------- */
