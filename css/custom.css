@@ -36,6 +36,8 @@ Purpose: indicate the color fo the background of the navbar
     text-align: left;
     list-style: none; /*wanted no bullets but they wont align to the left all the way so i got mad and quit*/
     border-bottom: 2px solid white;
+    height: auto;
+    font-size: 20px;
 }
 
 /* footer styles to carry over on each page */
@@ -48,7 +50,7 @@ Purpose: indicate the color fo the background of the navbar
 .index-template {
     padding: 3rem 1.5rem;
     text-align: center;
-    background: #9fcdff;
+    /*background: #9fcdff;*/
 
 }
 
@@ -64,20 +66,21 @@ The space behind any text on the index template
 .message_box
 {
     background: #03002f;
-    margin-bottom: 1.5rem;
+    margin-top: 1.5rem;
+    /*margin-bottom: 1rem;*/
     color: white;
-    height: 20rem;
-    overflow-y: auto;
+    border: 2px solid #0478D9;
 }
 
 /*
 Class: pictures
 Purpose: Indicates where our moving pictures will be going
 */
-.pictures
-{
-    height: 200px;
-    background-image: url("../images/tfBackground.png");
+
+/*This is to be used when things will need to be scrolled */
+.scroll{
+    height: 30rem;
+    overflow-y: auto;
 }
 
 /*
