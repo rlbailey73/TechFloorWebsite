@@ -51,8 +51,8 @@ Links:
                     <h1 class="message_box_title">About Feed</h1>
                     <div class = "message_box ">
                         <form class="feed_side_space">
-                            <textarea class = "form-control suggestion_item " rows = "10" placeholder="Comments">
-                             Clarion University TechFloor is a recognized student organization where we do homework,
+                            <textarea class = "form-control suggestion_item " rows = "10">
+                            Clarion University TechFloor is a recognized student organization where we do homework,
                             work with computers, program, and play video games. We run various community service
                             events every year, which can include seminars, programming contests, and video game
                             tournaments. We also offer tutoring and general guidance with various CIS courses.(We'll
@@ -67,18 +67,16 @@ Links:
                     </div>
                 </div><!-- end admin about -->
 
-                <div class = "col-4 offset-1"><!-- start admin event -->
+                <div class = "col-6 offset-3"><!-- start admin event -->
                     <h1 class = "message_box_title">Event Additions</h1>
                     <div class = "message_box">
-                        <p class="lead">
-                            <strong>@TechFloor</strong>
-                        <ul class="feed_side_space">
-                            <li class = "feed">Come chill at TechFloor instead of chilling in the cold! We are open!</li>
-                            <li class = "feed">TechFloor is open!</li>
-                            <li class = "feed">There are meetings tonight! Game night is immediately afterwards! Come hang out with us!</li>
-                        </ul>
-                        </p><!--end Twitter Feed paragraph-->
-
+                        <form class = "feed_side_space">
+                            <input class = "form-control suggestion_item input_length" type = "text" placeholder="First Name">
+                            <input class = "form-control input_length button_space" type="date" placeholder="mm/dd/yy">
+                            <input class = "form-control input_length button_space" type="time" placeholder="Enter Start Time">
+                            <textarea class = "form-control suggestion_item input_length" rows = "7" placeholder="Description"></textarea>
+                            <button type="button" class="btn btn-block button_space">Add Event to CURRENT EVENTS</button>
+                        </form>
                     </div>
 
                 </div><!-- end Twitter Feed message_box -->

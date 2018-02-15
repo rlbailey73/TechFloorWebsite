@@ -70,7 +70,7 @@ Purpose: (currentevents page) makes up for taking the title out of the message b
 
 /*extend the width of the input boxes*/
 .input_length {
-    width: 250px;
+    width: 100%;
 }
 
 /*
