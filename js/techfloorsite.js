@@ -17,7 +17,7 @@ function displayFooter()
     tfSiteFooter.style.fontSize = "large";
     tfSiteFooter.style.color = "White";
     //displays the copyright symbol and the current year plus the makers of the site
-    tfSiteFooter.innerHTML=("&copy"+currentDate.getFullYear() + " Rebecca Bailey and Breanna Greggs");
+    tfSiteFooter.innerHTML=("&copy"+currentDate.getFullYear() + " Rebecca Bailey and Breanna Greggs || <a href='mailto:techfloor@clarion.edu'>Contact TechFloor here!</a>");
 
     // creates an element of type IMG
     var techFloorLogo = document.createElement("IMG"); //techfloor logo
