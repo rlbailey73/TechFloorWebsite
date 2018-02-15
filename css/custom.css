@@ -29,6 +29,12 @@ Purpose: indicate the color fo the background of the navbar
     background-color: #343A40;
 }
 
+/*puts some space around the button for a more user friendly look*/
+.button_space
+{
+    margin-bottom: 6px;
+}
+
 /*
 Class: Feed
 Purpose: the feed class left aligns text, does not have bullets, and puts a bottom border to separate content
@@ -55,13 +61,16 @@ Purpose: (currentevents page) makes up for taking the title out of the message b
     background-color: #343A40;
 }
 
-
-
 /*Section on the body that contains our actual content*/
 .index-template {
     padding: 3rem 1.5rem;
     text-align: center;
     /*background: #9fcdff;*/
+}
+
+/*extend the width of the input boxes*/
+.input_length {
+    width: 250px;
 }
 
 /*
@@ -75,13 +84,14 @@ The space behind any text on the index template
     border: 2px solid #0478D9;
     font-size: 20px;
 }
+
+/*similar to message_box but eliminates extra space between title and context*/
 .message_box_title
 {
     background: #0478D9;
     margin-top: 1.5rem;
     color: white;
     border: 2px solid #0478D9;
-
 }
 
 /*
