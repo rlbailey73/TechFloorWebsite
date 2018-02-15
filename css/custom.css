@@ -116,3 +116,9 @@ Purpose: Used to create a space between two div elements
 }
 
 /* ----------------------- ID'S -------------------------- */
+
+/* Used to resize the google map for */
+#map{
+    height: 400px;
+    width: 100%;
+}
