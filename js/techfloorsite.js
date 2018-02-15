@@ -28,6 +28,19 @@ function displayFooter()
     //clarion logo things
 }
 
+/* function to call the google map location for techfloor */
+function initMap() {
+    var clarion = {lat: 41.2083368, lng: -79.37792530000002};
+    var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 18,
+        center: clarion
+    });
+    var marker = new google.maps.Marker({
+        position: clarion,
+        map: map
+    });
+}
+
 /*
 Function: loadNavBar
 Purpose: be called in order to load the navbar on each html page rather than pasting the nav
