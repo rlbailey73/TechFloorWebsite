@@ -41,11 +41,11 @@
             <img class = "col-10 offset-1" src = "./images/temp.png" alt = "cool blue techy background"  >
 
             <div class = "col-6 offset-1"><!-- start Events -->
-                <h3>Events</h3>
+                <h3 class = "message_box_title">Events</h3>
                 <div class = "message_box"> <!-- News feed message_box div begin - separates the title from the text-->
 
-                    <ul class="left_feed"><!--start event list -->
-                        <li class = "feed">Moses's D&D campaign Mondays at 4:00 p.m. Watch the Twitter for schedule changes. </li>
+                    <ul class="feed_side_space"><!--start event list -->
+                        <li class = "feed">Moses's D&D campaign Mondays at 3:00 p.m. Watch the Twitter for schedule changes. </li>
                         <li class = "feed">Theodore's D&D campaign Tuesday at 6:00 p.m. Watch the Twitter for schedule changes.</li>
                         <li class = "feed">February 20th at 6:00 p.m. there will be a collaboration with ASIA for a GitHub seminar. Extra credit will be given by:
                             Dr. Strausser, Dr. Childs, Dr. Kim, Dr. George, Dr. O'Donnell, Dr. Wyatt. Be sure to sign in so you get your extra credit while
@@ -53,7 +53,7 @@
                             this will be an added bonus before you have to start your semester project. </li>
                         <li class = "feed">Do you like to Smash? Do you prefer it on the game cube or wii? Well break
                             out your lucky controller! TechFloor is holding a tournament! Come and compete and show off your skills!</li>
-                        <li class = "feed">Do you like to CSGO? Do you have a group? Well come and join TechFloor for their first ever CSGO tournament!</li>
+                        <li class = "feed">Do you like to Pokemon? Do you have a 3DS? Well come and join TechFloor for their first ever Pokemon tournament!</li>
                         <li class = "feed">Have you ever been on that sliver of health in your game but still survived? Well people are doing it for real!
                             Come support them by playing games with us! This fall we will be hosting an event called One Life where you can contribute to a good cause
                             while competing in Rocket League, Smash, and Mario Kart tournaments. We hope to see you there!</li>
@@ -64,11 +64,15 @@
             </div><!-- end Events -->
 
             <div class = "col-3 offset-1"><!-- start Suggestions message_box -->
-                <h3>Suggestions</h3>
+                <h3 class="message_box_title">Suggestions</h3>
                 <div class = "message_box row">
                     <!-- link to site used for the suggestions layout: https://v4-alpha.getbootstrap.com/components/forms/ -->
+                    <!-- link for the text area: https://www.w3schools.com/bootstrap/bootstrap_forms_inputs.asp-->
                     <form>
-                        <input class = "f"
+                        <input class = "form-control suggestion_item" type = "text" placeholder="First Name">
+                        <input class = "form-control suggestion_item" type = "text" placeholder="Last Name">
+                        <input class = "form-control suggestion_item" type = "email" placeholder="email@server.com">
+                        <textarea class = "form-control suggestion_item" rows = "6" placeholder="Comments"></textarea>
                     </form>
                 </div>
             </div><!-- end Suggestion message_box -->

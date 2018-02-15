@@ -31,14 +31,16 @@ Purpose: indicate the color fo the background of the navbar
     background-color: #343A40;
 }
 
-/* List Item  but going for all so we neeed to make this a classy class dewd*/
+/*
+Class: Feed
+Purpose: the feed class left aligns text, does not have bullets, and puts a bottom border to separate content
+*/
 .feed
 {
     text-align: left;
     list-style: none; /*wanted no bullets but they wont align to the left all the way so i got mad and quit*/
     border-bottom: 2px solid white;
-    height: auto;
-    font-size: 20px;
+
 }
 
 /* footer styles to carry over on each page */
@@ -47,18 +49,20 @@ Purpose: indicate the color fo the background of the navbar
     background-color: #343A40;
 }
 
+/*
+Class: feed_side_space
+Purpose: (currentevents page) makes up for taking the title out of the message box area
+*/
+.feed_side_space
+{
+   padding: 0px 1rem 0px 1rem;
+}
+
 /*Section on the body that contains our actual content*/
 .index-template {
     padding: 3rem 1.5rem;
     text-align: center;
     /*background: #9fcdff;*/
-
-}
-
-/*left aligns the ul lists*/
-.left_feed
-{
-   padding: 0px .5rem 0px .5rem;
 }
 
 /*
@@ -67,16 +71,28 @@ The space behind any text on the index template
 .message_box
 {
     background: #03002f;
-    margin-top: 1.5rem;
-    /*margin-bottom: 1rem;*/
+    margin-bottom: 1rem;
     color: white;
     border: 2px solid #0478D9;
+    font-size: 20px;
+}
+.message_box_title
+{
+    background: #03002f;
+    margin-top: 1.5rem;
+    color: white;
+    border: 2px solid #0478D9;
+
 }
 
 /*
 Class: pictures
 Purpose: Indicates where our moving pictures will be going
 */
+.picture
+{
+    margin-bottom: 1rem;
+}
 
 /*This is to be used when things will need to be scrolled */
 .scroll{
@@ -92,6 +108,12 @@ Purpose: Used to create a space between two div elements
     margin: 0;
     padding: 0;
     height: 50px;
+}
+
+/*format for the suggestion items*/
+.suggestion_item
+{
+    margin: 5px;
 }
 
 /* ----------------------- ID'S -------------------------- */
