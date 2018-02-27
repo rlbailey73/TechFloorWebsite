@@ -47,8 +47,9 @@ Links:
                 <img class = "col-10 offset-1" src = "../images/tfBackground.png" alt = "cool blue techy background"  >
 
                 <div class = "col-6 offset-3"><!-- start admin about -->
-                    <h1 class="message_box_title">About Feed</h1>
+                    <h1 class="message_box_title">Edit the About Page</h1>
                     <div class = "message_box ">
+                        <h4>Change the description</h4>
                         <form class="feed_side_space">
                             <textarea class = "form-control suggestion_item " rows = "10">
                             Clarion University TechFloor is a recognized student organization where we do homework,
@@ -63,7 +64,33 @@ Links:
                             <button type="button" class="btn btn-block button_space">Save Changes to ABOUT</button>
                         </form><!--end about info paragraph-->
                     </div>
-                </div><!-- end admin about -->
+                    <!--Board Member edits-->
+                    <div class = "message_box">
+                        <h4>Change the board members</h4>
+                        <form class="feed_side_space row">
+                            <select class = " form-control suggestion_item">
+                                <option>President</option>
+                                <option>Vice President</option>
+                                <option>Treasurer</option>
+                                <option>Secretary</option>
+                                <option>Tech Manager</option>
+                                <option>Public Relations</option>
+                                <option>Community Service Chair</option>
+                            </select>
+
+                            <label for="mem_name" class="suggestion_item">Member name:</label>
+                            <input class = "form-control suggestion_item input_length" id="mem_name" type = "text">
+                            <label for="mem_email" class="suggestion_item">Member email:</label>
+                            <input  class = "form-control suggestion_item input_length" id = "mem_email" type = "email">
+
+                            <label for="mem_about" class="suggestion_item">About the member:</label>
+                            <textarea class="form-control suggestion_item" id="mem_about" rows="3"></textarea>
+
+                            <button type="button" class="btn btn-block button_space form-group">Save Board Member changes</button>
+                        </form><!--end about info paragraph-->
+                    </div><!--end Board Members edits-->
+
+                </div><!-- end ABOUT edits -->
 
                 <div class = "col-6 offset-3"><!-- start admin event -->
                     <h1 class = "message_box_title">Event Additions</h1>
