@@ -133,10 +133,8 @@ Purpose: Used to create a space between two div elements
     width: 600px;
 }
 
-/* Used to resize the google map for */
+/* Used to resize the google map*/
 #map{
     height: 400px;
     width: 100%;
 }
-
-
