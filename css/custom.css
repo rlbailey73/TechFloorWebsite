@@ -20,15 +20,6 @@ Purpose: Becky;s messing around with the about layout.
     text-align: center;
 }
 
-/*
-Class: bg-navbar
-Purpose: indicate the color fo the background of the navbar
- */
-.bg-navbar-tf{
-    color: #FFFFFF;
-    background-color: #343A40;
-}
-
 /*puts some space around the button for a more user friendly look*/
 .button_space
 {
@@ -95,6 +86,15 @@ The space behind any text on the index template
 }
 
 /*
+Class: bg-navbar
+Purpose: indicate the color fo the background of the navbar
+ */
+.navbar-tf-bg{
+    color: #FFFFFF;
+    background-color: #343A40;
+}
+
+/*
 Class: pictures
 Purpose: Indicates where our moving pictures will be going
 */
@@ -131,6 +131,10 @@ Purpose: Used to create a space between two div elements
 #escapeRoomPicInfo{
     height: 400px;
     width: 600px;
+}
+
+#navbarHov:hover{
+    color: honeydew;
 }
 
 /* Used to resize the google map*/
