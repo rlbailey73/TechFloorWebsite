@@ -46,12 +46,14 @@ Links:
                 <!-- border across top-->
                 <img class = "col-10 offset-1" src = "../images/tfBackground.png" alt = "cool blue techy background"  >
 
-                <div class = "col-6 offset-3"><!-- start admin about -->
+                <!-- start ABOUT_PAGE admin -->
+                <div class = "col-6 offset-3">
                     <h1 class="message_box_title">Edit the About Page</h1>
+                    <!--description of organization-->
                     <div class = "message_box ">
-                        <h4>Change the description</h4>
-                        <form class="feed_side_space">
-                            <textarea class = "form-control suggestion_item " rows = "10">
+                        <h4>Edit the description</h4>
+                        <form class="feed_side_space row">
+                            <textarea class = "form-control suggestion_item input_length" rows = "10">
                             Clarion University TechFloor is a recognized student organization where we do homework,
                             work with computers, program, and play video games. We run various community service
                             events every year, which can include seminars, programming contests, and video game
@@ -61,7 +63,7 @@ Links:
                             Meetings are held every Monday at 7:30 p.m. in our room in Ralston Hall. See the daily schedule
                             and keep an eye on the Twitter feed for updates on when we are open.
                             </textarea>
-                            <button type="button" class="btn btn-block button_space">Save Changes to ABOUT</button>
+                            <button type="button" class="btn btn-block button_space form-control suggestion_item input_length">Save Changes to ABOUT</button>
                         </form><!--end about info paragraph-->
                     </div>
                     <!--Board Member edits-->
@@ -69,6 +71,7 @@ Links:
                         <h4>Change the board members</h4>
                         <form class="feed_side_space row">
                             <select class = " form-control suggestion_item">
+                                <option>---Select Position to Edit---</option>
                                 <option>President</option>
                                 <option>Vice President</option>
                                 <option>Treasurer</option>
@@ -79,14 +82,13 @@ Links:
                             </select>
 
                             <label for="mem_name" class="suggestion_item">Member name:</label>
-                            <input class = "form-control suggestion_item input_length" id="mem_name" type = "text">
+                            <input class = "form-control suggestion_item " id="mem_name" type = "text">
                             <label for="mem_email" class="suggestion_item">Member email:</label>
-                            <input  class = "form-control suggestion_item input_length" id = "mem_email" type = "email">
-
+                            <input  class = "form-control suggestion_item" id = "mem_email" type = "email">
                             <label for="mem_about" class="suggestion_item">About the member:</label>
                             <textarea class="form-control suggestion_item" id="mem_about" rows="3"></textarea>
 
-                            <button type="button" class="btn btn-block button_space form-group">Save Board Member changes</button>
+                            <button type="button" class="btn btn-block button_space form-control suggestion_item">Save Board Member changes</button>
                         </form><!--end about info paragraph-->
                     </div><!--end Board Members edits-->
 
@@ -95,12 +97,13 @@ Links:
                 <div class = "col-6 offset-3"><!-- start admin event -->
                     <h1 class = "message_box_title">Event Additions</h1>
                     <div class = "message_box">
-                        <form class = "feed_side_space">
+                        <h4>Enter information of the event to be added:</h4>
+                        <form class = "feed_side_space row">
                             <input class = "form-control suggestion_item input_length" type = "text" placeholder="First Name">
-                            <input class = "form-control input_length button_space" type="date" placeholder="mm/dd/yy">
-                            <input class = "form-control input_length button_space" type="time" placeholder="Enter Start Time">
+                            <input class = "form-control suggestion_item input_length button_space" type="date" placeholder="mm/dd/yy">
+                            <input class = "form-control suggestion_item input_length button_space" type="time" placeholder="Enter Start Time">
                             <textarea class = "form-control suggestion_item input_length" rows = "7" placeholder="Description"></textarea>
-                            <button type="button" class="btn btn-block button_space">Add Event to CURRENT EVENTS</button>
+                            <button type="button" class="btn btn-block button_space suggestion_item">Add Event to CURRENT EVENTS</button>
                         </form>
                     </div>
 
