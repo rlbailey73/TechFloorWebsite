@@ -154,8 +154,8 @@ Purpose: Used to create a space between two div elements
 
 /* sole purpose to help size the escape room photo for assign1 submission */
 #escapeRoomPicInfo{
-    height: 400px;
-    width: 600px;
+    height: auto;
+    max-width: 100%;
 }
 
 /* Used to resize the google map*/
