@@ -64,6 +64,7 @@ Purpose: (currentevents page) makes up for taking the title out of the message b
 /* footer styles to carry over on each page */
 .footer-template {
     text-align: center;
+    color: #FFFFFF;
     background-color: #343A40;
 }
 
