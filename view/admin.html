@@ -52,13 +52,13 @@ Links:
                     <!--upload the news-->
                     <div class = "message_box ">
                         <h4>Upload the News</h4>
-                        <form class="feed_side_space row">
+                        <form enctype="multipart/form-data" action="../php/file_upload.php" method = "post"class="feed_side_space row">
                             Send this file:
-                            <input name = "upload_file" type = "file" class="input_length"/>
+                            <input name = "userfile" type = "file" class="input_length"/>
                             <input type = "submit" value="Send File" class = "form-control"/>
-                        </form><!--end about info paragraph-->
+                        </form><!--end news upload-->
                     </div>
-                </div><!-- end ABOUT edits -->
+                </div><!-- end HOME edits -->
 
                 <!-- start ABOUT_PAGE admin -->
                 <div class = "col-6 offset-3">
@@ -66,7 +66,7 @@ Links:
                     <!--description of organization-->
                     <div class = "message_box ">
                         <h4>Edit the description</h4>
-                        <form action="file_upload.php" method = "post"class="feed_side_space row">
+                        <form class="feed_side_space row">
                             <textarea class = "form-control suggestion_item input_length" rows = "10">
                             Clarion University TechFloor is a recognized student organization where we do homework,
                             work with computers, program, and play video games. We run various community service
