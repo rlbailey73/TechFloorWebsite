@@ -7,10 +7,10 @@
     <meta name="author" content="">
     <link rel="icon" href="../images/tfFavicon.png">
 
-    <title>TechFloor Central</title>
+    <title>Ideas</title>
 
     <!-- JavaScript -->
-    <!-- JQuery -->
+    <<!-- JQuery -->
     <script src="../js/jquery-3.1.1.js"></script>
     <!-- Custom JS -->
     <script src="../js/techfloorsite.js"></script>
@@ -25,12 +25,11 @@
 
 <div class="container-fluid "><!--according to the j-man adding "fluid" adds for a smoother resizing-->
 
-    <!-- NAVBAR this div should cal the navbar using js and jquery functions -->
-    <div id="navbar">
-        <script>
-            window.onload=loadNavBar();
-        </script>
-    </div> <!-- end of NAVBAR -->
+    <nav>
+        <?php
+        include './navbar.html';
+        ?>
+    </nav>
 
     <div class="index-template" >
         <div class = "row"><!-- seems to allow for grid layout to take place and organize things horizontally-->
@@ -38,46 +37,22 @@
             <!-- border across top-->
             <img class = "col-10 offset-1" src = "../images/temp.png" alt = "cool blue techy background"  >
 
-            <div class = "col-6 offset-3"><!-- start Find Us message_box -->
-                <h3 class="message_box_title">Find Us</h3>
-                <div class="message_box ">
-                    <img src="../images/clarionMap.png" alt="Map of Clarion University campus">
+            <div class = "col-6 offset-3"><!-- start Ideas message_box -->
+                <h3 class="message_box_title">Influential Websites</h3>
+                <div class = "message_box scroll">
                     <p class="lead">
-                        TechFloor
-                        <br>
-                        Ralston Hall, Clarion University
-                        <br>
-                        840 Wood Street
-                        Clarion, PA 16214
-                        <br>
-                        WHERE TO FIND US
-                        <ol>
-                            <li>We are located in Ralston Hall, right between Gemmell and Givan.
-                                It is squared in green on the map. There are signs in the building to help you find us.<br><br>
-                            </li>
-                            <li>Entering Ralston through the main entrance: go left and down the hallway until you see
-                                a staircase on your right, go down one flight of stairs, go left and we’re the first door on your left.
-                            </li>
-                        ​    <li>Entering Ralston through the basement entrance: go straight until the end of the hallway,
-                               go up the stairs until the next floor, go left, and we’re the first door on your left.<br>
-                            </li>
-                        </ol>
-
-
-                    </p><!--end Find Us paragraph-->
+                    <ul class="feed_side_space">
+                        <li class = "feed"><a href="http://techfloor.wixsite.com/mysite">The Current TechFloor website</a></li>
+                        <li class = "feed"><a href="http://wieldersofpower.com/pages/index.php?action=Home">Jared Meterko's Website for his novels</a> </li>
+                        <li class = "feed"><a href="http://cisprod.clarion.edu/~S_JJDunn/RocketLeague370/controller/controller.php?action=Home">A previous students 370 project</a> </li>
+                    </ul>
+                    </p><!--end Ideas paragraph-->
                 </div>
-                <div id="map">
-                    <script>
-                        window.onload=initMap();
-                    </script>
-                    <script async defer
-                            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDiG8HFddOHRXOL4jU42vG0LFxuIokooK0&callback=initMap">
-                    </script>
-                </div>
-            </div><!-- end Find Us message_box -->
+            </div><!-- end Ideas message_box -->
 
         </div><!-- end row -->
     </div><!--end index-template-->
+
 
 </div><!-- /.container -->
 
@@ -87,6 +62,7 @@
         window.onload = displayFooter();
     </script>
 </div> <!-- FOOTER END -->
+
 
 <!-- Bootstrap core JavaScript
 ================================================== -->

@@ -48,6 +48,6 @@ bar code onto each page.
  */
 function loadNavBar() {
     $(document).ready(function() {   //$ = Jquery
-        $('#navbar').load('navbar.html');
+        $('#navbar').load('../view/navbar.html');
     });
 }
