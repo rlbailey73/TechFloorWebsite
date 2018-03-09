@@ -117,11 +117,11 @@ Purpose: This is where people can see the purpose of the organization as well as
     </div><!-- /.container -->
 
     <!-- FOOTER START -->
-    <div id="tfFooter" class="align-bottom footer-template">
-        <script>
-            window.onload = displayFooter();
-        </script>
-    </div> <!-- FOOTER END -->
+  <footer>
+      <?php
+      include './footer.html';
+      ?>
+  </footer>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->

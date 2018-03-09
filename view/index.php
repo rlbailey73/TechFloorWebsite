@@ -84,7 +84,13 @@ Purpose: This is the main page people will first see and the one they will be re
     </div><!-- /.container -->
 
   <!-- FOOTER START -->
-  <div id="tfFooter" class="align-bottom footer-template">
+    <footer>
+        <?php
+        include './footer.html';
+        ?>
+    </footer>
+
+    <!--<div id="tfFooter" class="align-bottom footer-template">
       <script>
           window.onload = displayFooter();
       </script>

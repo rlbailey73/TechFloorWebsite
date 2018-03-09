@@ -33,12 +33,11 @@ Links:
 
     <div class="container-fluid "><!--according to the j-man adding "fluid" adds for a smoother resizing-->
 
-        <!-- NAVBAR this div should cal the navbar using js and jquery functions -->
-        <div id="navbar">
-            <script>
-                window.onload=loadNavBar();
-            </script>
-        </div> <!-- end of NAVBAR -->
+        <nav>
+            <?php
+            include './navbar.html';
+            ?>
+        </nav>
 
         <div class="index-template" >
             <div class = "row"><!-- seems to allow for grid layout to take place and organize things horizontally-->
@@ -143,7 +142,12 @@ Links:
     </div><!-- /.container -->
 
 <!-- FOOTER START -->
-<div id="tfFooter" class="align-bottom footer-template">
+    <footer>
+        <?php
+        include './footer.html';
+        ?>
+    </footer>
+<!--<div id="tfFooter" class="align-bottom footer-template">
     <script>
         window.onload = displayFooter();
     </script>
