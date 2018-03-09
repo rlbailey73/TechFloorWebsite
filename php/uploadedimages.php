@@ -1,32 +1,33 @@
 <?php
 //This holds the correct directory that we wish to send a file and then cancatonates the
 //orig file name so that the file will appear as the file it was uploaded as
-$uploadFile = '../images/' . $_FILES['userpic']['name'];
-$types = array('image/png', 'image/gif');
-//make sure user uploaded a file
-if($_FILES['userpic']['error']==UPLOAD_ERR_NO_FILE)
-{
-    //informs user a file must be uploaded first
-    $nofile = "No file attached. Attach a file and try again.";
-    echo"$nofile";
+$uploadFile = '../image/' . $_FILES['userpic']['name'];
+
+if (file_exists($uploadfile)) {
+    $message = "The file was replaced successfully";
+} else {
+    $message = "The file was successfully uploaded";
 }
-//checks to see if the file is already in the resources and if it is, replaces it
-elseif(file_exists($uploadFile))
-{
-    move_uploaded_file($_FILES['userpic']['type'], $types);
-    $replace = "The file was successfully replaced!";
-    echo"$replace";
-}
-//if it doesn't exist we add it
-else if(move_uploaded_file($_FILES['userpic']['type'], $types))
-{
-    //if file gets added then alert informs user
-    $successupload = "The file was successfully uploaded!";
-    echo"$successupload";
-}
-//generic default error message
-else {
-    //if the file can't be uploaded
+
+$image_info =
+    getimagesize($_FILES['userpic']['tmp_name']);
+$image_width = $image_info[0];
+$image_height = $image_info[1];
+$image_type = $image_info[2];
+if ($image_type != IMAGETYPE_JPEG && $image_type !=
+    IMAGETYPE_GIF && $image_type != IMAGETYPE_PNG) {
+    echo "Only jpeg, gif, and png files are supported.  Please try again.";
+    print_r($image_info);
+} else if ($image_height > 120 OR $image_width > 120) {
+    echo "Logo files must be smaller than 120px by 120px.";
+} else if (move_uploaded_file($_FILES['userpic']['tmp_name'],
+    $uploadfile)) {
+    echo "<p>$message.</p>";
+} else if ($_FILES['userpic']['error'] == UPLOAD_ERR_NO_FILE) {
+    echo "<p>Please choose a file first and then try again...</p>";
+} else if ($_FILES['userpic']['size'] > 1000000) {
+    echo "<p>Please choose a file smaller than 1MB and then try again...</p>";
+} else {
     echo "File Upload Error\n Debugging info:";
     print_r($_FILES);
 }

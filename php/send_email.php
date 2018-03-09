@@ -1,14 +1,14 @@
 <?php
 require_once "Mail.php";
 
-$from = "TechFloor<anna41mei@gmail.com>";
-$to = "Becky Bailey <;laskjdfoiwkj";
+$from = "TechFloor<techfloortemp@gmail.com>";
+$to = "Breanna Greggs <anna41mei@gmail.com>";
 $subject = "Hi!";
 $body = "Hi,\n\nHow are you?";
 
-$host = "mail.gmail.com";
-$username = "anna41mei";
-$password = "blueDreamer";
+$host = 'ssl://smtp.gmail.com';
+$username = "techfloortemp"; //change later for real one (permission are open rn hich is unsafe)
+$password = "techfloor99";
 
 $headers = array('From' =>$from,
     'To'=>$to,
