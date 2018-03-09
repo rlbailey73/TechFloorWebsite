@@ -7,10 +7,10 @@
     <meta name="author" content="">
     <link rel="icon" href="../images/tfFavicon.png">
 
-    <title>Ideas</title>
+    <title>TechFloor Central</title>
 
     <!-- JavaScript -->
-    <<!-- JQuery -->
+    <!-- JQuery -->
     <script src="../js/jquery-3.1.1.js"></script>
     <!-- Custom JS -->
     <script src="../js/techfloorsite.js"></script>
@@ -25,12 +25,11 @@
 
 <div class="container-fluid "><!--according to the j-man adding "fluid" adds for a smoother resizing-->
 
-    <!-- NAVBAR this div should cal the navbar using js and jquery functions -->
-    <div id="navbar">
-        <script>
-            window.onload=loadNavBar();
-        </script>
-    </div> <!-- end of NAVBAR -->
+    <nav>
+        <?php
+        include './navbar.html';
+        ?>
+    </nav>
 
     <div class="index-template" >
         <div class = "row"><!-- seems to allow for grid layout to take place and organize things horizontally-->
@@ -38,19 +37,9 @@
             <!-- border across top-->
             <img class = "col-10 offset-1" src = "../images/temp.png" alt = "cool blue techy background"  >
 
-            <div class = "col-6 offset-3"><!-- start Ideas message_box -->
-                <h3 class="message_box_title">Influential Websites</h3>
-                <div class = "message_box scroll">
-                    <p class="lead">
-                    <ul class="feed_side_space">
-                        <li class = "feed"><a href="http://techfloor.wixsite.com/mysite">The Current TechFloor website</a></li>
-                        <li class = "feed"><a href="http://wieldersofpower.com/pages/index.php?action=Home">Jared Meterko's Website for his novels</a> </li>
-                        <li class = "feed"><a href="http://cisprod.clarion.edu/~S_JJDunn/RocketLeague370/controller/controller.php?action=Home">A previous students 370 project</a> </li>
-                    </ul>
-                    </p><!--end Ideas paragraph-->
-                </div>
-            </div><!-- end Ideas message_box -->
-
+            <div class = "col-6 offset-3"><!-- start News Feed message_box -->
+                <h1 class="message_box_title">Under Construction</h1>
+            </div><!-- end News Feed message_box -->
         </div><!-- end row -->
     </div><!--end index-template-->
 
@@ -63,7 +52,6 @@
         window.onload = displayFooter();
     </script>
 </div> <!-- FOOTER END -->
-
 
 <!-- Bootstrap core JavaScript
 ================================================== -->

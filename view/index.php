@@ -31,12 +31,11 @@ Purpose: This is the main page people will first see and the one they will be re
 
     <div class="container-fluid "><!--allows for a smoother resizing-->
 
-        <!-- NAVBAR this div should call the navbar using js and jquery functions -->
-        <div id="navbar">
-            <script>
-                window.onload=loadNavBar();
-            </script>
-        </div> <!-- end of NAVBAR -->
+        <nav>
+            <?php
+            include './navbar.html';
+            ?>
+        </nav>
 
         <div class="index-template"> <!-- template-div: div on the body that contains images, and the two sections for the different kinds of feeds-->
 

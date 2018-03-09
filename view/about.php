@@ -29,12 +29,11 @@ Purpose: This is where people can see the purpose of the organization as well as
   </head>
 
   <body>
-    <!-- NAVBAR this div should call the navbar using js and jquery functions -->
-    <div id="navbar">
-        <script>
-            window.onload=loadNavBar();
-        </script>
-    </div> <!-- end of NAVBAR -->
+  <nav>
+      <?php
+      include './navbar.html';
+      ?>
+  </nav>
 
     <div class="container-fluid"> <!-- container-fluid allows for more flexibility and moving easier -->
 

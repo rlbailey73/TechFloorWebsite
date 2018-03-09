@@ -34,12 +34,11 @@ Links:
 <body>
     <div class="container-fluid "><!--according to the j-man adding "fluid" adds for a smoother resizing-->
 
-        <!-- NAVBAR this div should cal the navbar using js and jquery functions -->
-        <div id="navbar">
-            <script>
-                window.onload=loadNavBar();
-            </script>
-        </div> <!-- end of NAVBAR -->
+        <nav>
+            <?php
+            include './navbar.html';
+            ?>
+        </nav>
 
         <div class="index-template" ><!-- template-div: div on the body that contains images, and the two sections for the different kinds of feeds-->
             <div class = "row"><!-- allow for grid layout to take place and organize things horizontally-->
