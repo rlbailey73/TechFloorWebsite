@@ -73,6 +73,20 @@ Links:
                     </div>
                 </div><!-- end PICTURES edits -->
 
+                <!--start QUOTES admin-->
+                <div class = "col-6 offset-3">
+                    <h1 class="message_box_title">Add QUOTES</h1>
+                    <!--upload the QUOTES-->
+                    <div class = "message_box ">
+                        <h4>Upload Your QUOTES</h4>
+                        <form enctype="multipart/form-data" action="../php/upload_quotes.php" method = "post" class="feed_side_space row">
+                            Select a QUOTES FILE to upload:
+                            <input name = "userfile" type = "file" class="input_length"/>
+                            <input type = "submit" value="Send File" class = "form-control"/>
+                        </form><!--end news upload-->
+                    </div>
+                </div><!-- end PICTURES edits -->
+
                 <!-- start ABOUT_PAGE admin -->
                 <div class = "col-6 offset-3">
                     <h1 class="message_box_title">Edit the About Page</h1>
