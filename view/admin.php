@@ -144,7 +144,7 @@ Links:
 <!-- FOOTER START -->
     <footer>
         <?php
-        include './footer.html';
+        include './footer.php';
         ?>
     </footer>
 <!--<div id="tfFooter" class="align-bottom footer-template">

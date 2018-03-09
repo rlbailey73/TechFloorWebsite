@@ -119,7 +119,7 @@ Purpose: This is where people can see the purpose of the organization as well as
     <!-- FOOTER START -->
   <footer>
       <?php
-      include './footer.html';
+      include './footer.php';
       ?>
   </footer>
 

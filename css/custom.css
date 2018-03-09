@@ -158,6 +158,12 @@ Purpose: Used to create a space between two div elements
     max-width: 100%;
 }
 
+/* copyright/author name special fonts and shit */
+#footerCopyAuthor{
+    text-align: center;
+    font-size: 15px;
+}
+
 /* Used to resize the google map*/
 #map{
     height: 400px;

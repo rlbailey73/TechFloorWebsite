@@ -86,7 +86,7 @@ Purpose: This is the main page people will first see and the one they will be re
   <!-- FOOTER START -->
     <footer>
         <?php
-        include './footer.html';
+        include './footer.php';
         ?>
     </footer>
 

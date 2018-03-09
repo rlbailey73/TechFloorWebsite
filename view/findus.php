@@ -83,7 +83,7 @@
 <!-- FOOTER START -->
 <footer>
     <?php
-    include './footer.html';
+    include './footer.php';
     ?>
 </footer>
 
