@@ -52,13 +52,27 @@ Links:
                     <!--upload the news-->
                     <div class = "message_box ">
                         <h4>Upload the News</h4>
-                        <form enctype="multipart/form-data" action="../php/file_upload.php" method = "post"class="feed_side_space row">
+                        <form enctype="multipart/form-data" action="../php/uploadednews.php" method = "post" class="feed_side_space row">
                             Send this file:
                             <input name = "userfile" type = "file" class="input_length"/>
                             <input type = "submit" value="Send File" class = "form-control"/>
                         </form><!--end news upload-->
                     </div>
                 </div><!-- end HOME edits -->
+
+                <!--start PICTURES admin-->
+                <div class = "col-6 offset-3">
+                    <h1 class="message_box_title">Add Images</h1>
+                    <!--upload the news-->
+                    <div class = "message_box ">
+                        <h4>Upload Your Pictures</h4>
+                        <form enctype="multipart/form-data" action="../php/uploadedimages.php" method = "post" class="feed_side_space row">
+                            Send this file:
+                            <input name = "userpic" type = "file" class="input_length"/>
+                            <input type = "submit" value="Send File" class = "form-control"/>
+                        </form><!--end news upload-->
+                    </div>
+                </div><!-- end PICTURES edits -->
 
                 <!-- start ABOUT_PAGE admin -->
                 <div class = "col-6 offset-3">
