@@ -1,5 +1,18 @@
 <?php
-//This holds the correct directory that we wish to send a file and then cancatonates the
+
+$uploadfile = '../images/' . $_FILES['userpic']['name'];
+
+if(move_uploaded_file($_FILES['userpic']['tmp_name'], $uploadfile)){
+    echo "<p>The file was successfully uploaded </p>";
+}
+else{
+    echo "File Upload Error \n Debugging info:";
+    print_r($_FILES);
+}
+
+
+
+/*//This holds the correct directory that we wish to send a file and then cancatonates the
 //orig file name so that the file will appear as the file it was uploaded as
 $uploadFile = '../image/' . $_FILES['userpic']['name'];
 
@@ -31,4 +44,5 @@ if ($image_type != IMAGETYPE_JPEG && $image_type !=
     echo "File Upload Error\n Debugging info:";
     print_r($_FILES);
 }
+*/
 ?>
