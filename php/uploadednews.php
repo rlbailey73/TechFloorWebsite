@@ -2,8 +2,8 @@
 //This holds the correct directory that we wish to send a file and then cancatonates the
     //orig file name so that the file will appear as the file it was uploaded as
 $uploadFile = '../news/' . $_FILES['userfile']['name'];
-
-//make sure user uploaded a file
+/*this isn't like O'Donnell's setup - it made more sense like this to me.*/
+//make sure user uploaded a file first
 if($_FILES['userfile']['error']==UPLOAD_ERR_NO_FILE)
 {
     //informs user a file must be uploaded first
@@ -24,7 +24,7 @@ else if(move_uploaded_file($_FILES['userfile']['tmp_name'], $uploadFile))
     $successupload = "The file was successfully uploaded!";
     echo"$successupload";
 }
-//generic default error message
+//generic default error message - if something goes terribly wrong!
 else {
     //if the file can't be uploaded
     echo "File Upload Error\n Debugging info:";
