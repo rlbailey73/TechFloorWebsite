@@ -8,6 +8,7 @@ Links:
 -->
 
 <?php
+$title = "Current Events"; //necessary variable to have each pages title be unique
 require './headerinclude.php';
 ?>
 

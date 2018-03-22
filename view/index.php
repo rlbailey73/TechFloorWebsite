@@ -6,6 +6,7 @@ Purpose: This is the main page people will first see and the one they will be re
 -->
 
 <?php
+    $title = "TechFloor Central"; //necessary variable to have each pages title be unique
     require './headerinclude.php';
     ?>
 

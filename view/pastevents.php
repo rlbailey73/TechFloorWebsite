@@ -1,4 +1,5 @@
 <?php
+$title = "Past Events"; //necessary variable to have each pages title be unique
 require './headerinclude.php';
 ?>
 

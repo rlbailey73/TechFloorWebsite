@@ -6,6 +6,7 @@ Links:
     For the buttons: https://v4-alpha.getbootstrap.com/components/buttons/
 -->
 <?php
+$title ="Admin";
 require './headerinclude.php';
 ?>
 

@@ -1,4 +1,5 @@
 <?php
+$title = "Find Us"; //necessary variable to have each pages title be unique
 require './headerinclude.php';
 ?>
 

@@ -4,6 +4,7 @@ Purpose: This is where people can see the purpose of the organization as well as
          members and a short bio about them
 -->
 <?php
+$title = "About TF";
 require './headerinclude.php';
 ?>
 

@@ -5,6 +5,7 @@ Purpose: This is the main page people will first see and the one they will be re
         twitter feed
 -->
 <?php
+$title = "Sign Up"; //necessary variable to have each pages title be unique
 require './headerinclude.php';
 ?>
 

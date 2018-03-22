@@ -8,7 +8,9 @@
     <meta name="author" content="">
     <link rel="icon" href="../images/tfFavicon.png">
 
-    <title>TechFloor Central</title>
+    <title>
+        <?php echo $title; ?>
+    </title>
 
     <!-- JavaScript -->
     <!-- JQuery -->
