@@ -3,37 +3,10 @@ Authors: Rebecca Bailey and Brenna Greggs
 Purpose: This is where people can see the purpose of the organization as well as see the current board
          members and a short bio about them
 -->
+<?php
+require './headerinclude.php';
+?>
 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes"> <!-- viewport is the width of device -->
-    <meta name="description" content="">
-    <meta name="author" content="Rebecca Bailey and Breanna Greggs">
-    <link rel="icon" href="../images/tfFavicon.png">
-
-    <title>About TechFloor</title>
-
-    <!-- JavaScript -->
-      <!-- JQuery -->
-      <script src="../js/jquery-3.1.1.js"></script>
-    <!-- Custom JS -->
-    <script src="../js/techfloorsite.js"></script>
-
-    <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="../css/bootstrap.css">
-    <!-- Custom CSS-->
-    <link rel="stylesheet" href="../css/custom.css">
-
-  </head>
-
-  <body>
-  <nav>
-      <?php
-      include './navbar.html';
-      ?>
-  </nav>
 
     <div class="container-fluid"> <!-- container-fluid allows for more flexibility and moving easier -->
 
@@ -116,23 +89,6 @@ Purpose: This is where people can see the purpose of the organization as well as
         </div> <!-- end of template -->
     </div><!-- /.container -->
 
-    <!-- FOOTER START -->
-  <footer>
-      <?php
-      include './footer.php';
-      ?>
-  </footer>
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
-
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="https://maxcdn.bootstrapcdn.com/js/ie10-viewport-bug-workaround.js"></script>
-    <!-- Holder.js for placeholder images -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/holder/2.9.4/holder.min.js"></script>
-  </body>
-</html>
+<?php
+require './footerinclude.php';
+?>
