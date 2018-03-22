@@ -18,7 +18,7 @@ be done in one central place.
 
             <!--this is the home navigation item-->
             <li class="nav-item active">
-                <a class="nav-link navbar-tf-bg navbarHov" href="./index.php">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link navbar-tf-bg navbarHov" href="index.php">Home <span class="sr-only">(current)</span></a>
             </li>
             <!-- About Us Navigation Items -->
             <li class="nav-item active">

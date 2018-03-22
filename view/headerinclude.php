@@ -28,6 +28,6 @@
 
     <nav>
         <?php
-        include './navbar.php';
+        include 'navbar.php';
         ?>
     </nav>
