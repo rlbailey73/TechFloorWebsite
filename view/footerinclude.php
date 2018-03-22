@@ -1,16 +1,11 @@
 
+</div><!-- /.container -->
 <!-- FOOTER START -->
 <footer>
     <?php
     include './footer.php';
     ?>
 </footer>
-
-<!--<div id="tfFooter" class="align-bottom footer-template">
-  <script>
-      window.onload = displayFooter();
-  </script>
-</div> <!-- FOOTER END -->
 
 <!-- Bootstrap core JavaScript
 ================================================== -->

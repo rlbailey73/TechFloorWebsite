@@ -123,8 +123,6 @@ require './headerinclude.php';
             </div><!-- end row -->
         </div><!--end index-template-->
 
-    </div><!-- /.container -->
-
     <?php
     require './footerinclude.php';
     ?>

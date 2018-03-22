@@ -52,7 +52,6 @@ Purpose: This is the main page people will first see and the one they will be re
                 </div><!-- end Twitter Feed section-->
             </div><!-- end row -->
         </div><!--end index-template div-->
-    </div><!-- /.container -->
 
 <?php
 require './footerinclude.php';

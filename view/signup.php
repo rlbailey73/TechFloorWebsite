@@ -25,8 +25,9 @@ require './headerinclude.php';
                 </form><!--end the form for suggestions-->
             </div>
         </div><!-- end Suggestion message_box -->
-
+        </div>
     </div><!--end index-template-->
+
 <?php
-    require './footerinclude.php';
+require './footerinclude.php';
 ?>
