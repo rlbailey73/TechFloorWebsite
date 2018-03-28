@@ -41,6 +41,27 @@ require './headerinclude.php';
                             <input name = "userpic" type = "file" class="input_length"/>
                             <input type = "submit" value="Send File" class = "form-control"/>
                         </form><!--end news upload-->
+                        <!--this outpus the files already uploaded in the images folder-->
+                        <p><u>The current files are:</u>  <br>
+                            <?php
+                                $dir = "../images/";
+                                //open the directory specified and read the content
+                                if(is_dir($dir))
+                                {
+                                    if($dh = opendir($dir))
+                                    {
+                                        while(($file = readdir($dh)) !== false)
+                                        {
+                                            if($file != "." && $file!="..")
+                                            {
+                                                echo $file . "<br>";
+                                            }
+                                        }
+                                    }
+                                }
+                            ?>
+
+                        </p>
                     </div>
                 </div><!-- end PICTURES edits -->
 

@@ -1,4 +1,7 @@
-
+<?php
+$title = "Uploading Images";
+require '../view/headerinclude.php';
+?>
 <div class="index-template text-white" >
     <?php
         //directs a file to the correct folder keeping the name the file already has
@@ -47,3 +50,6 @@
     ?>
     <a href="../view/admin.php"><button type = "button" >Back to admin page</button></a>
 </div>
+<?php
+require '../view/footerinclude.php';
+?>
