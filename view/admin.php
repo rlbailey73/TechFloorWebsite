@@ -79,6 +79,17 @@ require './headerinclude.php';
                     </div>
                 </div><!-- end PICTURES edits -->
 
+                <!--SEND EMAILS-->
+                <div class = "col-6 offset-3">
+                    <h1 class = "message_box_title">Send Emails</h1>
+                    <div class = "message_box">
+                        <!--we will need code to upload message here-->
+                        <form enctype="multipart/form-data" action="../php/send_email.php" method="post" class = "feed row">
+                            <input type="submit" value="Email uploaded files" class ="form-control"/>
+                        </form>
+                    </div>
+
+                </div>
                 <!-- start ABOUT_PAGE admin -->
                 <div class = "col-6 offset-3">
                     <h1 class="message_box_title">Edit the About Page</h1>
