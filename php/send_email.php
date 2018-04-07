@@ -20,18 +20,16 @@ $headers['Content-type'] = 'text/html';
 $message = "<html><head></head><body><h1>Beer of the Month is at Sailfish Brewery<h1>  </body></html>";
 $recipients = array('b.m.greggs@eagle.clarion.edu');
 //this adds mltiple recipients
-/*echo "<h3>Sending Email To:</h3><ol>";
-$file = fopen('../DataFiles/members.csv', 'rb');
+echo "<h3>Sending Email To:</h3><ol>";
+$file = fopen('../DataFiles/email_list.txt', 'rb');
 while (($data = fgetcsv($file)) !== FALSE) {
     echo "<li>$data[0] $data[1] ($data[3])</li>" ;
     $recipients[] = $data[3];
 }
 echo "</ol>";
-fclose($file);*/
+fclose($file);
 
 $result = $mailer->send($recipients, $headers, $message);
-
-
 
 if (PEAR::isError($result)) {
     echo 'Error sending email.';
@@ -39,7 +37,6 @@ if (PEAR::isError($result)) {
 } else {
     echo 'Email Sent Successfully.';
 }
-
 
 /*
 
