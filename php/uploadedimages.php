@@ -39,7 +39,7 @@ require '../view/headerinclude.php';
                 echo "$replace";
             } //if it doesn't exist already then we add it
             elseif (move_uploaded_file($_FILES['userpic']['tmp_name'], $uploadpic)) {
-                echo "<p>The picutre file was successfully uploaded </p>";
+                echo "<p>The picture file was successfully uploaded </p>";
             }
             //if something really bad happens we get the error message
             else{
