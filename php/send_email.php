@@ -18,13 +18,13 @@ $headers['Content-type'] = 'text/html';
 
 //hard coded message
 $message = "<html><head></head><body><h1>Beer of the Month is at Sailfish Brewery<h1>  </body></html>";
-$recipients = array('b.m.greggs@eagle.clarion.edu');
+$recipients = array();
 //this adds mltiple recipients
 echo "<h3>Sending Email To:</h3><ol>";
-$file = fopen('../DataFiles/email_list.txt', 'rb');
+$file = fopen('../datafiles/email_list.csv', 'rb'); //this opens the specified file, allows for reads (r) and forces binary(b)
 while (($data = fgetcsv($file)) !== FALSE) {
-    echo "<li>$data[0] $data[1] ($data[3])</li>" ;
-    $recipients[] = $data[3];
+    echo "<li>$data[0] $data[1] ($data[2])</li>" ;
+    $recipients[] = $data[2];
 }
 echo "</ol>";
 fclose($file);
