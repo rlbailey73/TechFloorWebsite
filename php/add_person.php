@@ -28,7 +28,7 @@ require '../view/headerinclude.php';
         {
             echo "<h3>Sign failed. Make sure that you have entered a proper email</h3>";
         }
-        else
+        else //only adds a person if they fill out to the correct standards
         {
             //this creates the file initially if it doesn't exits allowing for appending at the end and reading
             $file = fopen('../datafiles/email_list.csv', 'ab');
