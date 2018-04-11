@@ -7,7 +7,7 @@ be done in one central place.
 <!-- Nav Start -->
 <nav class="navbar navbar-expand-md navbar-dark fixed-top navbar-tf-bg">
     <a href="./index.php">
-    <img class="navbar-brand" src="../images/tfLogoNoWhite.png" alt="TechFloor" width="50" height="60">
+    <img class="navbar-brand" src="../images/Functional/tfLogoNoWhite.png" alt="TechFloor" width="50" height="60">
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>

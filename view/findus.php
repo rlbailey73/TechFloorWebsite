@@ -7,12 +7,12 @@ require './headerinclude.php';
         <div class = "row"><!-- seems to allow for grid layout to take place and organize things horizontally-->
 
             <!-- border across top-->
-            <img class = "col-10 offset-1" src = "../images/temp.png" alt = "cool blue techy background"  >
+            <img class = "col-10 offset-1" src = "../images/Functional/temp.png" alt = "cool blue techy background"  >
 
             <div class = "col-6 offset-3"><!-- start Find Us message_box -->
                 <h3 class="message_box_title">Find Us</h3>
                 <div class="message_box ">
-                    <img src="../images/clarionMap.png" alt="Map of Clarion University campus">
+                    <img src="../images/Functional/clarionMap.png" alt="Map of Clarion University campus">
                     <p class="lead">
                         TechFloor
                         <br>

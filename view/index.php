@@ -14,7 +14,7 @@ Purpose: This is the main page people will first see and the one they will be re
 
      <div class = "row"><!-- allow for grid layout to take place and organize things horizontally-->
          <!-- border across top-->
-         <img class = "col-10 offset-1" src = "../images/temp.png" alt = "cool blue techy background"  >
+         <img class = "col-10 offset-1" src = "../images/Functional/temp.png" alt = "cool blue techy background"  >
                 <!-- start News Feed section -->
                 <div class = "col-5 offset-1">
                     <h1 class="message_box_title">News Feed</h1>

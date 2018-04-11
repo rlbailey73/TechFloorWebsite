@@ -15,7 +15,7 @@ require './headerinclude.php';
         <div class="index-template" ><!-- template-div: div on the body that contains images, and the two sections for the different kinds of feeds-->
             <div class = "row"><!-- allow for grid layout to take place and organize things horizontally-->
                 <!-- border across top-->
-                <img class = "col-10 offset-1" src = "../images/temp.png" alt = "cool blue techy background"  >
+                <img class = "col-10 offset-1" src = "../images/Functional/temp.png" alt = "cool blue techy background"  >
 
                 <div class = "col-6 offset-1"><!-- start Events -->
                     <h1 class = "message_box_title">Events</h1>

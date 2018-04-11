@@ -14,7 +14,7 @@ require './headerinclude.php';
             <div class = "row"><!-- seems to allow for grid layout to take place and organize things horizontally-->
 
                 <!-- border across top-->
-                <img class = "col-10 offset-1" src = "../images/tfBackground.png" alt = "cool blue techy background"  >
+                <img class = "col-10 offset-1" src = "../images/Functional/tfBackground.png" alt = "cool blue techy background"  >
 
                 <!--start HOME_PAGE admin-->
                 <div class = "col-6 offset-3">
@@ -38,13 +38,18 @@ require './headerinclude.php';
                         <h4>Upload Your Pictures</h4>
                         <form enctype="multipart/form-data" action="../php/uploadedimages.php" method = "post" class="feed_side_space row">
                             Send this file:
+                            <select name="picFolder" class = "form-control">
+                                <option value="">Select...</option>
+                                <option value="L">Techfloor Life</option>
+                                <option value="F">Functional</option>
+                            </select>
                             <input name = "userpic" type = "file" class="input_length"/>
                             <input type = "submit" value="Send File" class = "form-control"/>
                         </form><!--end news upload-->
                         <!--this outpus the files already uploaded in the images folder-->
-                        <p><u>The current files are:</u>  <br>
+                        <p><u>The current TechfloorLife files are:</u>  <br>
                             <?php
-                                $dir = "../images/";
+                                $dir = "../images/TechfloorLife/";
                                 //open the directory specified and read the content
                                 if(is_dir($dir))
                                 {
@@ -60,7 +65,24 @@ require './headerinclude.php';
                                     }
                                 }
                             ?>
-
+                            <u>The current Functional files are:</u>  <br>
+                            <?php
+                            $dir = "../images/Functional/";
+                            //open the directory specified and read the content
+                            if(is_dir($dir))
+                            {
+                                if($dh = opendir($dir))
+                                {
+                                    while(($file = readdir($dh)) !== false)
+                                    {
+                                        if($file != "." && $file!="..")
+                                        {
+                                            echo $file . "<br>";
+                                        }
+                                    }
+                                }
+                            }
+                            ?>
                         </p>
                     </div>
                 </div><!-- end PICTURES edits -->
@@ -88,8 +110,8 @@ require './headerinclude.php';
                             <input type="submit" value="Email uploaded files" class ="form-control"/>
                         </form>
                     </div>
+                </div><!--end of sending emails-->
 
-                </div>
                 <!-- start ABOUT_PAGE admin -->
                 <div class = "col-6 offset-3">
                     <h1 class="message_box_title">Edit the About Page</h1>
@@ -110,6 +132,7 @@ require './headerinclude.php';
                             <button type="button" class="btn btn-block button_space form-control suggestion_item input_length">Save Changes to ABOUT</button>
                         </form><!--end about info paragraph-->
                     </div>
+
                     <!--Board Member edits-->
                     <div class = "message_box">
                         <h4>Change the board members</h4>

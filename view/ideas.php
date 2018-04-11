@@ -7,7 +7,7 @@ require './headerinclude.php';
         <div class = "row"><!-- seems to allow for grid layout to take place and organize things horizontally-->
 
             <!-- border across top-->
-            <img class = "col-10 offset-1" src = "../images/temp.png" alt = "cool blue techy background"  >
+            <img class = "col-10 offset-1" src = "../images/Functional/temp.png" alt = "cool blue techy background"  >
 
             <div class = "col-6 offset-3"><!-- start Ideas message_box -->
                 <h3 class="message_box_title">Influential Websites</h3>

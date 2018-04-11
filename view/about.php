@@ -13,7 +13,7 @@ require './headerinclude.php';
 
         <!--Image across top-->
         <div class = "col-4 offset-4">
-            <img id="escapeRoomPicInfo" src = "../images/escRoomPhoto.jpg" alt = "escape room group photo">
+            <img id="escapeRoomPicInfo" src = "../images/TechfloorLife/escRoomPhoto.jpg" alt = "escape room group photo">
         </div>
 
         <!--start of the officers box-->
