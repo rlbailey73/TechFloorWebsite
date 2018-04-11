@@ -4,16 +4,13 @@ require '../view/headerinclude.php';
 ?>
 <div class="index-template text-white" >
     <?php
-        //directs a file to the correct folder keeping the name the file already has
-        $uploadpic = '../images/' . $_FILES['userpic']['name'];
-
         /*this isn't like O'Donnell's setup - it made more sense like this to me.*/
-        //make sure user uploaded a file first
-        if($_FILES['userpic']['error']==UPLOAD_ERR_NO_FILE)
+        //make sure user uploaded a file first and has a folder type selected
+        if($_FILES['userpic']['error']==UPLOAD_ERR_NO_FILE || $_POST['picFolder']=="")
         {
             //informs user a file must be uploaded first
-            $nofile = "No file attached. Attach a picture file and try again.";
-            echo"$nofile";
+            echo "Make sure you specified which folder and selected a picture";
+
         }
         //if user has uploaded something we go into more checks
         else {
@@ -28,6 +25,27 @@ require '../view/headerinclude.php';
             //store the image type (third thing in the array?)
             $img_type = $image_info[2];
 
+            //this indicats the folder slected by the user that the pic needs to be placed in
+            $img_folder = $_POST['picFolder'];
+            //we need to create the file path based on the selected
+            if($img_folder=="L")
+            {
+                //directs a file to the correct folder keeping the name the file already has
+                $uploadpic = '../images/TechfloorLife/' . $_FILES['userpic']['name'];
+                $picLocation = "TechfoorLife";//added because outputing $img_folder was just a letter
+            }
+            else if($img_folder=="F")
+            {
+                //directs a file to the correct folder keeping the name the file already has
+                $uploadpic = '../images/Functional/' . $_FILES['userpic']['name'];
+                $picLocation = "Functional";
+            }
+            else
+            {
+                $uploadpic = '../images/' . $_FILES['userpic']['name'];
+                $picLocation = "Defalted to images folder. Breanna coded incorrectly ~ probs wanna check this out!";
+            }
+
             /*if the user has a picture file to be uploaded we check to see if it something we
             accept (png, jpeg, gif). If it isnt, we output a message saying its invalid*/
             if ($img_type != IMAGETYPE_PNG && $img_type != IMAGETYPE_JPEG && $img_type !=IMAGETYPE_GIF) {
@@ -39,7 +57,7 @@ require '../view/headerinclude.php';
                 echo "$replace";
             } //if it doesn't exist already then we add it
             elseif (move_uploaded_file($_FILES['userpic']['tmp_name'], $uploadpic)) {
-                echo "<p>The picture file was successfully uploaded </p>";
+                echo "<p>The picture file was successfully uploaded into $picLocation</p>";
             }
             //if something really bad happens we get the error message
             else{
