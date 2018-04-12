@@ -7,7 +7,7 @@ Purpose: This is the main page people will first see and the one they will be re
 
 <?php
     $title = "TechFloor Central"; //necessary variable to have each pages title be unique
-    require './headerinclude.php';
+    require '../view/headerinclude.php';
     ?>
 
 <div class="index-template"> <!-- template-div: div on the body that contains images, and the two sections for the different kinds of feeds-->
@@ -55,5 +55,5 @@ Purpose: This is the main page people will first see and the one they will be re
         </div><!--end index-template div-->
 
 <?php
-require './footerinclude.php';
+require '../view/footerinclude.php';
 ?>

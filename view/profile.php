@@ -1,6 +1,6 @@
 <?php
 $title = "Profile"; //necessary variable to have each pages title be unique
-require './headerinclude.php';
+require '../view/headerinclude.php';
 ?>
 
 <div class="index-template" >
@@ -19,5 +19,5 @@ require './headerinclude.php';
 </div><!-- /.container -->
 
 <?php
-require './footerinclude.php';
+require '../view/footerinclude.php';
 ?>

@@ -9,7 +9,7 @@ Links:
 
 <?php
 $title = "Current Events"; //necessary variable to have each pages title be unique
-require './headerinclude.php';
+require '../view/headerinclude.php';
 ?>
 
         <div class="index-template" ><!-- template-div: div on the body that contains images, and the two sections for the different kinds of feeds-->
@@ -60,5 +60,5 @@ require './headerinclude.php';
     </div><!-- /.container -->
 
     <?php
-    require './footerinclude.php';
+    require '../view/footerinclude.php';
     ?>
