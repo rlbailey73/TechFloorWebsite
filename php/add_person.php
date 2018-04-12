@@ -40,7 +40,7 @@ require '../view/headerinclude.php';
         }
     ?>
     <!--button to return the signup page-->
-    <a href="../view/signup.php"><button type = "button" >Back to Sign in page</button></a>
+    <a href="../controller/controller.php?action=SignUp"><button type = "button" >Back to Sign in page</button></a>
 </div>
 
 <?php

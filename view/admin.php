@@ -22,7 +22,7 @@ require '../view/headerinclude.php';
                     <!--upload the news-->
                     <div class = "message_box ">
                         <h4>Upload the News</h4>
-                        <form enctype="multipart/form-data" action="../php/uploadednews.php" method = "post" class="feed_side_space row">
+                        <form enctype="multipart/form-data" action="../controller/controller.php?action=UploadNews" method = "post" class="feed_side_space row">
                             Send this file:
                             <input name = "userfile" type = "file" class="input_length"/>
                             <input type = "submit" value="Send File" class = "form-control"/>
@@ -36,7 +36,7 @@ require '../view/headerinclude.php';
                     <!--upload the news-->
                     <div class = "message_box ">
                         <h4>Upload Your Pictures</h4>
-                        <form enctype="multipart/form-data" action="../php/uploadedimages.php" method = "post" class="feed_side_space row">
+                        <form enctype="multipart/form-data" action="../controller/controller.php?action=UploadPictures" method = "post" class="feed_side_space row">
                             Send this file:
                             <select name="picFolder" class = "form-control">
                                 <option value="">Select...</option>
@@ -46,7 +46,7 @@ require '../view/headerinclude.php';
                             <input name = "userpic" type = "file" class="input_length"/>
                             <input type = "submit" value="Send File" class = "form-control"/>
                         </form><!--end news upload-->
-                        <!--this outpus the files already uploaded in the images folder-->
+                        <!--this outpus the files already uploaded in the images folder--> <!--BEcky does this need to go through controller-->
                         <p><u>The current TechfloorLife files are:</u>  <br>
                             <?php
                                 $dir = "../images/TechfloorLife/";
@@ -93,7 +93,7 @@ require '../view/headerinclude.php';
                     <!--upload the QUOTES-->
                     <div class = "message_box ">
                         <h4>Upload Your QUOTES</h4>
-                        <form enctype="multipart/form-data" action="../php/uploadquotes.php" method = "post" class="feed_side_space row">
+                        <form enctype="multipart/form-data" action="../controller/controller.php?action=UploadQuotes" method = "post" class="feed_side_space row">
                             Select a QUOTES FILE to upload:
                             <input name = "quotefile" type = "file" class="input_length"/>
                             <input type = "submit" value="Send File" class = "form-control"/>
@@ -106,7 +106,7 @@ require '../view/headerinclude.php';
                     <h1 class = "message_box_title">Send Emails</h1>
                     <div class = "message_box">
                         <!--we will need code to upload message here-->
-                        <form enctype="multipart/form-data" action="../php/send_email.php" method="post" class = "feed row">
+                        <form enctype="multipart/form-data" action="../controller/controller.php?action=SendEmails" method="post" class = "feed row">
                             <input type="submit" value="Email uploaded files" class ="form-control"/>
                         </form>
                     </div>
@@ -161,15 +161,16 @@ require '../view/headerinclude.php';
 
                 </div><!-- end ABOUT edits -->
 
-                <div class = "col-6 offset-3"><!-- start admin event -->
+                <!-- start admin events -->
+                <div class = "col-6 offset-3">
                     <h1 class = "message_box_title">Event Additions</h1>
                     <div class = "message_box">
                         <h4>Enter information of the event to be added:</h4>
-                        <form class = "feed_side_space row">
-                            <input class = "form-control suggestion_item input_length" type = "text" placeholder="First Name">
-                            <input class = "form-control suggestion_item input_length button_space" type="date" placeholder="mm/dd/yy">
-                            <input class = "form-control suggestion_item input_length button_space" type="time" placeholder="Enter Start Time">
-                            <textarea class = "form-control suggestion_item input_length" rows = "7" placeholder="Description"></textarea>
+                        <form enctype="multipart/form-data" action="../controller/controller.php?action=CreateEvent" method = "post" class="feed_side_space row">
+                            <input name="eventName" type = "text" placeholder="Name of Event" class = "form-control suggestion_item input_length" >
+                            <input name="eventDate" type="date" placeholder="mm/dd/yy" class = "form-control suggestion_item input_length button_space" >
+                            <input name="eventTime" type="time" placeholder="Enter Start Time" class = "form-control suggestion_item input_length button_space" >
+                            <textarea name="eventDesc" rows = "7" placeholder="Description" class = "form-control suggestion_item input_length" ></textarea>
                             <button type="button" class="btn btn-block button_space suggestion_item">Add Event to CURRENT EVENTS</button>
                         </form>
                     </div>

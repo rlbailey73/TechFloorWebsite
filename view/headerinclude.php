@@ -30,6 +30,6 @@
 
     <nav>
         <?php
-        include 'navbar.php';
+        include '../view/navbar.php';
         ?>
     </nav>

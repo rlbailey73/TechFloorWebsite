@@ -19,7 +19,7 @@ require '../view/headerinclude.php';
             <h1 class="message_box_title">Sign Up for Newsletter</h1>
             <div class = "message_box">
                 <!--adding "required" makes it required on the client side (html 5)-->
-                <form enctype="multipart/form-data" action="../php/add_person.php" method = "post" class="feed_side_space row">
+                <form enctype="multipart/form-data" action="../controller/controller.php?action=AddPerson" method = "post" class="feed_side_space row">
                     <input name = "fName" type = "text" placeholder="Fist Name" required class = "form-control suggestion_item input_length" >
                     <input name = "lName" type = "text" placeholder="Last Name" required class = "form-control suggestion_item input_length" >
                     <input name = "email"type = "email" placeholder="email@eagle.clarion.edu" required class = "form-control suggestion_item input_length" >

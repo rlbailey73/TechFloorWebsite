@@ -1,3 +1,8 @@
+<!--
+This is the controller which is a part of the MVC model. It takes instructions from
+    the browser and will output a view or will interact with the model to get info
+    from the database
+-->
 <?php
     //check the get and post for an action
     if(isset($_POST['action']))
@@ -21,11 +26,16 @@
         case 'About':
             include("../view/about.php");
             break;
+        case 'AddPerson':
+            include("../php/add_person.php");
         case 'Admin':
             include("../view/admin.php");
             break;
         case 'CreateBrackets':
             include("../view/createbracket.php");
+            break;
+        case 'CreateEvent':
+            include("../php/createevent.php");
             break;
         case 'CurrentBrackets':
             include("../view/currentbrackets.php");
@@ -56,6 +66,18 @@
             break;
         case 'SignUp':
             include("../view/signup.php");
+            break;
+        case 'SendEmails':
+            include("../php/send_email.php");
+            break;
+        case 'UploadNews':
+            include("../php/uploadednews.php");
+            break;
+        case 'UploadPictures':
+            include("../php/uploadedimages.php");
+            break;
+        case 'UploadQuotes':
+            include("../php/uploadedquotes.php");
             break;
         default:
             include("../view/index.php");

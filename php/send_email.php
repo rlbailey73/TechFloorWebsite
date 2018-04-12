@@ -1,5 +1,6 @@
 <?php
 require_once 'Mail.php';
+require '../view/headerinclude.php';
 ?>
 <h1>Sending The Emails</h1>
 <?php
@@ -70,3 +71,6 @@ else
 
 ?>
 
+<?php
+require '../view/footerinclude.php';
+?>;
