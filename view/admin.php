@@ -7,7 +7,7 @@ Links:
 -->
 <?php
 $title ="Admin";
-require './headerinclude.php';
+require '../view/headerinclude.php';
 ?>
 
         <div class="index-template" >
@@ -180,5 +180,5 @@ require './headerinclude.php';
         </div><!--end index-template-->
 
     <?php
-    require './footerinclude.php';
+    require '../view/footerinclude.php';
     ?>

@@ -5,7 +5,7 @@ Purpose: This is where people can see the purpose of the organization as well as
 -->
 <?php
 $title = "About TF";
-require './headerinclude.php';
+require '../view/headerinclude.php';
 ?>
 
 <div  class="index-template"><!--template-div: div on the body that contains images, and the two sections for the different kinds of feeds-->
@@ -85,5 +85,5 @@ require './headerinclude.php';
 </div> <!-- end of template -->
 
 <?php
-require './footerinclude.php';
+require '../view/footerinclude.php';
 ?>

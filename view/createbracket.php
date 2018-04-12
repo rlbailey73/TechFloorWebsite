@@ -1,6 +1,6 @@
 <?php
 $title = "Create Brackets"; //necessary variable to have each pages title be unique
-require './headerinclude.php';
+require '../view/headerinclude.php';
 ?>
 
 
@@ -20,5 +20,5 @@ require './headerinclude.php';
 </div><!-- /.container -->
 
 <?php
-require './footerinclude.php';
+require '../view/footerinclude.php';
 ?>
