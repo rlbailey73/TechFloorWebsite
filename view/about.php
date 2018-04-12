@@ -20,7 +20,7 @@ require '../view/headerinclude.php';
         <div class="col-5 offset-1 ">
             <h1 class="message_box_title">Officers</h1>
             <div class="message_box "><!-- board-->
-                <h4 id="president">President: Becky Baily</h4><!--President title-->
+                <h4 id="president">President: Becky Bailey</h4><!--President title-->
                 <p class = "feed feed_side_space" id = "presidentBio">Ms. Bailey is a senior Computer Science major. She enjoys spending time up in
                     TechFloor doing homework and playing video games with friends. She brings board games to play after
                     the meetings.
