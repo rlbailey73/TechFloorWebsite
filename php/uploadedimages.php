@@ -25,7 +25,7 @@ require '../view/headerinclude.php';
             //store the image type (third thing in the array?)
             $img_type = $image_info[2];
 
-            //this indicats the folder slected by the user that the pic needs to be placed in
+            //this indicates the folder selected by the user that the pic needs to be placed in
             $img_folder = $_POST['picFolder'];
             //we need to create the file path based on the selected
             if($img_folder=="L")
@@ -43,7 +43,7 @@ require '../view/headerinclude.php';
             else
             {
                 $uploadpic = '../images/' . $_FILES['userpic']['name'];
-                $picLocation = "Defalted to images folder. Breanna coded incorrectly ~ probs wanna check this out!";
+                $picLocation = "Defaulted to images folder. Breanna coded incorrectly ~ probs wanna check this out!";
             }
 
             /*if the user has a picture file to be uploaded we check to see if it something we

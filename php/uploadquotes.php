@@ -16,33 +16,41 @@ require '../view/headerinclude.php';
         $nofile = "No file attached. Attach a file and try again.";
         echo"$nofile";
     }
-    //checks to see if the file is already in the resources and if it is, replaces it
-    elseif(file_exists($uploadQuoteFile))
-    {
-        move_uploaded_file($_FILES['quotefile']['tmp_name'], $uploadQuoteFile);
-        $replace = "The file was successfully replaced!";
-        echo"$replace";
+    else{
+
+        //checks to see that the document is of a specific type before allowing it ot be uploaded
+        if($_FILES['quotefile']['type'] != 'text/plain' && $_FILES['quotefile']['type'] != 'application/msword' && $_FILES['quotefile']['type'] != 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'){
+            echo "Only .txt, .doc, and .docx files are accepted.";
+        }
+        //checks to see if the file is already in the resources and if it is, replaces it
+        elseif(file_exists($uploadQuoteFile))
+        {
+            move_uploaded_file($_FILES['quotefile']['tmp_name'], $uploadQuoteFile);
+            $replace = "The file was successfully replaced!";
+            echo"$replace";
+        }
+        //checks to see if the files are of a specific type before uploading them.
+        else if($_FILES['quotefile']['type'])
+        {
+            //informs user a file must be uploaded first
+            $nofile = "No file attached. Attach a file and try again.";
+            echo"$nofile";
+        }
+        //if it doesn't exist we add it
+        else if(move_uploaded_file($_FILES['quotefile']['tmp_name'], $uploadQuoteFile))
+        {
+            //if file gets added then alert informs user
+            $successupload = "The file was successfully uploaded!";
+            echo"$successupload";
+        }
+        //generic default error message
+        else {
+            //if the file can't be uploaded
+            echo "File Upload Error\n Debugging info:";
+            print_r($_FILES);
+        }
     }
-    //if it doesn't exist we add it
-    else if(move_uploaded_file($_FILES['quotefile']['tmp_name'], $uploadQuoteFile))
-    {
-        //if file gets added then alert informs user
-        $successupload = "The file was successfully uploaded!";
-        echo"$successupload";
-    }
-    //checks to see if the files are of a specific type before uploading them.
-    else if($_FILES['quotefile']['type'])
-    {
-        //informs user a file must be uploaded first
-        $nofile = "No file attached. Attach a file and try again.";
-        echo"$nofile";
-    }
-    //generic default error message
-    else {
-        //if the file can't be uploaded
-        echo "File Upload Error\n Debugging info:";
-        print_r($_FILES);
-    }
+
     ?>
     <a href="../view/admin.php"><button type = "button" >Back to admin page</button></a>
 </div>
