@@ -6,38 +6,23 @@ link used to add items from form to txt file: http://php.net/manual/en/function.
 <?php
 $title = "Signup Results";
 require '../view/headerinclude.php';
+require_once '../controller/controller.php'
 ?>
 
 <div class="index-template text-white"  >
-    <?php
-        //get the post values(keynames) and stores them into variables **adds layer of protection
-        $firstName = $_POST['fName'];
-        $lastName = $_POST['lName'];
-        $email = $_POST['email'];
 
-        //validation ensures that first and last name have values and email is valid
-        if(empty($firstName))
+    <?php
+        //[]=array('Bre', 'Greggs', 'anna41@gmail.com');
+
+        echo "You have been successfully added";
+        echo "<h3>The following are also memebers of TechFloorr</h3>";
+        //outputs the members
+       // echo '<li>';
+        foreach ($signupsheet as $mem)
         {
-            echo "<h3>Sign up failed. You forgot your first name</h3>";
+           echo "$mem[2] $mem[0] $mem[1]";
         }
-        else if (empty($lastName))
-        {
-            echo "<h3>Sign up failed. You forgot your last name</h3>";
-        }
-        else if(empty($email) || !filter_var($email, FILTER_VALIDATE_EMAIL))
-        {
-            echo "<h3>Sign failed. Make sure that you have entered a proper email</h3>";
-        }
-        else //only adds a person if they fill out to the correct standards
-        {
-            //this creates the file initially if it doesn't exits allowing for appending at the end and reading
-            $file = fopen('../datafiles/email_list.csv', 'ab');
-            //adds the details to the file
-            fputcsv($file, array($firstName, $lastName, $email));
-            //closes the file
-            fclose($file);
-            echo "<h3>YAY! We have added you successfully to the email list!</h3>";
-        }
+        //echo '</li>';
     ?>
     <!--button to return the signup page-->
     <a href="../controller/controller.php?action=SignUp"><button type = "button" >Back to Sign in page</button></a>

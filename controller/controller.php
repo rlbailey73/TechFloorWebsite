@@ -4,6 +4,7 @@ This is the controller which is a part of the MVC model. It takes instructions f
     from the database
 -->
 <?php
+    require_once '../model/model.php';
     //check the get and post for an action
     if(isset($_POST['action']))
     {
@@ -27,7 +28,8 @@ This is the controller which is a part of the MVC model. It takes instructions f
             include("../view/about.php");
             break;
         case 'AddPerson':
-            include("../php/add_person.php");
+            addmember();
+            break;
         case 'Admin':
             include("../view/admin.php");
             break;
@@ -83,5 +85,39 @@ This is the controller which is a part of the MVC model. It takes instructions f
             include("../view/index.php");
 
     }//end of switch
+
+    /***** FUNCTIONS *****/
+    function addmember()
+    {
+        //get the post values(keynames) and stores them into variables **adds layer of protection
+        $firstName = $_POST['fName'];
+        $lastName = $_POST['lName'];
+        $email = $_POST['email'];
+
+        //validation ensures that first and last name have values and email is valid
+        if(empty($firstName))
+        {
+            $errorMessage= "<h3>Sign up failed. You forgot your first name</h3>";
+            include '../view/error.php';
+        }
+        else if (empty($lastName))
+        {
+            $errorMessage =  "<h3>Sign up failed. You forgot your last name</h3>";
+            include '../view/error.php';
+        }
+        else if(empty($email) || !filter_var($email, FILTER_VALIDATE_EMAIL))
+        {
+            $errorMessage = "<h3>Sign up failed. Make sure that you have entered a proper email</h3>";
+            include '../view/error.php';
+        }
+        else //only adds a person if they fill out to the correct standards
+        {
+            //saves the new member using the model function
+            saveMemberInfo($firstName, $lastName, $email);
+            //gets all of the members to output them
+            $signupsheet= getMembers();
+            include '../php/add_person.php';
+        }
+    }
 
 ?>
