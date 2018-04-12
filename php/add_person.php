@@ -14,15 +14,15 @@ require_once '../controller/controller.php'
     <?php
         //[]=array('Bre', 'Greggs', 'anna41@gmail.com');
 
-        echo "You have been successfully added";
+        echo "<h1>You have been successfully added</h1>";
         echo "<h3>The following are also memebers of TechFloorr</h3>";
         //outputs the members
-       // echo '<li>';
+        echo '<ol>';
         foreach ($signupsheet as $mem)
         {
-           echo "$mem[2] $mem[0] $mem[1]";
+           echo "<li><a href='mailto:$mem[2]'>$mem[0] $mem[1]</a> </li>";
         }
-        //echo '</li>';
+        echo '</ol>';
     ?>
     <!--button to return the signup page-->
     <a href="../controller/controller.php?action=SignUp"><button type = "button" >Back to Sign in page</button></a>

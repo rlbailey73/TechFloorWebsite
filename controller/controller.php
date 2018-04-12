@@ -4,7 +4,7 @@ This is the controller which is a part of the MVC model. It takes instructions f
     from the database
 -->
 <?php
-    require_once '../model/model.php';
+    require '../model/model.php';
     //check the get and post for an action
     if(isset($_POST['action']))
     {
