@@ -17,27 +17,41 @@ require '../view/headerinclude.php';
                 <!-- border across top-->
                 <img class = "col-10 offset-1" src = "../images/Functional/temp.png" alt = "cool blue techy background"  >
 
-                <div class = "col-6 offset-1"><!-- start Events -->
+                <!-- start Events -->
+                <div class = "col-6 offset-1 table_format">
                     <h1 class = "message_box_title">Events</h1>
-                    <div class = "message_box"> <!-- News feed message_box div begin - separates the title from the text-->
 
-                        <ul class="feed_side_space"><!--start event list -->
-                            <li class = "feed">Moses's D&D campaign Mondays at 3:00 p.m. Watch the Twitter for schedule changes. </li>
-                            <li class = "feed">Theodore's D&D campaign Tuesday at 6:00 p.m. Watch the Twitter for schedule changes.</li>
-                            <li class = "feed">February 20th at 6:00 p.m. there will be a collaboration with ASIA for a GitHub seminar. Extra credit will be given by:
-                                Dr. Strausser, Dr. Childs, Dr. Kim, Dr. George, Dr. O'Donnell, Dr. Wyatt. Be sure to sign in so you get your extra credit while
-                                adding to you experience. Learn the basics of GitHub from volunteer Jerad Meterko! Please note: If you are currently in CIS 375,
-                                this will be an added bonus before you have to start your semester project. </li>
-                            <li class = "feed">Do you like to Smash? Do you prefer it on the game cube or wii? Well break
-                                out your lucky controller! TechFloor is holding a tournament! Come and compete and show off your skills!</li>
-                            <li class = "feed">Do you like to Pokemon? Do you have a 3DS? Well come and join TechFloor for their first ever Pokemon tournament!</li>
-                            <li class = "feed">Have you ever been on that sliver of health in your game but still survived? Well people are doing it for real!
-                                Come support them by playing games with us! This fall we will be hosting an event called One Life where you can contribute to a good cause
-                                while competing in Rocket League, Smash, and Mario Kart tournaments. We hope to see you there!</li>
+                    <table class="text-white">
+                        <thead><!--table header-->
+                            <tr>
+                                <th>Event Name</th>
+                                <th>Date</th>
+                                <th>Time</th>
+                                <th>Type</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><!--table rows-->
+                                <td>GitHub Seminar</td>
+                                <td>2/6/2018</td>
+                                <td>17:00:00</td>
+                                <td>0</td>
+                            </tr>
+                            <tr>
+                                <td>Pokemon Tournament</td>
+                                <td>4/7/2018</td>
+                                <td>12:00:00</td>
+                                <td>1</td>
+                            </tr>
+                            <tr>
+                                <td>Open House</td>
+                                <td>1/29/2018</td>
+                                <td>15:30:00</td>
+                                <td>2</td>
+                            </tr>
+                        </tbody>
+                    </table>
 
-                        </ul> <!--end events list-->
-
-                    </div> <!-- end Events message box-->
                 </div><!-- end Events -->
 
                 <div class = "col-2 offset-1"><!-- start Suggestions message_box -->
@@ -62,3 +76,24 @@ require '../view/headerinclude.php';
     <?php
     require '../view/footerinclude.php';
     ?>
+
+
+<!--<div class = "message_box"> <!-- News feed message_box div begin - separates the title from the text-->
+<!--start event list -->
+<!--       <ul class="feed_side_space">
+           <li class = "feed">Moses's D&D campaign Mondays at 3:00 p.m. Watch the Twitter for schedule changes. </li>
+           <li class = "feed">Theodore's D&D campaign Tuesday at 6:00 p.m. Watch the Twitter for schedule changes.</li>
+           <li class = "feed">February 20th at 6:00 p.m. there will be a collaboration with ASIA for a GitHub seminar. Extra credit will be given by:
+               Dr. Strausser, Dr. Childs, Dr. Kim, Dr. George, Dr. O'Donnell, Dr. Wyatt. Be sure to sign in so you get your extra credit while
+               adding to you experience. Learn the basics of GitHub from volunteer Jerad Meterko! Please note: If you are currently in CIS 375,
+               this will be an added bonus before you have to start your semester project. </li>
+           <li class = "feed">Do you like to Smash? Do you prefer it on the game cube or wii? Well break
+               out your lucky controller! TechFloor is holding a tournament! Come and compete and show off your skills!</li>
+           <li class = "feed">Do you like to Pokemon? Do you have a 3DS? Well come and join TechFloor for their first ever Pokemon tournament!</li>
+           <li class = "feed">Have you ever been on that sliver of health in your game but still survived? Well people are doing it for real!
+               Come support them by playing games with us! This fall we will be hosting an event called One Life where you can contribute to a good cause
+               while competing in Rocket League, Smash, and Mario Kart tournaments. We hope to see you there!</li>
+
+       </ul> <!--end events list-->
+
+<!--</div> <!-- end Events message box-->
