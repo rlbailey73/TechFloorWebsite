@@ -40,7 +40,7 @@ This is the controller which is a part of the MVC model. It takes instructions f
             include("../php/createevent.php");
             break;
         case 'CurrentBrackets':
-            include("../view/currentbrackets.php");
+            listCurrentEvents();
             break;
         case 'CurrentEvents':
             include("../view/currentevents.php");
@@ -58,7 +58,7 @@ This is the controller which is a part of the MVC model. It takes instructions f
             include("../view/pastbrackets.php");
             break;
         case 'PastEvents':
-            include("../view/pastevents.php");
+            listPreviousEvents();
             break;
         case 'Profile':
             include("../view/profile.php");
@@ -118,6 +118,18 @@ This is the controller which is a part of the MVC model. It takes instructions f
             $signupsheet= getMembers();
             include '../php/add_person.php';
         }
+    }
+
+    //will be used to list all the current/upcoming events in a table on the webpage
+    function listCurrentEvents()
+    {
+        include("../view/currentbrackets.php");
+    }
+
+    //used to list all previous events on the webpage
+    function listPreviousEvents()
+    {
+        include("../view/pastevents.php");
     }
 
 ?>

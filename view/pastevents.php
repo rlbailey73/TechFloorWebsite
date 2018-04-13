@@ -10,11 +10,9 @@ require '../view/headerinclude.php';
             <img class = "col-10 offset-1" src = "../images/Functional/temp.png" alt = "cool blue techy background"  >
 
             <div class = "col-6 offset-3"><!-- start News Feed message_box -->
-                <h1 class="message_box_title">Under Construction</h1>
+                <h1 class="message_box_title">Past Events</h1>
             </div><!-- end News Feed message_box -->
         </div><!-- end row -->
-    </div><!--end index-template-->
-
 
 </div><!-- /.container -->
 

@@ -20,9 +20,9 @@ require '../view/headerinclude.php';
             <div class = "message_box">
                 <!--adding "required" makes it required on the client side (html 5)-->
                 <form enctype="multipart/form-data" action="../controller/controller.php?action=AddPerson" method = "post" class="feed_side_space row">
-                    <input name = "fName" type = "text" placeholder="Fist Name"  class = "form-control suggestion_item input_length" >
-                    <input name = "lName" type = "text" placeholder="Last Name"  class = "form-control suggestion_item input_length" >
-                    <input name = "email"type = "email" placeholder="email@eagle.clarion.edu"  class = "form-control suggestion_item input_length" >
+                    <input name = "fName" type = "text" placeholder="First Name"  required class = "form-control suggestion_item input_length" >
+                    <input name = "lName" type = "text" placeholder="Last Name"  required class = "form-control suggestion_item input_length" >
+                    <input name = "email"type = "email" placeholder="email@eagle.clarion.edu"  required class = "form-control suggestion_item input_length" >
                     <input type = "submit" value = "Join Now!" class = "form-control suggestion_item input_length"  >
                 </form><!--end the form for suggestions-->
             </div>
