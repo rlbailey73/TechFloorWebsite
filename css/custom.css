@@ -150,6 +150,25 @@ Purpose: Used to create a space between two div elements
     margin: 5px;
 }
 
+.table_format table, th, td
+{
+    border: 1px solid;
+}
+.table_format th
+{
+    background-color: #e83e8c;
+}
+.table_format th, td
+{
+    padding: 5px;
+}
+.table_format
+{
+    padding-bottom: 10px;
+    padding-left: 10px;
+}
+
+
 /* ----------------------- ID'S -------------------------- */
 
 /* sole purpose to help size the escape room photo for assign1 submission */
