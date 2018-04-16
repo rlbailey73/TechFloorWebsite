@@ -3,7 +3,7 @@ This allows the footer to be edited in one place rather than several different a
 
 <footer class="align-bottom footer-template">
 
-    <a href='mailto:techfloor@clarion.edu'><u>Contact TechFloor here!</u></a> || <a href="./about.php"><u>About</u></a>
+    <a href='mailto:techfloor@clarion.edu'><u>Contact TechFloor here!</u></a> || <a href="../controller/controller.php?action=About"><u>About</u></a>
 
     <div id="footerCopyAuthor">
         &copy2018 Rebecca Bailey and Breanna Greggs ||
