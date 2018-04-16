@@ -40,10 +40,10 @@ This is the controller which is a part of the MVC model. It takes instructions f
             include("../php/createevent.php");
             break;
         case 'CurrentBrackets':
-            listCurrentEvents();
+            include("../view/currentbrackets.php");
             break;
         case 'CurrentEvents':
-            include("../view/currentevents.php");
+            listCurrentEvents();
             break;
         case 'FindUs':
             include("../view/findus.php");
@@ -123,13 +123,36 @@ This is the controller which is a part of the MVC model. It takes instructions f
     //will be used to list all the current/upcoming events in a table on the webpage
     function listCurrentEvents()
     {
-        include("../view/currentbrackets.php");
-    }
+        //gets any rows that occur on or after current date
+        $query = "SELECT EventName, Date, Time FROM events WHERE Date>=CURRENT_DATE ";
+        //gets the results
+        $results = getCurrentEvents($query);
+        if(count($results)==0)
+        {
+            $errorMessage = "No events found at this time";
+            include "../view/error.php";
+        }
+        else
+        {
+            include("../view/currentevents.php");
+        }
+    }//end listCurrenEvents
 
     //used to list all previous events on the webpage
     function listPreviousEvents()
     {
-        include("../view/pastevents.php");
-    }
+        //gets any rows that occured before current date
+        $query = "SELECT EventName, Date, Time FROM events WHERE Date<CURRENT_DATE ";
+        //gets the results
+        $results = getCurrentEvents($query);
+        if(count($results)==0)
+        {
+            $errorMessage = "No events found at this time";
+            include "../view/error.php";
+        }
+        else {
+            include("../view/pastevents.php");
+        }
+    }//end listPreviousEvents
 
 ?>

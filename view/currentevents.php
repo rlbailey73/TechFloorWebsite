@@ -12,7 +12,7 @@ $title = "Current Events"; //necessary variable to have each pages title be uniq
 require '../view/headerinclude.php';
 ?>
 
-        <div class="index-template" ><!-- template-div: div on the body that contains images, and the two sections for the different kinds of feeds-->
+        <div class="index-template text-white" ><!-- template-div: div on the body that contains images, and the two sections for the different kinds of feeds-->
             <div class = "row"><!-- allow for grid layout to take place and organize things horizontally-->
                 <!-- border across top-->
                 <img class = "col-10 offset-1" src = "../images/Functional/temp.png" alt = "cool blue techy background"  >
@@ -27,28 +27,25 @@ require '../view/headerinclude.php';
                                 <th>Event Name</th>
                                 <th>Date</th>
                                 <th>Time</th>
-                                <th>Type</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr><!--table rows-->
-                                <td>GitHub Seminar</td>
-                                <td>2/6/2018</td>
-                                <td>17:00:00</td>
-                                <td>0</td>
-                            </tr>
-                            <tr>
-                                <td>Pokemon Tournament</td>
-                                <td>4/7/2018</td>
-                                <td>12:00:00</td>
-                                <td>1</td>
-                            </tr>
-                            <tr>
-                                <td>Open House</td>
-                                <td>1/29/2018</td>
-                                <td>15:30:00</td>
-                                <td>2</td>
-                            </tr>
+                            <!--in order to generate the table data, we would have to go back and forth
+                                between html and php so to make things simplilar we just add individual parts of php-->
+                            <!-- here we start our php loop-->
+                            <?php   foreach($results as $row){    ?>
+                                <tr>
+                                    <!--using php we add the array values by using the column names that we
+                                        want(CASE SENSITIVE) meaning we could import all info and only get
+                                        specific items.    Also, we need the "echo" part so that we see the information
+                                        bc html will not read our $row['columnName']. Forgetting the "echo" wont cause a
+                                        syntax error but the text will be missing-->
+                                    <td><?php echo $row['EventName'] ?></td>
+                                    <td><?php echo $row['Date'] ?></td>
+                                    <td><?php echo $row['Time'] ?></td>
+                                </tr>
+                            <!--here is where we end our php loop-->
+                            <?php   }   ?>
                         </tbody>
                     </table>
 
