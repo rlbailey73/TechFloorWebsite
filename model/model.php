@@ -27,7 +27,7 @@
 
     //get the information of current events(events that are going to occur current day
     // or after current date)using function above should connect to database
-    function getCurrentEvents($query)
+    function getEvents($query)
     {
         try
         {
@@ -48,6 +48,30 @@
             die;
         }
     }
+
+    /*gets a rows information -- using just fetch will save memory by returning 1 row at a time*/
+    function getDetails($query)
+    {
+        try{
+            //get our connection again
+            $db = getDBConnection();
+            $statement=$db->prepare($query);
+            $statement->execute();
+            $result = $statement->fetch();
+            $statement->closeCursor();
+            return $result;
+        }
+        catch(PDOException $e)
+        {
+            $errorMessage = $e->getMessage();
+            include '../view/error.php';
+            die;
+        }
+
+    }//end getDetails
+
+
+
 
 
     //saves someone that has signed up for emails

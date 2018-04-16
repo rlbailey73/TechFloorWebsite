@@ -1,10 +1,13 @@
 <!--
 This is the controller which is a part of the MVC model. It takes instructions from
     the browser and will output a view or will interact with the model to get info
-    from the database
--->
+    from the database-->
 <?php
-    require '../model/model.php';
+    //this allows us access to the functions in this file these are okay here
+      //since our controller is a part of our views due to include?
+    require_once '../model/model.php';
+    require_once '../ourLib/generalFunctions.php';
+
     //check the get and post for an action
     if(isset($_POST['action']))
     {
@@ -44,6 +47,9 @@ This is the controller which is a part of the MVC model. It takes instructions f
             break;
         case 'CurrentEvents':
             listCurrentEvents();
+            break;
+        case 'ShowEvent':
+            displayEventDetails();
             break;
         case 'FindUs':
             include("../view/findus.php");
@@ -120,14 +126,41 @@ This is the controller which is a part of the MVC model. It takes instructions f
         }
     }
 
+    //this gets the details of any event requested whether it is a current or previous
+    function displayEventDetails()
+    {
+        //get value from url
+        $eventID = $_GET['EventID'];
+        //make sure we got a value
+        if(!isset($eventID))
+        {
+            $errorMessage = "You must provide an EventID to display";
+            include '../view/error.php';
+        }
+        else
+        {
+            $query = "SELECT * FROM events WHERE EventID = $eventID";
+            $row = getDetails($query);
+            if($row==false)
+            {
+                $errorMessage = "That event was not found";
+                include '../view/error.php';
+            }
+            else{
+                include '../view/displayEvent.php';
+            }
+
+        }
+    }
+
     //will be used to list all the current/upcoming events in a table on the webpage
     function listCurrentEvents()
     {
-        //gets any rows that occur on or after current date
-        $query = "SELECT EventName, Date, Time FROM events WHERE Date>=CURRENT_DATE ";
+        //gets any rows that occur on or after current date **we want to select all bc in our output we can specify what actually shows(we need the id later)
+        $query = "SELECT * FROM events WHERE Date>=CURRENT_DATE ";
         //gets the results
-        $results = getCurrentEvents($query);
-        if(count($results)==0)
+        $results = getEvents($query);
+        if(count($results)==0)//i tthink this would be moe appropriate on actual event screeen vvs an error mesage page but idk **Becky**
         {
             $errorMessage = "No events found at this time";
             include "../view/error.php";
@@ -141,10 +174,10 @@ This is the controller which is a part of the MVC model. It takes instructions f
     //used to list all previous events on the webpage
     function listPreviousEvents()
     {
-        //gets any rows that occured before current date
-        $query = "SELECT EventName, Date, Time FROM events WHERE Date<CURRENT_DATE ";
+        //gets any rows that occured before current date **we want to select all(*) bc in our output we are able to specify what actually shows(we need the id later)
+        $query = "SELECT * FROM events WHERE Date<CURRENT_DATE ";
         //gets the results
-        $results = getCurrentEvents($query);
+        $results = getEvents($query);
         if(count($results)==0)
         {
             $errorMessage = "No events found at this time";
@@ -154,5 +187,7 @@ This is the controller which is a part of the MVC model. It takes instructions f
             include("../view/pastevents.php");
         }
     }//end listPreviousEvents
+
+
 
 ?>

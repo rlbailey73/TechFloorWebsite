@@ -18,24 +18,31 @@ require '../view/headerinclude.php';
                         <!-- tr = table row -->
                         <tr>
                             <!-- th = table head -->
-                            <th>Event Name</th>
-                            <th>Date</th>
-                            <th>Time</th>
+                            <th><h6>Event Name</h6></th>
+                            <th><h6>Date</h6></th>
+                            <th><h6>Time</h6></th>
                         </tr>
                     </thead>
                     <tbody>
                         <!--in order to generate the table data, we would have to go back and forth
                                 between html and php so to make things simplilar we just add individual parts of php-->
                         <!-- here we start our php loop-->
-                        <?php   foreach($results as $row){    ?>
-                            <tr>
+                        <?php   foreach($results as $row){
+                            $i++
+                        ?>
+                            <!--the php in this tag will add the class evenRow/oddRow based on our counter in the above tag $i
+                                ***Bonus!! we are using a terinary to do so*** (conditional)? trueCase:falseCase-->
+                            <tr class="<?php echo($i %2 ==0)? 'evenRow':'oddRow'?>" >
                                 <!--using php we add the array values by using the column names that we
                                     want(CASE SENSITIVE) meaning we could import all info and only get
                                     specific items.    Also, we need the "echo" part so that we see the information
-                                    bc html will not read our $row['columnName']. Forgetting the "echo" wont cause a
-                                    syntax error but the text will be missing-->
-                                <td><?php echo $row['EventName'] ?></td>
-                                <td><?php echo $row['Date'] ?></td>
+                                    bc html will not read our $row['columnName']. Forgetting the "echo" wont cause a syntax error but the text will be missing-->
+                                <td class="leftText">
+                                    <a href="../controller/controller.php?action=ShowEvent&EventId=<?php echo $row['EventID'] ?>">
+                                        <?php echo $row['EventName'] ?>
+                                    </a>
+                                </td>
+                                <td><?php echo toDisplayDate($row['Date']) ?></td>
                                 <td><?php echo $row['Time'] ?></td>
                             </tr>
                             <!--here is where we end our php loop-->

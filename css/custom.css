@@ -42,6 +42,23 @@ Purpose: Becky;s messing around with the about layout.
 }
 
 /*
+Class: leftText
+Purpose: this is to left align text in our tables*/
+.leftText
+{
+    text-align: left;
+}
+
+/*
+Class: evenRow
+Purpose: alternate table rows get a color to allow for easier reading
+ */
+.evenRow
+{
+    background-color: #e83e8c;
+}
+
+/*
 Class: Feed
 Purpose: the feed class left aligns text, does not have bullets, and puts a bottom border to separate content
 */
@@ -66,6 +83,19 @@ Purpose: (currentevents page) makes up for taking the title out of the message b
     text-align: center;
     color: #FFFFFF;
     background-color: #343A40;
+}
+
+.formRow label
+{
+    display: inline-block;
+    width: 200px;
+    font-weight: bold;
+}
+
+/* adds additional padding to bottom of form rows*/
+.formRow
+{
+    padding-bottom: 10px;
 }
 
 /*Section on the body that contains our actual content*/
@@ -120,6 +150,15 @@ also used to have the dropdown menus follow the same theme
 }
 
 /*
+Class: oddRow
+Purpose: alternate table rows get a color to allow for easier reading
+ */
+.oddRow
+{
+    background-color: #6f42c1;
+}
+
+/*
 Class: pictures
 Purpose: Indicates where our moving pictures will be going
 */
@@ -162,14 +201,16 @@ Purpose: Used to create a space between two div elements
 {
     padding: 5px;
 }
-.table_format
+
+/*formating for both the tables and the detailforms of the tables*/
+.table_format , .detailForm
 {
     padding-bottom: 10px;
     padding-left: 10px;
 }
 
 
-/* ----------------------- ID'S -------------------------- */
+/* ----------------------- ID'Ss -------------------------- */
 
 /* sole purpose to help size the escape room photo for assign1 submission */
 #escapeRoomPicInfo{
