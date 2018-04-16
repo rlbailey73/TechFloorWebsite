@@ -44,7 +44,7 @@ require '../view/headerinclude.php';
                                         specific items.    Also, we need the "echo" part so that we see the information
                                         bc html will not read our $row['columnName']. Forgetting the "echo" wont cause a syntax error but the text will be missing-->
                                     <td class="leftText">
-                                        <a href="../controller/controller.php?action=ShowEvent&EventId=<?php echo $row['EventID'] ?>">
+                                        <a href="../controller/controller.php?action=ShowEvent&EventID=<?php echo $row['EventID'] ?>">
                                         <?php echo $row['EventName'] ?>
                                         </a>
                                     </td>
