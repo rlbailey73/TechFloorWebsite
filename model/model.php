@@ -55,10 +55,34 @@
         try{
             //get our connection again
             $db = getDBConnection();
-            $query = "SELECT * FROM events WHERE EventID = $eventID";
+            $query = "SELECT * FROM events WHERE EventID = :eventID";
             $statement=$db->prepare($query);
+            $statement->bindValue(':eventID', $eventID);
             $statement->execute();
             $result = $statement->fetch();
+            $statement->closeCursor();
+            return $result;
+        }
+        catch(PDOException $e)
+        {
+            $errorMessage = $e->getMessage();
+            include '../view/error.php';
+            die;
+        }
+
+    }//end getDetails
+
+    /*gets all rows information where it meets the query*/
+    function getEventType($eventType)
+    {
+        try{
+            //get our connection again
+            $db = getDBConnection();
+            $query = "SELECT * FROM events WHERE Type = :eventType";
+            $statement=$db->prepare($query);
+            $statement->bindValue(':eventType', $eventType);
+            $statement->execute();
+            $result = $statement->fetchAll();
             $statement->closeCursor();
             return $result;
         }

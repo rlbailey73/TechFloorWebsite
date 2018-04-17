@@ -48,9 +48,6 @@ This is the controller which is a part of the MVC model. It takes instructions f
         case 'CurrentEvents':
             listCurrentEvents();
             break;
-        case 'ShowEvent':
-            displayEventDetails();
-            break;
         case 'FindUs':
             include("../view/findus.php");
             break;
@@ -77,6 +74,12 @@ This is the controller which is a part of the MVC model. It takes instructions f
             break;
         case 'SendEmails':
             include("../php/send_email.php");
+            break;
+        case 'ShowEvent':
+            displayEventDetails();
+            break;
+        case 'ShowEventType':
+            eventType();
             break;
         case 'UploadNews':
             include("../php/uploadednews.php");
@@ -139,7 +142,6 @@ This is the controller which is a part of the MVC model. It takes instructions f
         }
         else
         {
-
             $row = getDetails($eventID);
             if($row==false)
             {
@@ -148,6 +150,35 @@ This is the controller which is a part of the MVC model. It takes instructions f
             }
             else{
                 include '../view/displayEvent.php';
+            }
+
+        }
+    }
+
+    //this will pull the events with  specific type
+    function eventType()
+    {
+        //get value from url
+        $eventType = $_GET['Type'];
+        //make sure we got a value
+        if(!isset($eventType))
+        {
+            $errorMessage = "You must provide an EventID to display";
+            include '../view/error.php';
+        }
+        else
+        {
+            //call function to do query based on event type
+            $result = getEventType($eventType);
+            //if not events exist
+            if($result==0)
+            {
+                $errorMessage = "No events of that type found";
+                include '../view/error.php';
+            }
+            else{
+                //go back to past events and update the list
+                include '../view/pastevents.php';
             }
 
         }

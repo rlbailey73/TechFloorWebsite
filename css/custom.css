@@ -102,7 +102,7 @@ Purpose: (currentevents page) makes up for taking the title out of the message b
 .index-template {
     padding: 3rem 1.5rem;
     text-align: center;
-    /*background: #9fcdff;*/
+    color: white;
 }
 
 /*extend the width of the input boxes*/
