@@ -50,11 +50,12 @@
     }
 
     /*gets a rows information -- using just fetch will save memory by returning 1 row at a time*/
-    function getDetails($query)
+    function getDetails($eventID)
     {
         try{
             //get our connection again
             $db = getDBConnection();
+            $query = "SELECT * FROM events WHERE EventID = $eventID";
             $statement=$db->prepare($query);
             $statement->execute();
             $result = $statement->fetch();

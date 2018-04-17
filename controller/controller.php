@@ -139,8 +139,8 @@ This is the controller which is a part of the MVC model. It takes instructions f
         }
         else
         {
-            $query = "SELECT * FROM events WHERE EventID = $eventID";
-            $row = getDetails($query);
+
+            $row = getDetails($eventID);
             if($row==false)
             {
                 $errorMessage = "That event was not found";
