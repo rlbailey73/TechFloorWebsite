@@ -7,8 +7,8 @@
         //contains where you wanna run and the db name
         $dsn = 'mysql:host=localhost;dbname=s_bmgreggs_localtechfloor';
         //login credentials
-        $username = 's_rlbailey';
-        $password = 'PDSedia78';
+        $username = 'root';
+        $password = '';
 
         try
         {
