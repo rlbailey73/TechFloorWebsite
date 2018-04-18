@@ -55,7 +55,7 @@ Purpose: alternate table rows get a color to allow for easier reading
  */
 .evenRow
 {
-    background-color: #e83e8c;
+    background-color: #4e555b;
 }
 
 /*
@@ -155,7 +155,7 @@ Purpose: alternate table rows get a color to allow for easier reading
  */
 .oddRow
 {
-    background-color: #6f42c1;
+    background-color: #062c33;
 }
 
 /*
@@ -195,7 +195,7 @@ Purpose: Used to create a space between two div elements
 }
 .table_format th
 {
-    background-color: #e83e8c;
+    background-color: #03002f;
 }
 .table_format th, td
 {

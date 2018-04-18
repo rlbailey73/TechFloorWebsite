@@ -232,7 +232,7 @@ This is the controller which is a part of the MVC model. It takes instructions f
         //$memList = getMemberList($memberID);
         $memList = getMemberList();
         if(count($memList) == 0){
-            $errormessage = "No members found.";
+            $errorMessage = "No members found.";
             include"../view/error.php";
         }
         else{

@@ -10,7 +10,7 @@ require '../view/headerinclude.php';
 ?>
 
     <div class="index-template">
-        <div class = "row"><!-- seems to allow for grid layout to take place and organize things horizontally-->
+        <div class = "row table_format"><!-- seems to allow for grid layout to take place and organize things horizontally-->
 
             <!-- border across top-->
             <img class = "col-10 offset-1" src = "../images/Functional/temp.png" alt = "cool blue techy background"  >
@@ -60,20 +60,13 @@ require '../view/headerinclude.php';
                                 <?php echo $row['FirstName'] ?>
                             </a>
                         </td>
-                        <td><?php echo $row['LastName'] ?></td>
+                        <td class="leftText"><?php echo $row['LastName'] ?></td>
                         <td><?php echo $row['Status'] ?></td>
                         <td><?php echo $row['MemberSince'] ?></td>
                     </tr>
                     <!--here is where we end our php loop
                     in between the two tags is the line that gets repeated over and over again-->
                 <?php   }   ?>
-                <tr>
-                    <!-- td = table data -->
-                    <td>Smash Tourn</td>
-                    <td>2/28/2018</td>
-                    <td>6:00PM</td>
-                    <td>6:00PM</td>
-                </tr>
                 </tbody>
                 <tfoot>
 

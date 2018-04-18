@@ -5,8 +5,8 @@
     function getDBConnection()
     {
         //contains where you wanna run and the db name
-        $dsn = 'mysql:host=localhost;dbname=s_bmgreggs_localtechfloor';
-        //$dsn = 'mysql:host=localhost;s_rlbailey_techfloordemo'; //access to my database for local hosting purposes
+        //$dsn = 'mysql:host=localhost;dbname=s_bmgreggs_localtechfloor';
+        $dsn = 'mysql:host=localhost;dbname=s_rlbailey_techfloordemo'; //access to my database for local hosting purposes
         //login credentials
         /** We need to make sure we change this back before submitting $username */
         //$username = 's_rlbailey';
