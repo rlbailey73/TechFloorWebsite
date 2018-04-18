@@ -102,18 +102,18 @@
     /*gets all rows information where it meets the query
     This function is designed to retrieve the full list of members and display it on the sign up
     page in a list view.*/
-    function getMemberList($memberID)
+    function getMemberList()
     {
         try{
             //get our connection again
             $db = getDBConnection();
-            $query = "SELECT * FROM member WHERE MemberID = :memberID";
+            $query = "SELECT * FROM member";
             $statement=$db->prepare($query);
-            $statement->bindValue(':memberID', $memberID);
+           // $statement->bindValue(':memberID', $memberID);
             $statement->execute();
-            $result = $statement->fetchAll();
+            $memList = $statement->fetchAll();
             $statement->closeCursor();
-            return $result;
+            return $memList;
         }
         catch(PDOException $e)
         {

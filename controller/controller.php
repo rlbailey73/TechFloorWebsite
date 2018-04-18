@@ -70,7 +70,8 @@ This is the controller which is a part of the MVC model. It takes instructions f
             include("../view/resources.php");
             break;
         case 'SignUp':
-            include("../view/signup.php");
+            //include("../view/signup.php");
+            memberListDisplay();
             break;
         case 'SendEmails':
             include("../php/send_email.php");
@@ -172,9 +173,9 @@ This is the controller which is a part of the MVC model. It takes instructions f
         else
         {
             //call function to do query based on event type
-            $result = getEventType($eventType);
+            $results = getEventType($eventType);
             //if not events exist
-            if($result==0)
+            if($results==0)
             {
                 $errorMessage = "No events of that type found";
                 include '../view/error.php';
@@ -227,11 +228,10 @@ This is the controller which is a part of the MVC model. It takes instructions f
     function memberListDisplay()
     {
         //get value from url
-        $memberID = $_GET['MemberID'];
-
-        $results = getMemberList();
-
-        if(count($results) == 0){
+        //$memberID = $_GET['MemberID'];
+        //$memList = getMemberList($memberID);
+        $memList = getMemberList();
+        if(count($memList) == 0){
             $errormessage = "No members found.";
             include"../view/error.php";
         }

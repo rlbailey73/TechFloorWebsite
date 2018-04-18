@@ -33,8 +33,10 @@ require '../view/headerinclude.php';
                             <!--in order to generate the table data, we would have to go back and forth
                                 between html and php so to make things simplilar we just add individual parts of php-->
                             <!-- here we start our php loop-->
-                            <?php   foreach($results as $row){
-                                $i++;    //counter to change colors on rows
+                            <?php
+                                $i=0;
+                                foreach($results as $row){
+                                    $i++;    //counter to change colors on rows
                             ?>
                                 <!--the php in this tag will add the class evenRow/oddRow based on our counter in the above tag $i
                                     ***Bonus!! we are using a terinary to do so*** (conditional)? trueCase:falseCase-->

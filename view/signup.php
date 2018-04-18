@@ -15,7 +15,7 @@ require '../view/headerinclude.php';
             <!-- border across top-->
             <img class = "col-10 offset-1" src = "../images/Functional/temp.png" alt = "cool blue techy background"  >
 
-        <div class = "col-4 offset-4"><!-- start Suggestions message_box -->
+        <div class = "col-4 "><!-- start Suggestions message_box -->
             <h1 class="message_box_title">Sign Up for Newsletter</h1>
             <div class = "message_box">
                 <!--adding "required" makes it required on the client side (html 5)-->
@@ -45,7 +45,7 @@ require '../view/headerinclude.php';
                         between html and php so to make things simpler we just add individual parts of php-->
                 <!-- here we start our php loop
                 it then switches back to html to -->
-                <?php   foreach($results as $row){
+                <?php  $i=0; foreach($memList as $row){
                     $i++
                     ?>
                     <!--the php in this tag will add the class evenRow/oddRow based on our counter in the above tag $i
@@ -56,13 +56,13 @@ require '../view/headerinclude.php';
                             specific items.    Also, we need the "echo" part so that we see the information
                             bc html will not read our $row['columnName']. Forgetting the "echo" wont cause a syntax error but the text will be missing-->
                         <td class="leftText">
-                            <a href="../controller/controller.php?action=ViewMemberList&MemberID=<?php echo $row['MemberID'] ?>">
+                            <a href="../controller/controller.php?action=ViewMemberList&MemberID=" <?php echo $row['MemberID'] ?>>
                                 <?php echo $row['FirstName'] ?>
                             </a>
                         </td>
                         <td><?php echo $row['LastName'] ?></td>
                         <td><?php echo $row['Status'] ?></td>
-                        <td><?php echo $row['Member Since'] ?></td>
+                        <td><?php echo $row['MemberSince'] ?></td>
                     </tr>
                     <!--here is where we end our php loop
                     in between the two tags is the line that gets repeated over and over again-->
