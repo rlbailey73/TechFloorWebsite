@@ -50,15 +50,6 @@ Purpose: this is to left align text in our tables*/
 }
 
 /*
-Class: evenRow
-Purpose: alternate table rows get a color to allow for easier reading
- */
-.evenRow
-{
-    background-color: #4e555b;
-}
-
-/*
 Class: Feed
 Purpose: the feed class left aligns text, does not have bullets, and puts a bottom border to separate content
 */
@@ -150,21 +141,30 @@ also used to have the dropdown menus follow the same theme
 }
 
 /*
-Class: oddRow
-Purpose: alternate table rows get a color to allow for easier reading
- */
-.oddRow
-{
-    background-color: #062c33;
-}
-
-/*
 Class: pictures
 Purpose: Indicates where our moving pictures will be going
 */
 .picture
 {
     margin-bottom: 1rem;
+}
+
+/*
+Class: evenRow
+Purpose: alternate table rows get a color to allow for easier reading
+ */
+.rowEven
+{
+    background-color: #4e555b;
+}
+
+/*
+Class: oddRow
+Purpose: alternate table rows get a color to allow for easier reading
+ */
+.rowOdd
+{
+    background-color: #062c33;
 }
 
 /*This is to be used when things will need to be scrolled */

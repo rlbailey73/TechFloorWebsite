@@ -56,7 +56,7 @@ require '../view/headerinclude.php';
                         ?>
                             <!--the php in this tag will add the class evenRow/oddRow based on our counter in the above tag $i
                                 ***Bonus!! we are using a terinary to do so*** (conditional)? trueCase:falseCase-->
-                            <tr class="<?php echo($i %2 ==0)? 'evenRow':'oddRow'?>" >
+                            <tr class="<?php echo($i %2 ==0)? 'rowEven':'rowOdd'?>" >
                                 <!--using php we add the array values by using the column names that we
                                     want(CASE SENSITIVE) meaning we could import all info and only get
                                     specific items.    Also, we need the "echo" part so that we see the information

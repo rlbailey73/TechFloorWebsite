@@ -109,9 +109,32 @@
             $db = getDBConnection();
             $query = "SELECT * FROM member";
             $statement=$db->prepare($query);
-           // $statement->bindValue(':memberID', $memberID);
             $statement->execute();
             $memList = $statement->fetchAll();
+            $statement->closeCursor();
+            return $memList;
+        }
+        catch(PDOException $e)
+        {
+            $errorMessage = $e->getMessage();
+            include '../view/error.php';
+            die;
+        }
+
+    }//end getMemberList
+
+    /*gets single row information where it meets the query
+        retrieve the individual member clicked and display them on their own page*/
+    function getMemberSingle($memberID)
+    {
+        try{
+            //get our connection again
+            $db = getDBConnection();
+            $query = "SELECT * FROM member WHERE MemberID = :memberID";
+            $statement=$db->prepare($query);
+            $statement->bindValue(':memberID', $memberID);
+            $statement->execute();
+            $memList = $statement->fetch();
             $statement->closeCursor();
             return $memList;
         }

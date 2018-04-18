@@ -46,23 +46,23 @@ require '../view/headerinclude.php';
                 <!-- here we start our php loop
                 it then switches back to html to -->
                 <?php  $i=0; foreach($memList as $row){
-                    $i++
+                    $i++;
                     ?>
                     <!--the php in this tag will add the class evenRow/oddRow based on our counter in the above tag $i
                         ***Bonus!! we are using a terinary to do so*** (conditional)? trueCase:falseCase-->
-                    <tr class="<?php echo($i %2 ==0)? 'evenRow':'oddRow'?>" >
+                    <tr class="<?php echo($i %2 ==0)? 'rowEven':'rowOdd'?>" >
                         <!--using php we add the array values by using the column names that we
                             want(CASE SENSITIVE) meaning we could import all info and only get
                             specific items.    Also, we need the "echo" part so that we see the information
                             bc html will not read our $row['columnName']. Forgetting the "echo" wont cause a syntax error but the text will be missing-->
                         <td class="leftText">
-                            <a href="../controller/controller.php?action=ViewMemberList&MemberID=" <?php echo $row['MemberID'] ?>>
+                            <a href="../controller/controller.php?action=ViewMember&MemberID=<?php echo $row['MemberID'] ?>" >
                                 <?php echo $row['FirstName'] ?>
                             </a>
                         </td>
                         <td class="leftText"><?php echo $row['LastName'] ?></td>
-                        <td><?php echo $row['Status'] ?></td>
-                        <td><?php echo $row['MemberSince'] ?></td>
+                        <td class="leftText"><?php echo $row['Position'] ?></td>
+                        <td><?php echo toDisplayDate($row['MemberSince']) ?></td>
                     </tr>
                     <!--here is where we end our php loop
                     in between the two tags is the line that gets repeated over and over again-->

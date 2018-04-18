@@ -91,8 +91,8 @@ This is the controller which is a part of the MVC model. It takes instructions f
         case 'UploadQuotes':
             include("../php/uploadedquotes.php");
             break;
-        case 'ViewMemberList':
-            memberListDisplay();
+        case 'ViewMember':
+            viewMember();
             break;
         default:
             include("../view/index.php");
@@ -242,6 +242,26 @@ This is the controller which is a part of the MVC model. It takes instructions f
 
     }
 
+    //job to display a single member that you click on
+    function viewMember()
+    {
+        $memberID = $_GET['MemberID']; //reads value from url
 
+        //makes sure we received a value or not
+        if(!isset($memberID)){
+            $errorMessage = "A memberID must be provided to display.";
+            include "../view/error.php";
+        }
+        else{
+            $row = getMemberSingle($memberID);
+            if($row == FALSE){
+                $errorMessage = "That member was not found.";
+                include "../view/error.php";
+            }
+            else{
+                include "../view/displaySingleMember.php";
+            }
+        }
+    }
 
 ?>
