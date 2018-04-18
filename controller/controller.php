@@ -90,6 +90,9 @@ This is the controller which is a part of the MVC model. It takes instructions f
         case 'UploadQuotes':
             include("../php/uploadedquotes.php");
             break;
+        case 'ViewMemberList':
+            memberListDisplay();
+            break;
         default:
             include("../view/index.php");
 
@@ -218,6 +221,26 @@ This is the controller which is a part of the MVC model. It takes instructions f
             include("../view/pastevents.php");
         }
     }//end listPreviousEvents
+
+    //will be used in order to display the list of users on the sign up page with ssign up still
+    //being there for us to use
+    function memberListDisplay()
+    {
+        //get value from url
+        $memberID = $_GET['MemberID'];
+
+        $results = getMemberList();
+
+        if(count($results) == 0){
+            $errormessage = "No members found.";
+            include"../view/error.php";
+        }
+        else{
+            //need to include our view
+            include "../view/signup.php";
+        }
+
+    }
 
 
 

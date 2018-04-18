@@ -6,7 +6,11 @@
     {
         //contains where you wanna run and the db name
         $dsn = 'mysql:host=localhost;dbname=s_bmgreggs_localtechfloor';
+        //$dsn = 'mysql:host=localhost;s_rlbailey_techfloordemo'; //access to my database for local hosting purposes
         //login credentials
+        /** We need to make sure we change this back before submitting $username */
+        //$username = 's_rlbailey';
+        //$password = 'techfloor99';
         $username = 'root';
         $password = '';
 
@@ -93,11 +97,32 @@
             die;
         }
 
-    }//end getDetails
+    }//end getEventType
 
+    /*gets all rows information where it meets the query
+    This function is designed to retrieve the full list of members and display it on the sign up
+    page in a list view.*/
+    function getMemberList($memberID)
+    {
+        try{
+            //get our connection again
+            $db = getDBConnection();
+            $query = "SELECT * FROM member WHERE MemberID = :memberID";
+            $statement=$db->prepare($query);
+            $statement->bindValue(':memberID', $memberID);
+            $statement->execute();
+            $result = $statement->fetchAll();
+            $statement->closeCursor();
+            return $result;
+        }
+        catch(PDOException $e)
+        {
+            $errorMessage = $e->getMessage();
+            include '../view/error.php';
+            die;
+        }
 
-
-
+    }//end getMemberList
 
     //saves someone that has signed up for emails
     function saveMemberInfo($firstName, $lastName, $email)
