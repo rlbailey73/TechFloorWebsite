@@ -73,7 +73,7 @@ This is the controller which is a part of the MVC model. It takes instructions f
             memberListDisplay();
             break;
         case 'SearchMembers':
-            include "../view/membersearch.php";
+            searchMembers();
             break;
         case 'SendEmails':
             include("../php/send_email.php");
@@ -238,6 +238,22 @@ This is the controller which is a part of the MVC model. It takes instructions f
             //need to include our view
             include "../view/signup.php";
         }
+
+    }
+
+    // helps us search the members using the actual db values   `
+    function searchMembers()
+    {
+        $memList = getMemberList();
+        if(count($memList) == 0){
+            $errorMessage = "No members found.";
+            include"../view/error.php";
+        }
+        else{
+            //need to include our view
+            include "../view/membersearch.php";
+        }
+
 
     }
 

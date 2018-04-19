@@ -16,9 +16,11 @@ require '../view/headerinclude.php';
                 <label>Select a Member:</label>
                 <select id="MemberSelect">
                     <option value="0">Choose a Member</option>
-                    <option value="1">Rebecca</option>
-                    <option value="2">Sam</option>
-                    <option value="3">Bre</option>
+
+                    <?php foreach($memList as $row) { ?>
+                        <option value="<?php echo $row['MemberID'] ?>"><?php echo $row['FirstName'] ?></option>
+                    <?php } ?>
+
                 </select>
                 <input type="button" onclick="memberLookUp()" value="Search! :D" />
             </div>
@@ -34,4 +36,3 @@ require '../view/headerinclude.php';
 <?php
 require '../view/footerinclude.php';
 ?>
-s
