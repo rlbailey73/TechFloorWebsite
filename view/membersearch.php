@@ -25,10 +25,10 @@ require '../view/headerinclude.php';
                 <input type="button" onclick="memberLookUp()" value="Search! :D" />
             </div>
             <div class="formRow">
-                <a href="../controller/controller.php?action="><h1 class="message_box_title">Members by Organization Position</h1></a>
+                <a href="../controller/controller.php?action=ListMembers&ListType=Position"><h1 class="message_box_title">Members by Organization Position</h1></a>
             </div>
             <div class="formRow">
-                <a href="../controller/controller.php?action="><h1 class="message_box_title">Member Since.. List</h1></a>
+                <a href="../controller/controller.php?action=ListMembers&ListType=MemberSince"><h1 class="message_box_title">Member Since.. List</h1></a>
             </div>
 
             <!-- Member List View -->

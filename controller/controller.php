@@ -70,7 +70,7 @@ This is the controller which is a part of the MVC model. It takes instructions f
             include("../view/resources.php");
             break;
         case 'SignUp':
-            memberListDisplay();
+            include("../view/signup.php");
             break;
         case 'SearchMembers':
             searchMembers();
@@ -194,7 +194,7 @@ This is the controller which is a part of the MVC model. It takes instructions f
     function listCurrentEvents()
     {
         //gets any rows that occur on or after current date **we want to select all bc in our output we can specify what actually shows(we need the id later)
-        $query = "SELECT * FROM events WHERE Date>=CURRENT_DATE ";
+        $query = "SELECT * FROM events WHERE Date>=CURRENT_DATE order by Date";
         //gets the results
         $results = getEvents($query);
         if(count($results)==0)//i tthink this would be moe appropriate on actual event screeen vvs an error mesage page but idk **Becky**
@@ -212,7 +212,7 @@ This is the controller which is a part of the MVC model. It takes instructions f
     function listPreviousEvents()
     {
         //gets any rows that occured before current date **we want to select all(*) bc in our output we are able to specify what actually shows(we need the id later)
-        $query = "SELECT * FROM events WHERE Date<CURRENT_DATE ";
+        $query = "SELECT * FROM events WHERE Date<CURRENT_DATE order by Date";
         //gets the results
         $results = getEvents($query);
         if(count($results)==0)
@@ -229,6 +229,7 @@ This is the controller which is a part of the MVC model. It takes instructions f
     //being there for us to use
     function memberListDisplay()
     {
+        $memPosition = $_GET['ListType'];
         $memList = getMemberList();
         if(count($memList) == 0){
             $errorMessage = "No members found.";
@@ -236,7 +237,7 @@ This is the controller which is a part of the MVC model. It takes instructions f
         }
         else{
             //need to include our view
-            include "../view/signup.php";
+            include "../view/membersearch.php";
         }
 
     }

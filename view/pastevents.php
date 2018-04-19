@@ -16,6 +16,7 @@ require '../view/headerinclude.php';
                 <div class = "formRow">
                     <label>Select an event type: </label>
                     <select id="eventTypeSelect">
+                        <!--we need to rework our database so that instead of numbers for types we have actual words but for now we stuck with numbers-->
                         <option value="0">Seminar</option>
                         <option value="1">Tournament</option>
                         <option value="2">Social</option>
