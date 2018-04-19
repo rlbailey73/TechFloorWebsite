@@ -57,6 +57,9 @@ This is the controller which is a part of the MVC model. It takes instructions f
         case 'Ideas':
             include("../view/ideas.php");
             break;
+        case 'ListMembers':
+            listMembers();
+            break;
         case 'PastBrackets':
             include("../view/pastbrackets.php");
             break;
@@ -225,12 +228,21 @@ This is the controller which is a part of the MVC model. It takes instructions f
         }
     }//end listPreviousEvents
 
-    //will be used in order to display the list of users on the sign up page with ssign up still
-    //being there for us to use
-    function memberListDisplay()
+    //will be used in order to display the list of users that meet a certain type
+    function listMembers()
     {
-        $memPosition = $_GET['ListType'];
-        $memList = getMemberList();
+        $listType = $_GET['ListType'];
+        if($listType == 'Position')
+        {
+            $memList = getBoardMembers();
+        }
+        else if($listType == 'NewsLetterList')
+        {
+            $memList = getNewsLetterList();
+        }
+        else{
+            $memList = getMemberList();
+        }
         if(count($memList) == 0){
             $errorMessage = "No members found.";
             include"../view/error.php";

@@ -5,8 +5,8 @@
     function getDBConnection()
     {
         //contains where you wanna run and the db name
-        //$dsn = 'mysql:host=localhost;dbname=s_bmgreggs_localtechfloor';
-        $dsn = 'mysql:host=localhost;dbname=s_rlbailey_techfloordemo'; //access to my database for local hosting purposes
+        $dsn = 'mysql:host=localhost;dbname=s_bmgreggs_localtechfloor';
+        //$dsn = 'mysql:host=localhost;dbname=s_rlbailey_techfloordemo'; //access to my database for local hosting purposes
         //login credentials
         /** We need to make sure we change this back before submitting $username */
         //$username = 's_rlbailey';
@@ -109,6 +109,48 @@
             //get our connection again
             $db = getDBConnection();
             $query = "SELECT * FROM member order by LastName, FirstName";
+            $statement=$db->prepare($query);
+            $statement->execute();
+            $memList = $statement->fetchAll();
+            $statement->closeCursor();
+            return $memList;
+        }
+        catch(PDOException $e)
+        {
+            $errorMessage = $e->getMessage();
+            include '../view/error.php';
+            die;
+        }
+    }//end getMemberList
+
+    function getBoardMembers()
+    {
+        try{
+            //get our connection again
+            $db = getDBConnection();
+            $query = "SELECT * FROM member WHERE Position != 'Member'";
+            $statement=$db->prepare($query);
+            $statement->execute();
+            $memList = $statement->fetchAll();
+            $statement->closeCursor();
+            return $memList;
+        }
+        catch(PDOException $e)
+        {
+            $errorMessage = $e->getMessage();
+            include '../view/error.php';
+            die;
+        }
+
+    }//end getMemberList
+
+
+    function getNewsLetterList()
+    {
+        try{
+            //get our connection again
+            $db = getDBConnection();
+            $query = "SELECT * FROM member WHERE ExtraEmails = 'Y'";
             $statement=$db->prepare($query);
             $statement->execute();
             $memList = $statement->fetchAll();

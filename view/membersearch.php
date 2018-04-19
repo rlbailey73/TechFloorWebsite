@@ -28,7 +28,7 @@ require '../view/headerinclude.php';
                 <a href="../controller/controller.php?action=ListMembers&ListType=Position"><h1 class="message_box_title">Members by Organization Position</h1></a>
             </div>
             <div class="formRow">
-                <a href="../controller/controller.php?action=ListMembers&ListType=MemberSince"><h1 class="message_box_title">Member Since.. List</h1></a>
+                <a href="../controller/controller.php?action=ListMembers&ListType=NewsLetterList"><h1 class="message_box_title">News Letter List</h1></a>
             </div>
 
             <!-- Member List View -->

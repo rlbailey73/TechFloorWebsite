@@ -39,7 +39,7 @@ require '../view/headerinclude.php';
                 </div>
                 <div class="formRow leftText">
                     <label>Extra Email's: </label>
-                    <?php echo $row['ExtraEmail'] ?>
+                    <?php echo $row['ExtraEmails'] ?>
                 </div>
                 <div class="formRow leftText">
                     <label>Member Since: </label>
