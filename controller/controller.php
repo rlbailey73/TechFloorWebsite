@@ -70,8 +70,10 @@ This is the controller which is a part of the MVC model. It takes instructions f
             include("../view/resources.php");
             break;
         case 'SignUp':
-            //include("../view/signup.php");
             memberListDisplay();
+            break;
+        case 'SearchMembers':
+            include "../view/membersearch.php";
             break;
         case 'SendEmails':
             include("../php/send_email.php");
@@ -227,9 +229,6 @@ This is the controller which is a part of the MVC model. It takes instructions f
     //being there for us to use
     function memberListDisplay()
     {
-        //get value from url
-        //$memberID = $_GET['MemberID'];
-        //$memList = getMemberList($memberID);
         $memList = getMemberList();
         if(count($memList) == 0){
             $errorMessage = "No members found.";

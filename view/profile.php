@@ -13,10 +13,7 @@ require '../view/headerinclude.php';
                 <h1 class="message_box_title">Under Construction</h1>
             </div><!-- end News Feed message_box -->
         </div><!-- end row -->
-    </div><!--end index-template-->
-
-
-</div><!-- /.container -->
+</div><!--end index-template-->
 
 <?php
 require '../view/footerinclude.php';

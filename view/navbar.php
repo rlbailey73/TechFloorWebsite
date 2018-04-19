@@ -44,7 +44,7 @@ the navigation bar goes through our controller
                     <a class="dropdown-item navbarDropDown" href="../controller/controller.php?action=CreateBrackets">Create Bracket(s)</a>
                 </div>
             </li>
-            <!-- Sign Up Navigation Items -->
+            <!-- Sign Up Navigation Items
             <li class="nav-item active">
                 <a class="nav-link navbar-tf-bg navbarHov" href="../controller/controller.php?action=SignUp">Sign Up</a>
             </li>
@@ -52,9 +52,18 @@ the navigation bar goes through our controller
             <li class="nav-item active">
                 <a class="nav-link navbar-tf-bg navbarHov" href="../controller/controller.php?action=Resources">Resources</a>
             </li>
-            <!-- Profile Navigation Items -->
+            <!-- Profile Navigation Items
             <li class="nav-item active">
                 <a class="nav-link navbar-tf-bg navbarHov" href="../controller/controller.php?action=Profile">Profile</a>
+            </li>
+            <!-- all things membership related -->
+            <li class="nav-item active dropdown">
+                <a class="nav-link dropdown-toggle navbar-tf-bg navbarHov" href="../controller/controller.php?action=SignUp" id="help_dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Membership</a>
+                <div class="dropdown-menu navbarDropDown" aria-labelledby="dropdown01">
+                    <a class="dropdown-item navbarDropDown" href="../controller/controller.php?action=SignUp">Sign Up</a>
+                    <a class="dropdown-item navbarDropDown" href="../controller/controller.php?action=Profile">Profile</a>
+                    <a class="dropdown-item navbarDropDown" href="../controller/controller.php?action=SearchMembers">Member Search</a>
+                </div>
             </li>
             <!--this is the Help page navigation dropdown item-->
             <li class="nav-item active dropdown">
