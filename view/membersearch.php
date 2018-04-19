@@ -18,11 +18,17 @@ require '../view/headerinclude.php';
                     <option value="0">Choose a Member</option>
 
                     <?php foreach($memList as $row) { ?>
-                        <option value="<?php echo $row['MemberID'] ?>"><?php echo $row['FirstName'] ?></option>
+                        <option value="<?php echo $row['MemberID'] ?>"><?php echo $row['FirstName']." ".$row['LastName'] ?></option>
                     <?php } ?>
 
                 </select>
                 <input type="button" onclick="memberLookUp()" value="Search! :D" />
+            </div>
+            <div class="formRow">
+                <a href="../controller/controller.php?action="><h1 class="message_box_title">Members by Organization Position</h1></a>
+            </div>
+            <div class="formRow">
+                <a href="../controller/controller.php?action="><h1 class="message_box_title">Member Since.. List</h1></a>
             </div>
         </div><!-- end message_box -->
     </div><!-- end row -->

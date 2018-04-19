@@ -101,13 +101,14 @@
 
     /*gets all rows information where it meets the query
     This function is designed to retrieve the full list of members and display it on the sign up
-    page in a list view.*/
+    page in a list view.
+    //fetchall cuz retrieves everything*/
     function getMemberList()
     {
         try{
             //get our connection again
             $db = getDBConnection();
-            $query = "SELECT * FROM member";
+            $query = "SELECT * FROM member order by LastName, FirstName";
             $statement=$db->prepare($query);
             $statement->execute();
             $memList = $statement->fetchAll();
@@ -124,7 +125,8 @@
     }//end getMemberList
 
     /*gets single row information where it meets the query
-        retrieve the individual member clicked and display them on their own page*/
+        retrieve the individual member clicked and display them on their own page
+    regular fetch becuz it just retrieves by certain details*/
     function getMemberSingle($memberID)
     {
         try{
