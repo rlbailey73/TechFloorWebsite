@@ -40,6 +40,7 @@ require '../view/headerinclude.php';
                     <th><h6>First Name</h6></th>
                     <th><h6>Last Name</h6></th>
                     <th><h6>Position</h6></th>
+                    <th><h6>Newsletter</h6></th>
                     <th><h6>Member Since</h6></th>
                 </tr>
                 </thead>
@@ -65,6 +66,7 @@ require '../view/headerinclude.php';
                         </td>
                         <td class="leftText"><?php echo $row['LastName'] ?></td>
                         <td class="leftText"><?php echo $row['Position'] ?></td>
+                        <td><?php echo $row['ExtraEmails'] ?></td>
                         <td><?php echo toDisplayDate($row['MemberSince']) ?></td>
                     </tr>
                     <!--here is where we end our php loop
