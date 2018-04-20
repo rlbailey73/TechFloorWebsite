@@ -30,10 +30,6 @@ require '../view/headerinclude.php';
                     <?php echo $row['Position'] ?>
                 </div>
                 <div class="formRow leftText">
-                    <label>Profile Image: </label>
-                    <?php echo $row['Image'] ?>
-                </div>
-                <div class="formRow leftText">
                     <label>Description: </label>
                     <?php echo $row['Description'] ?>
                 </div>
@@ -44,6 +40,16 @@ require '../view/headerinclude.php';
                 <div class="formRow leftText">
                     <label>Member Since: </label>
                     <?php echo toDisplayDate($row['MemberSince']) ?>
+                </div>
+                <div class="formRow leftText">
+                    <label>Profile Image: </label>
+                    <?php echo $row['Image'] ?>
+                    <?php if($row['MemberImagePath']!= ""){ ?>
+                    <div id="memberImage">
+                        <img src="<?php echo $row['MemberImagePath']?>" alt="Member Image"
+                             height="220" width="220" >
+                    </div>
+                    <?php } ?>
                 </div>
             </div><!-- end member message_box -->
 

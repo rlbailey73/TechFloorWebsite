@@ -5,8 +5,8 @@
     function getDBConnection()
     {
         //contains where you wanna run and the db name
-        $dsn = 'mysql:host=localhost;dbname=s_bmgreggs_localtechfloor';
-        //$dsn = 'mysql:host=localhost;dbname=s_rlbailey_techfloordemo'; //access to my database for local hosting purposes
+        //$dsn = 'mysql:host=localhost;dbname=s_bmgreggs_localtechfloor';
+        $dsn = 'mysql:host=localhost;dbname=s_rlbailey_techfloordemo'; //access to my database for local hosting purposes
         //login credentials
         /** We need to make sure we change this back before submitting $username */
         //$username = 's_rlbailey';
@@ -123,6 +123,7 @@
         }
     }//end getMemberList
 
+    //specifically retrieves officer position members from a list and shows them.
     function getBoardMembers()
     {
         try{
@@ -167,6 +168,7 @@
     }//end getMemberList
 
 
+    //used to be able to search for members based of their first name
     function getGeneralSearch($Criteria)
     {
         try{
@@ -202,6 +204,7 @@
             $statement->bindValue(':memberID', $memberID);
             $statement->execute();
             $memList = $statement->fetch();
+            $memList['MemberImagePath']= getMemberImage($memberID);
             $statement->closeCursor();
             return $memList;
         }
@@ -214,6 +217,17 @@
 
     }//end getMemberList
 
+    //method ot get image path
+    function getMemberImage($memberID){
+        $memberImages = "../DataFiles/memberimages";
+        $memberFilePath = "$memberImages/$memberID.png";
+
+        if(is_file($memberFilePath)){
+            return $memberFilePath;
+        }else{
+            return "";
+        }
+    }
     //saves someone that has signed up for emails
     function saveMemberInfo($firstName, $lastName, $email)
     {

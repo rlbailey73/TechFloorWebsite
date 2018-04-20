@@ -229,3 +229,10 @@ Purpose: Used to create a space between two div elements
     height: 400px;
     width: 100%;
 }
+
+/* used for styling the images to the left on the detail view */
+#memberImage{
+    float: left;
+    padding-top: 50px;
+    padding-left: 50px;
+}

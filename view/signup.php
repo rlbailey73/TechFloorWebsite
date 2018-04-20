@@ -15,7 +15,7 @@ require '../view/headerinclude.php';
             <!-- border across top-->
             <img class = "col-10 offset-1" src = "../images/Functional/temp.png" alt = "cool blue techy background"  >
 
-        <div class = "col-4 "><!-- start Suggestions message_box -->
+        <div class = "col-6 offset-3 "><!-- start Suggestions message_box -->
             <h1 class="message_box_title">Sign Up for Newsletter</h1>
             <div class = "message_box">
                 <!--adding "required" makes it required on the client side (html 5)-->
