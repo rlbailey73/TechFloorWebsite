@@ -24,9 +24,17 @@ require '../view/headerinclude.php';
                 </select>
                 <input type="button" onclick="memberLookUp()" value="Search! :D" />
             </div>
+            <!--search part of words-->
+            <div class="formRow">
+                <label>Search Criteria:</label>
+                <input type ="text" id="Criteria"/>
+                <input type="button" onclick="generalSearch()" value="General Search" />
+            </div>
+            <!--find those that are part of the board-->
             <div class="formRow">
                 <a href="../controller/controller.php?action=ListMembers&ListType=Position"><h1 class="message_box_title">Members by Organization Position</h1></a>
             </div>
+            <!--find those that are part of the newsletter list-->
             <div class="formRow">
                 <a href="../controller/controller.php?action=ListMembers&ListType=NewsLetterList"><h1 class="message_box_title">News Letter List</h1></a>
             </div>
@@ -85,6 +93,13 @@ require '../view/headerinclude.php';
     function memberLookUp(){
         document.location = "../controller/controller.php?action=ViewMember&MemberID=" + $('#MemberSelect').val();
     }
+
+    function generalSearch()
+    {
+        //the encode show pass in exactly what the user types
+        document.location = "../controller/controller.php?action=ListMembers&ListType=GeneralSearch&Criteria=" + encodeURIComponent($('#Criteria').val());
+    }
+
 </script>
 <?php
 require '../view/footerinclude.php';

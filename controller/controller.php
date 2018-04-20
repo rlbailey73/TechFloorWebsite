@@ -185,6 +185,11 @@ This is the controller which is a part of the MVC model. It takes instructions f
                 $errorMessage = "No events of that type found";
                 include '../view/error.php';
             }
+            else if (count($results)==1)
+            {
+                $row = $results[0];
+                include "../view/displayEvent.php";
+            }
             else{
                 //go back to past events and update the list
                 include '../view/pastevents.php';
@@ -205,6 +210,11 @@ This is the controller which is a part of the MVC model. It takes instructions f
             $errorMessage = "No events found at this time";
             include "../view/error.php";
         }
+        else if (count($results)==1)
+        {
+            $row = $results[0];
+            include "../view/displayEvent.php";
+        }
         else
         {
             include("../view/currentevents.php");
@@ -223,6 +233,11 @@ This is the controller which is a part of the MVC model. It takes instructions f
             $errorMessage = "No events found at this time";
             include "../view/error.php";
         }
+        else if (count($results)==1)
+        {
+            $row = $results[0];
+            include "../view/displayEvent.php";
+        }
         else {
             include("../view/pastevents.php");
         }
@@ -240,12 +255,21 @@ This is the controller which is a part of the MVC model. It takes instructions f
         {
             $memList = getNewsLetterList();
         }
+        else if ($listType == 'GeneralSearch')
+        {
+            $memList = getGeneralSearch($_GET['Criteria']);
+        }
         else{
             $memList = getMemberList();
         }
         if(count($memList) == 0){
             $errorMessage = "No members found.";
             include"../view/error.php";
+        }
+        else if (count($memList)==1)
+        {
+            $row = $memList[0];
+            include "../view/displaySingleMember.php";
         }
         else{
             //need to include our view
@@ -261,6 +285,11 @@ This is the controller which is a part of the MVC model. It takes instructions f
         if(count($memList) == 0){
             $errorMessage = "No members found.";
             include"../view/error.php";
+        }
+        else if (count($memList)==1)
+        {
+            $row = $memList[0];
+            include "../view/displaySingleMember.php";
         }
         else{
             //need to include our view

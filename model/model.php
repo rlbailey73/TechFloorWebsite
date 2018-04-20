@@ -166,6 +166,29 @@
 
     }//end getMemberList
 
+
+    function getGeneralSearch($Criteria)
+    {
+        try{
+            //get our connection again
+            $db = getDBConnection();
+            $query = "SELECT * FROM member WHERE FirstName LIKE :Criteria OR LastName LIKE :Criteria";
+            $statement=$db->prepare($query);
+            $statement->bindValue(':Criteria', "%$Criteria%");
+            $statement->execute();
+            $memList = $statement->fetchAll();
+            $statement->closeCursor();
+            return $memList;
+        }
+        catch(PDOException $e)
+        {
+            $errorMessage = $e->getMessage();
+            include '../view/error.php';
+            die;
+        }
+
+    }//end getMemberList
+
     /*gets single row information where it meets the query
         retrieve the individual member clicked and display them on their own page
     regular fetch becuz it just retrieves by certain details*/
