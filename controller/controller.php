@@ -87,6 +87,9 @@ This is the controller which is a part of the MVC model. It takes instructions f
         case 'ShowEventType':
             eventType();
             break;
+        case 'UploadMemberIcon':
+            include("../php/uploadedMemberIcons.php");
+            break;
         case 'UploadNews':
             include("../php/uploadednews.php");
             break;

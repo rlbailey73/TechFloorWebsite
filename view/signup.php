@@ -23,6 +23,19 @@ require '../view/headerinclude.php';
                     <input name = "fName" type = "text" placeholder="First Name"  required class = "form-control suggestion_item input_length" >
                     <input name = "lName" type = "text" placeholder="Last Name"  required class = "form-control suggestion_item input_length" >
                     <input name = "email"type = "email" placeholder="email@eagle.clarion.edu"  required class = "form-control suggestion_item input_length" >
+                    Select your Class Standing:
+                    <select name="classStanding" class = "form-control">
+                        <option value="">Select...</option>
+                        <option value="0">Freshman</option>
+                        <option value="1">Sophomore</option>
+                        <option value="2">Junior</option>
+                        <option value="3">Senior</option>
+                        <option value="4">Graduate</option>
+                        <option value="5">Adult?</option>
+                    </select>
+                    <input name = "memberIcon" type = "file" class="input_length"/>
+                    <input name = "memDescription" type = "textarea" placeholder="Enter information about yourself!"  required class = "form-control suggestion_item input_length" >
+                    <input name = "newsletter" type = "text" placeholder="Y/N"  required class = "form-control suggestion_item input_length" >
                     <input type = "submit" value = "Join Now!" class = "form-control suggestion_item input_length"  >
                 </form><!--end the form for suggestions-->
             </div>
