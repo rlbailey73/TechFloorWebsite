@@ -40,7 +40,7 @@ This is the controller which is a part of the MVC model. It takes instructions f
             include("../view/createbracket.php");
             break;
         case 'CreateEvent':
-            include("../php/createevent.php");
+            addEvent();
             break;
         case 'CurrentBrackets':
             include("../view/currentbrackets.php");
@@ -109,8 +109,19 @@ This is the controller which is a part of the MVC model. It takes instructions f
 
     /***** FUNCTIONS *****/
 
-    function addevent()
+    function addEvent()
     {
+        //determine if we edit or add
+        $mode = "add";
+        //when in add mode we need default values
+        $eventName = "";
+        $eventDate =  "";
+        $eventTime = "";
+        $eventDesc =  "";
+        $eventType= "";
+
+        include '../view/admin/php';
+
         $eventName = $_POST['eventName'];
         $eventDate = $_POST['eventDate'];
         $eventTime = $_POST['eventTime'];

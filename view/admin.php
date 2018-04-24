@@ -167,10 +167,15 @@ require '../view/headerinclude.php';
                     <div class = "message_box">
                         <h4>Enter information of the event to be added:</h4>
                         <form enctype="multipart/form-data" action="../controller/controller.php?action=CreateEvent" method = "post" class="feed_side_space row">
-                            <input name="eventName" type = "text" placeholder="Name of Event" class = "form-control suggestion_item input_length" >
+                            <label for="eventName" class="suggestion_item">Enter Name of Event:</label>
+                            <input name="eventName" type = "text" class = "form-control suggestion_item input_length" >
+                            <label for="eventDate" class="suggestion_item">Enter Date for Event:</label>
                             <input name="eventDate" type="date" placeholder="mm/dd/yy" class = "form-control suggestion_item input_length button_space" >
-                            <input name="eventTime" type="time" placeholder="Enter Start Time" class = "form-control suggestion_item input_length button_space" >
-                            <textarea name="eventDesc" rows = "7" placeholder="Description" class = "form-control suggestion_item input_length" ></textarea>
+                            <label for="eventTime" class="suggestion_item">Enter Time for Event:</label>
+                            <input name="eventTime" type="time" class = "form-control suggestion_item input_length button_space" >
+                            <label for="eventDesc" class="suggestion_item">Enter Description of Event:</label>
+                            <textarea name="eventDesc" rows = "5" class = "form-control suggestion_item input_length" ></textarea>
+                            <label for="eventType" class="suggestion_item">Select Type of Event:</label>
                             <select name = "eventType">
                                 <option value = "None">Select the Type</option>
                                 <option value = "Seminars">Seminars</option>
@@ -178,7 +183,7 @@ require '../view/headerinclude.php';
                                 <option value="Social">Social</option>
                                 <option value="Organizational">Organizational</option>
                             </select>
-                            <button type="submit" class="btn btn-block button_space suggestion_item">Add Event to CURRENT EVENTS</button>
+                            <input type = "submit" name = "eventSubmit" value="Add Event" 
                         </form>
                     </div>
 
