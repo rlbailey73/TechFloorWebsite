@@ -18,8 +18,8 @@ require '../view/headerinclude.php';
                     <select id="eventTypeSelect">
                         <!--we need to rework our database so that instead of numbers for types we have actual words but for now we stuck with numbers-->
                         <option value = "None">Select the Type</option>
-                        <option value = "Seminars">Seminar</option>
-                        <option value = "Tournaments">Tournament</option>
+                        <option value = "Seminars">Seminars</option>
+                        <option value = "Tournaments">Tournaments</option>
                         <option value="Social">Social</option>
                         <option value="Organizational">Organizational</option>
                     </select>

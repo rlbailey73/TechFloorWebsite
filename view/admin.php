@@ -173,8 +173,8 @@ require '../view/headerinclude.php';
                             <textarea name="eventDesc" rows = "7" placeholder="Description" class = "form-control suggestion_item input_length" ></textarea>
                             <select name = "eventType">
                                 <option value = "None">Select the Type</option>
-                                <option value = "Seminars">Seminar</option>
-                                <option value = "Tournaments">Tournament</option>
+                                <option value = "Seminars">Seminars</option>
+                                <option value = "Tournaments">Tournaments</option>
                                 <option value="Social">Social</option>
                                 <option value="Organizational">Organizational</option>
                             </select>

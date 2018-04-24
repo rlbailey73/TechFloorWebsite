@@ -120,8 +120,32 @@ This is the controller which is a part of the MVC model. It takes instructions f
         //validation on serverside to make sure nothing was left empty
         if(empty($eventName))
         {
-            $errorMessage = "Event creation error: No Name given";
+            $errorMessage = "Event creation error: No NAME given";
             include '../view/error.php';
+        }
+        else if(empty($eventDate))
+        {
+            $errorMessage = "Event creation error: No DATE given";
+            include '../view/error.php';
+        }
+        else if(empty($eventTime))
+        {
+            $errorMessage = "Event creation error: No TIME given";
+            include '../view/error.php';
+        }
+        else if(empty($eventDesc))
+        {
+            $errorMessage = "Event creation error: No DESCRIPTION given";
+            include '../view/error.php';
+        }
+        else if(empty($eventType))
+        {
+            $errorMessage = "Event creation error: No TYPE given";
+            include '../view/error.php';
+        }
+        else
+        {
+            //this is where we add the event if it passes all of our tests
         }
     }
 
