@@ -171,7 +171,14 @@ require '../view/headerinclude.php';
                             <input name="eventDate" type="date" placeholder="mm/dd/yy" class = "form-control suggestion_item input_length button_space" >
                             <input name="eventTime" type="time" placeholder="Enter Start Time" class = "form-control suggestion_item input_length button_space" >
                             <textarea name="eventDesc" rows = "7" placeholder="Description" class = "form-control suggestion_item input_length" ></textarea>
-                            <button type="button" class="btn btn-block button_space suggestion_item">Add Event to CURRENT EVENTS</button>
+                            <select name = "eventType">
+                                <option value = "None">Select the Type</option>
+                                <option value = "Seminars">Seminar</option>
+                                <option value = "Tournaments">Tournament</option>
+                                <option value="Social">Social</option>
+                                <option value="Organizational">Organizational</option>
+                            </select>
+                            <button type="submit" class="btn btn-block button_space suggestion_item">Add Event to CURRENT EVENTS</button>
                         </form>
                     </div>
 

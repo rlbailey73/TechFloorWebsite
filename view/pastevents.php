@@ -17,10 +17,11 @@ require '../view/headerinclude.php';
                     <label>Select an event type: </label>
                     <select id="eventTypeSelect">
                         <!--we need to rework our database so that instead of numbers for types we have actual words but for now we stuck with numbers-->
-                        <option value="0">Seminar</option>
-                        <option value="1">Tournament</option>
-                        <option value="2">Social</option>
-                        <option value="3">Organizational</option>
+                        <option value = "None">Select the Type</option>
+                        <option value = "Seminars">Seminar</option>
+                        <option value = "Tournaments">Tournament</option>
+                        <option value="Social">Social</option>
+                        <option value="Organizational">Organizational</option>
                     </select>
                     <input type = "button" onclick = "eventLookUp()" value="Search"/>
                 </div>

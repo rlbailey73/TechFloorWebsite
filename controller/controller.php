@@ -105,6 +105,23 @@ This is the controller which is a part of the MVC model. It takes instructions f
     }//end of switch
 
     /***** FUNCTIONS *****/
+
+    function addevent()
+    {
+        $eventName = $_POST['eventName'];
+        $eventDate = $_POST['eventDate'];
+        $eventTime = $_POST['eventTime'];
+        $eventDesc = $_POST['eventDesc'];
+        $eventType=$_POST['eventType'];
+
+        //validation on serverside to make sure nothing was left empty
+        if(empty($eventName))
+        {
+            $errorMessage = "Event creation error: No Name given";
+            include '../view/error.php';
+        }
+    }
+
     function addmember()
     {
         //get the post values(keynames) and stores them into variables **adds layer of protection
@@ -180,7 +197,7 @@ This is the controller which is a part of the MVC model. It takes instructions f
             //call function to do query based on event type
             $results = getEventType($eventType);
             //if not events exist
-            if($results==0)
+            if(count($results)==0)
             {
                 $errorMessage = "No events of that type found";
                 include '../view/error.php';
