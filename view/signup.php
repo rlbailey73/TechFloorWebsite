@@ -34,9 +34,10 @@ require '../view/headerinclude.php';
                         <option value="5">Adult?</option>
                     </select>
                     <input name = "memberIcon" type = "file" class="input_length"/>
-                    <input name = "memDescription" type = "textarea" placeholder="Enter information about yourself!"  required class = "form-control suggestion_item input_length" >
+                    <input name = "memDescription" type = "textarea" placeholder="Enter information about yourself!"  required class = "form-control suggestion_item input_length" />
+                    <textarea class = "form-control suggestion_item input-length" rows = 10>Enter information about yourself!</textarea>
                     <input name = "newsletter" type = "text" placeholder="Y/N"  required class = "form-control suggestion_item input_length" >
-                    <input type = "submit" value = "Join Now!" class = "form-control suggestion_item input_length"  >
+                    <input type = "submit" value = "Sign Up" class = "form-control suggestion_item input_length"  >
                 </form><!--end the form for suggestions-->
             </div>
         </div><!-- end Suggestion message_box -->
