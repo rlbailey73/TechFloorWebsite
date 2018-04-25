@@ -34,14 +34,14 @@ This is the controller which is a part of the MVC model. It takes instructions f
             addmember();
             break;
         case 'Admin':
-            include("../view/admin.php");
+            loadAdmin();
             break;
         case 'CreateBrackets':
             include("../view/createbracket.php");
             break;
-        case 'CreateEvent':
-            addEvent();
-            break;
+        //case 'CreateEvent':
+        //    addEvent();
+        //    break;
         case 'CurrentBrackets':
             include("../view/currentbrackets.php");
             break;
@@ -109,7 +109,8 @@ This is the controller which is a part of the MVC model. It takes instructions f
 
     /***** FUNCTIONS *****/
 
-    function addEvent()
+    /**this contains many parts of functions since multiple things are in admin and need loaded**/
+    function loadAdmin()
     {
         //determine if we edit or add
         $mode = "add";
