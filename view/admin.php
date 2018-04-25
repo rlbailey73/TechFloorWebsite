@@ -168,15 +168,15 @@ require '../view/headerinclude.php';
                         <h4>Enter information of the event to be added:</h4>
                         <form enctype="multipart/form-data" action="../controller/controller.php?action=CreateEvent" method = "post" class="feed_side_space row">
                             <label for="eventName" class="suggestion_item">Enter Name of Event:</label>
-                            <input name="eventName" type = "text" value="<?php echo $row['EventName']?>" class = "form-control suggestion_item input_length" >
+                            <input name="eventName" type = "text" value="<?php echo $eventName?>" class = "form-control suggestion_item input_length" >
                             <label for="eventDate" class="suggestion_item">Enter Date for Event:</label>
-                            <input name="eventDate" type="date" placeholder="mm/dd/yy" value="<?php echo $row['Date']?>" class = "form-control suggestion_item input_length button_space" >
+                            <input name="eventDate" type="date" placeholder="mm/dd/yy" value="<?php echo $eventDate?>" class = "form-control suggestion_item input_length button_space" >
                             <label for="eventTime" class="suggestion_item">Enter Time for Event:</label>
-                            <input name="eventTime" type="time" value="<?php echo $row['Time']?>" class = "form-control suggestion_item input_length button_space" >
+                            <input name="eventTime" type="time" value="<?php echo $eventTime?>" class = "form-control suggestion_item input_length button_space" >
                             <label for="eventDesc" class="suggestion_item">Enter Description of Event:</label>
-                            <textarea name="eventDesc" rows = "5" value="<?php echo $row['Description']?>" class = "form-control suggestion_item input_length" ></textarea>
+                            <textarea name="eventDesc" rows = "5" value="<?php echo $eventDesc?>" class = "form-control suggestion_item input_length" ></textarea>
                             <label for="eventType" class="suggestion_item">Select Type of Event:</label>
-                            <select name = "eventType" value="<?php echo $row['Type']?>">
+                            <select name = "eventType" value="<?php echo $eventType?>">
                                 <option value = "None">Select the Type</option>
                                 <option value = "Seminars">Seminars</option>
                                 <option value = "Tournaments">Tournaments</option>

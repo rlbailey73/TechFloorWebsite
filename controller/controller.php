@@ -39,9 +39,9 @@ This is the controller which is a part of the MVC model. It takes instructions f
         case 'CreateBrackets':
             include("../view/createbracket.php");
             break;
-        //case 'CreateEvent':
-        //    addEvent();
-        //    break;
+        case 'CreateEvent':
+            addEvent();
+            break;
         case 'CurrentBrackets':
             include("../view/currentbrackets.php");
             break;
@@ -109,58 +109,12 @@ This is the controller which is a part of the MVC model. It takes instructions f
 
     /***** FUNCTIONS *****/
 
-    /**this contains many parts of functions since multiple things are in admin and need loaded**/
-    function loadAdmin()
+    function addEvent()
     {
-        //determine if we edit or add
-        $mode = "add";
-        //when in add mode we need default values
-        $eventName = "";
-        $eventDate =  "";
-        $eventTime = "";
-        $eventDesc =  "";
-        $eventType= "";
-
-        include '../view/admin.php';
-        /*
-        $eventName = $_POST['eventName'];
-        $eventDate = $_POST['eventDate'];
-        $eventTime = $_POST['eventTime'];
-        $eventDesc = $_POST['eventDesc'];
-        $eventType=$_POST['eventType'];
-
-        //validation on serverside to make sure nothing was left empty
-        if(empty($eventName))
-        {
-            $errorMessage = "Event creation error: No NAME given";
-            include '../view/error.php';
-        }
-        else if(empty($eventDate))
-        {
-            $errorMessage = "Event creation error: No DATE given";
-            include '../view/error.php';
-        }
-        else if(empty($eventTime))
-        {
-            $errorMessage = "Event creation error: No TIME given";
-            include '../view/error.php';
-        }
-        else if(empty($eventDesc))
-        {
-            $errorMessage = "Event creation error: No DESCRIPTION given";
-            include '../view/error.php';
-        }
-        else if(empty($eventType))
-        {
-            $errorMessage = "Event creation error: No TYPE given";
-            include '../view/error.php';
-        }
-        else
-        {
-            //this is where we add the event if it passes all of our tests
-        }
-        */
+        print_r($_POST);
     }
+
+
 
     function addmember()
     {
@@ -333,6 +287,59 @@ This is the controller which is a part of the MVC model. It takes instructions f
             include "../view/membersearch.php";
         }
 
+    }
+
+    /**this contains many parts of functions since multiple things are in admin and need loaded**/
+    function loadAdmin()
+    {
+        //determine if we edit or add
+        $mode = "add";
+        //when in add mode we need default values
+        $eventName = "";
+        $eventDate =  "";
+        $eventTime = "";
+        $eventDesc =  "";
+        $eventType= "";
+
+        include '../view/admin.php';
+        /*
+        $eventName = $_POST['eventName'];
+        $eventDate = $_POST['eventDate'];
+        $eventTime = $_POST['eventTime'];
+        $eventDesc = $_POST['eventDesc'];
+        $eventType=$_POST['eventType'];
+
+        //validation on serverside to make sure nothing was left empty
+        if(empty($eventName))
+        {
+            $errorMessage = "Event creation error: No NAME given";
+            include '../view/error.php';
+        }
+        else if(empty($eventDate))
+        {
+            $errorMessage = "Event creation error: No DATE given";
+            include '../view/error.php';
+        }
+        else if(empty($eventTime))
+        {
+            $errorMessage = "Event creation error: No TIME given";
+            include '../view/error.php';
+        }
+        else if(empty($eventDesc))
+        {
+            $errorMessage = "Event creation error: No DESCRIPTION given";
+            include '../view/error.php';
+        }
+        else if(empty($eventType))
+        {
+            $errorMessage = "Event creation error: No TYPE given";
+            include '../view/error.php';
+        }
+        else
+        {
+            //this is where we add the event if it passes all of our tests
+        }
+        */
     }
 
     // helps us search the members using the actual db values   `
