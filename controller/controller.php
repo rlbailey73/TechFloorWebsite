@@ -115,9 +115,50 @@ This is the controller which is a part of the MVC model. It takes instructions f
 
     /***** FUNCTIONS *****/
 
-    //will be used to actually submit and edit memebers
+    //will be used to actually submit and edit members
     function accountAddEdit(){
         print_r($_POST);
+
+        $mode = "add"; //will be used to tell us when we are in adding mode or editing mode with account info
+
+        $firstName = $_POST['fName'];
+        $lastName = $_POST['lName'];
+        $email = $_POST['email'];
+        $classStanding = $_POST['classStanding'];
+       // $position = $_POST['position'];
+       // $image = $_POST['image'];
+       // $description =$_POST['description'];
+        if(isset($_POST['extraEmails'])){
+            $extraEmails = "Y";
+        }
+        else{
+            $extraEmails = "N";
+        }
+        //$memberSince = $_POST['memberSince'];
+
+        //validation
+        $errorMessage = "";
+
+        if(empty($firstName) || strlen($firstName) > 30){
+            $errorMessage .= "\\n* First name required and must be less than 30 characters.";
+        }
+        if(empty($lastName) || strlen($lastName) > 30){
+            $errorMessage .= "\\n* Last name required and must be less than 30 characters.";
+        }
+        if(empty($email) || strlen($email) > 50){
+            $errorMessage .= "\\n* Email required and must be less than 50 characters.";
+        }
+        if(empty($classStanding) || strlen($classStanding) > 25){
+            $errorMessage .= "\\n* Class Standing required and must be selected from the drop down.";
+        }
+        //if(empty($position) || strlen($position) > 30){
+          //  $errorMessage .= "Position required and must be less than 30 characters.";
+        //}
+
+        //this will take u back to the edit page if any errors occur
+        if($errorMessage != ""){
+            include '../view/editaccount.php';
+        }
     }
 
     //will be used to create an account in the list. will add password and things soon.
