@@ -120,8 +120,8 @@ This is the controller which is a part of the MVC model. It takes instructions f
         $eventDesc =  "";
         $eventType= "";
 
-        include '../view/admin/php';
-
+        include '../view/admin.php';
+        /*
         $eventName = $_POST['eventName'];
         $eventDate = $_POST['eventDate'];
         $eventTime = $_POST['eventTime'];
@@ -158,6 +158,7 @@ This is the controller which is a part of the MVC model. It takes instructions f
         {
             //this is where we add the event if it passes all of our tests
         }
+        */
     }
 
     function addmember()
