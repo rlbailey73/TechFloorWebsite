@@ -60,6 +60,7 @@ the navigation bar goes through our controller
             <li class="nav-item active dropdown">
                 <a class="nav-link dropdown-toggle navbar-tf-bg navbarHov" href="../controller/controller.php?action=SignUp" id="help_dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Membership</a>
                 <div class="dropdown-menu navbarDropDown" aria-labelledby="dropdown01">
+                    <a class="dropdown-item navbarDropDown" href="../controller/controller.php?action=AddAccount">Create Account</a>
                     <a class="dropdown-item navbarDropDown" href="../controller/controller.php?action=SignUp">Sign Up</a>
                     <a class="dropdown-item navbarDropDown" href="../controller/controller.php?action=Profile">Profile</a>
                     <a class="dropdown-item navbarDropDown" href="../controller/controller.php?action=SearchMembers">Member Search</a>

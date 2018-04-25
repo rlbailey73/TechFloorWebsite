@@ -30,6 +30,12 @@ This is the controller which is a part of the MVC model. It takes instructions f
         case 'About':
             include("../view/about.php");
             break;
+        case 'AccountAddEdit':
+            accountAddEdit();
+            break;
+        case 'AddAccount':
+            addAccount();
+            break;
         case 'AddPerson':
             addmember();
             break;
@@ -109,6 +115,28 @@ This is the controller which is a part of the MVC model. It takes instructions f
 
     /***** FUNCTIONS *****/
 
+    //will be used to actually submit and edit memebers
+    function accountAddEdit(){
+        print_r($_POST);
+    }
+
+    //will be used to create an account in the list. will add password and things soon.
+    function addAccount(){
+        $mode = "add"; //will be used to tell us when we are in adding mode or editing mode with account info
+
+        $firstName = "";
+        $lastName = "";
+        $email = "";
+        $classStanding = "";
+        $position = "";
+        $image = "";
+        $description ="";
+        $extraEmails = "Y";
+        $memberSince = "";
+
+        include '../view/editaccount.php';
+    }
+
     function addEvent()
     {
         print_r($_POST);
@@ -171,7 +199,6 @@ This is the controller which is a part of the MVC model. It takes instructions f
             else{
                 include '../view/displayEvent.php';
             }
-
         }
     }
 
@@ -205,7 +232,6 @@ This is the controller which is a part of the MVC model. It takes instructions f
                 //go back to past events and update the list
                 include '../view/pastevents.php';
             }
-
         }
     }
 
@@ -286,7 +312,6 @@ This is the controller which is a part of the MVC model. It takes instructions f
             //need to include our view
             include "../view/membersearch.php";
         }
-
     }
 
     /**this contains many parts of functions since multiple things are in admin and need loaded**/
@@ -359,8 +384,6 @@ This is the controller which is a part of the MVC model. It takes instructions f
             //need to include our view
             include "../view/membersearch.php";
         }
-
-
     }
 
     //job to display a single member that you click on

@@ -45,4 +45,4 @@ require '../view/headerinclude.php';
     </div><!--end index-template-->
 <?php
 require '../view/footerinclude.php';
-?>;
+?>
