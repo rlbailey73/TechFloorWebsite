@@ -106,8 +106,8 @@ require '../view/headerinclude.php';
                     <h1 class = "message_box_title">Send Emails</h1>
                     <div class = "message_box">
                         <!--we will need code to upload message here-->
-                        <form enctype="multipart/form-data" action="../controller/controller.php?action=SendEmails" method="post" class = "feed row">
-                            <input type="submit" value="Email uploaded files" class ="form-control"/>
+                        <form enctype="multipart/form-data" action="../controller/controller.php?action=SendEmails" method="post" class="feed_side_space row">
+                            <input type="submit" value="Email uploaded files" class="form-control"/>
                         </form>
                     </div>
                 </div><!--end of sending emails-->
@@ -118,7 +118,7 @@ require '../view/headerinclude.php';
                     <!--description of organization-->
                     <div class = "message_box ">
                         <h4>Edit the description</h4>
-                        <form class="feed_side_space row">
+                        <form class="feed_side_space row ">
                             <textarea class = "form-control suggestion_item input_length" rows = "10">
                             Clarion University TechFloor is a recognized student organization where we do homework,
                             work with computers, program, and play video games. We run various community service
@@ -161,29 +161,29 @@ require '../view/headerinclude.php';
 
                 </div><!-- end ABOUT edits -->
 
-                <!-- start admin events -->
+                <!-- EVENTS ADD -->
                 <div class = "col-6 offset-3">
                     <h1 class = "message_box_title">Event Additions</h1>
                     <div class = "message_box">
                         <h4>Enter information of the event to be added:</h4>
                         <form enctype="multipart/form-data" action="../controller/controller.php?action=CreateEvent" method = "post" class="feed_side_space row">
-                            <label for="eventName" class="suggestion_item">Enter Name of Event:</label>
-                            <input name="eventName" type = "text" value="<?php echo $eventName?>" class = "form-control suggestion_item input_length" >
-                            <label for="eventDate" class="suggestion_item">Enter Date for Event:</label>
-                            <input name="eventDate" type="date" placeholder="mm/dd/yy" value="<?php echo $eventDate?>" class = "form-control suggestion_item input_length button_space" >
-                            <label for="eventTime" class="suggestion_item">Enter Time for Event:</label>
-                            <input name="eventTime" type="time" value="<?php echo $eventTime?>" class = "form-control suggestion_item input_length button_space" >
-                            <label for="eventDesc" class="suggestion_item">Enter Description of Event:</label>
-                            <textarea name="eventDesc" rows = "5" value="<?php echo $eventDesc?>" class = "form-control suggestion_item input_length" ></textarea>
-                            <label for="eventType" class="suggestion_item">Select Type of Event:</label>
-                            <select name = "eventType" value="<?php echo $eventType?>">
+                            <label for="eventName" class="suggestion_item">Enter Name of Event:<span class="requiredFormInfo">*</span></label>
+                            <input name="eventName" type = "text" value="<?php echo $eventName?>" required maxlength="50" class = "form-control suggestion_item input_length" >
+                            <label for="eventDate" class="suggestion_item">Enter Date for Event:<span class="requiredFormInfo">*</span></label>
+                            <input name="eventDate" type="date" placeholder="mm/dd/yy" value="<?php echo $eventDate?>" required class = "form-control suggestion_item input_length button_space" >
+                            <label for="eventTime" class="suggestion_item">Enter Time for Event:<span class="requiredFormInfo">*</span></label>
+                            <input name="eventTime" type="time" value="<?php echo $eventTime?>" required class = "form-control suggestion_item input_length button_space" >
+                            <label for="eventDesc" class="suggestion_item">Enter Description of Event:<span class="requiredFormInfo">*</span></label>
+                            <textarea name="eventDesc" rows = "5" value="<?php echo $eventDesc?>" required class = "form-control suggestion_item input_length" ></textarea>
+                            <label for="eventType" class="suggestion_item">Select Type of Event:<span class="requiredFormInfo">*</span></label>
+                            <select name = "eventType" required value="<?php echo $eventType?>">
                                 <option value = "None">Select the Type</option>
                                 <option value = "Seminars">Seminars</option>
                                 <option value = "Tournaments">Tournaments</option>
                                 <option value="Social">Social</option>
                                 <option value="Organizational">Organizational</option>
                             </select>
-                            <input type = "submit" name = "eventSubmit" value="Add Event">
+                            <input type = "submit" name = "eventSubmit" value="Add Event" class="form-control">
                         </form>
                     </div>
 
