@@ -1,3 +1,4 @@
+<!-- Our Icons come from fontawesome.com the js file is include in the js folder. -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -17,6 +18,8 @@
     <script src="../js/jquery-3.1.1.js"></script>
     <!-- Custom JS -->
     <script src="../js/techfloorsite.js"></script>
+    <!-- fontawesome icons and fonts -->
+    <script src="../js/fontawesome-all.js"></script>
 
     <!-- Bootstrap core CSS  and  our custom CSS-->
     <link rel="stylesheet" href="../css/bootstrap.css">
