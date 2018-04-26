@@ -108,10 +108,10 @@ The space behind any text on the index template
 {
     background: #03002f;
     margin-bottom: 1rem;
-    color: white;
     border: 2px solid #0478D9;
     font-size: 20px;
     border-radius: 25px;
+    padding: 10px;
 }
 
 /*similar to message_box but eliminates extra space between title and context*/
@@ -147,6 +147,15 @@ Purpose: Indicates where our moving pictures will be going
 .picture
 {
     margin-bottom: 1rem;
+}
+
+/*
+will create a red ! mark to signal a required field
+ */
+.requiredFormInfo
+{
+    color: red;
+    font-weight: bold;
 }
 
 /*

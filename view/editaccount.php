@@ -14,13 +14,16 @@ require '../view/headerinclude.php';
             <div class = "message_box">
                 <!--adding "required" makes it required on the client side (html 5)-->
                 <form enctype="multipart/form-data" action="../controller/controller.php?action=AccountAddEdit" method = "post" class="feed_side_space row">
-                    <label>First Name:</label>
-                    <input name = "fName" type = "text" value ="<?php echo $firstName ?>" placeholder="First Name"  class = "form-control suggestion_item input_length" >
-                    <label>Last Name:</label>
-                    <input name = "lName" type = "text" value ="<?php echo $lastName ?>" placeholder="Last Name"  required class = "form-control suggestion_item input_length" >
-                    <label>Clarion Email Address:</label>
-                    <input name = "email" type = "email" value ="<?php echo $email ?>" placeholder="email@eagle.clarion.edu"  required class = "form-control suggestion_item input_length" >
-                    <label>Select your Class Standing:</label>
+                    <label for="fName">First Name:<span class="requiredFormInfo">*</span></label>
+                    <input name = "fName" type = "text" value ="<?php echo $firstName ?>" placeholder="First Name"
+                          required class = "form-control suggestion_item input_length" maxlength="30" autofocus>
+                    <label for="lName">Last Name:<span class="requiredFormInfo">*</span></label>
+                    <input name = "lName" type = "text" value ="<?php echo $lastName ?>" placeholder="Last Name"
+                           required class = "form-control suggestion_item input_length" maxlength="30">
+                    <label for="email">Clarion Email Address:<span class="requiredFormInfo">*</span></label>
+                    <input name = "email" type = "email" value ="<?php echo $email ?>" placeholder="email@eagle.clarion.edu"
+                           required class = "form-control suggestion_item input_length" maxlength="50">
+                    <label for="classStanding">Select your Class Standing:<span class="requiredFormInfo">*</span></label>
                     <select name="classStanding" class = "form-control" value ="<?php echo $classStanding ?>" >
                         <option value="">Select...</option>
                         <option value="Freshman">Freshman</option>
@@ -30,11 +33,11 @@ require '../view/headerinclude.php';
                         <option value="Graduate">Graduate</option>
                         <option value="Adult?">Adult?</option>
                     </select>
-                    <label>Choose your Profile Image:</label>
+                    <label for="memberIcon">Choose your Profile Image:</label>
                     <input name = "memberIcon" type = "file" class="input_length"/>
-                    <label>Describe your interests:</label>
+                    <label for="describe">Describe your interests:</label>
                     <textarea class = "form-control suggestion_item input-length" rows = 10 value ="<?php echo $description ?>" ></textarea>
-                    <label>Receive our Event Information:</label>
+                    <label for="extraEmails">Receive our Event Information:</label>
                     <input name = "extraEmails" type = "checkbox" <?php if($extraEmails == 'Y') echo 'checked' ?> required class = "form-control suggestion_item input_length" >
                     <input type = "submit" value = "Create Account" class = "form-control suggestion_item input_length"  >
                 </form><!--end the form for suggestions-->
