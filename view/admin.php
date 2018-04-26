@@ -192,6 +192,14 @@ require '../view/headerinclude.php';
             </div><!-- end row -->
         </div><!--end index-template-->
 
+    <script>
+        <?php
+            if(!empty($errorMessage))
+            {
+                echo  "alert('Please correct the following errors:\\n $errorMessage')";
+            }
+            ?>
+    </script>
     <?php
     require '../view/footerinclude.php';
     ?>

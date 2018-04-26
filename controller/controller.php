@@ -181,6 +181,41 @@ This is the controller which is a part of the MVC model. It takes instructions f
     function addEvent()
     {
         print_r($_POST);
+        $eventName = $_POST['eventName'];
+        $eventDate = $_POST['eventDate'];
+        $eventTime = $_POST['eventTime'];
+        $eventDesc = $_POST['eventDesc'];
+        $eventType=$_POST['eventType'];
+
+        //collect all the errors we encounter
+        $errorMessage="";
+        if(empty($eventName) || strlen($eventName)> 50)
+        {
+            $errorMessage .= "An event name is required and must be less than 50 characters\\n";
+        }
+        if(empty($eventDate) && !strtotime($eventDate))
+        {
+            $errorMessage .= "Either enter a valid date\\n";
+        }
+        if(empty($eventTime))
+        {
+            $errorMessage .= "An event time is required\\n";
+        }
+        if(empty($eventDesc))
+        {
+            $errorMessage .= "An event description is required\\n";
+        }
+        if($eventType=="None")
+        {
+            $errorMessage .= "An event type is required\\n";
+        }
+
+        //check if we have accumulated any errors
+        if($errorMessage!="")
+        {
+            //if no error messages, send back to admin
+            include '../view/admin.php';
+        }
     }
 
 
