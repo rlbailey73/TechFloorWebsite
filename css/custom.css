@@ -76,6 +76,13 @@ Purpose: (currentevents page) makes up for taking the title out of the message b
     background-color: #343A40;
 }
 
+/*footer div styles */
+.footerDivStyles{
+    font-size: 30px;
+    font-family: "Segoe Print";
+
+}
+
 .formRow label
 {
     display: inline-block;
