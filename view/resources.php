@@ -11,7 +11,7 @@ require '../view/headerinclude.php';
 
         <div class = "col-8 offset-2"><!-- start Resources message_box -->
             <h3 class="message_box_title">Useful Websites</h3>
-            <div class = "message_box">
+            <div class = "message_box" id="resourceHeader">
                     <h4><a href="https://cuconnect.clarion.edu/organization/techfloor">CU Connect</a></h4>
                     <p class = "feed feed_side_space">A link to our CuConnect webpage. This is wildly used by the university and each student
                     should register as a member here for any organization they join!</p>

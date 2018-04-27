@@ -7,7 +7,7 @@ Our Icons come from fontawesome.com the js file is include in the js folder.-->
 
     <div class="footerDivStyles">
         Join us on any of our Social Networks! <br />
-        <span style="font-size: 40px;">
+        <span style="font-size: 35px;">
             <a href="https://www.facebook.com/techfloor/" title="Clarion TechFloor's Facebook Page" target="new"><i class="fab fa-facebook-square"></i></a>
             <a href="https://twitter.com/TechFloor" title="Connect to TechFloor's Twitter!" target="new"><i class="fab fa-twitter-square"></i></a>
             <a href="https://www.twitch.tv/cu_techfloor" title="TechFloor's Twitch Page, where we stream tournaments" target="new"><i class="fab fa-twitch"></i></a>
