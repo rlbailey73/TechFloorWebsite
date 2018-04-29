@@ -76,6 +76,13 @@ Purpose: (currentevents page) makes up for taking the title out of the message b
     background-color: #343A40;
 }
 
+/*footer div styles */
+.footerDivStyles{
+    font-size: 25px;
+    font-family: "Segoe Print";
+
+}
+
 .formRow label
 {
     display: inline-block;
@@ -132,6 +139,7 @@ also used to have the dropdown menus follow the same theme
 .navbar-tf-bg, .navbarDropDown{
     color: #FFFFFF;
     background-color: #343A40;
+    font-size: 18px;
 }
 
 /* changes the color of the hovered text in the navbar
@@ -244,4 +252,11 @@ Purpose: Used to create a space between two div elements
     float: left;
     padding-top: 50px;
     padding-left: 50px;
+}
+
+/* will be used to give the resource headers underlines since the
+link code is being finnicky
+ */
+#resourceHeader h4{
+    font-style: italic;
 }
