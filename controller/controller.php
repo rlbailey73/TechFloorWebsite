@@ -180,7 +180,8 @@ This is the controller which is a part of the MVC model. It takes instructions f
 
     function addEvent()
     {
-        print_r($_POST);
+        //this messed up odonells code so we comment out - error was that we started header already since this outputs
+        //print_r($_POST);
         $eventName = $_POST['eventName'];
         $eventDate = $_POST['eventDate'];
         $eventTime = $_POST['eventTime'];
@@ -213,8 +214,21 @@ This is the controller which is a part of the MVC model. It takes instructions f
         //check if we have accumulated any errors
         if($errorMessage!="")
         {
-            //if no error messages, send back to admin
+            //if error messages, send back to admin and output errors in alert
             include '../view/admin.php';
+        }
+        else //actually add the event if no errors exist
+        {
+            //we need something to store the created id when we call our insertevent function
+            $eventID = insertEvent($eventName, $eventDate, $eventTime, $eventDesc, $eventType);
+            /*after adding the new event we want to display the details, but even tho we have
+            an id, we can't go directly to our display details page bc it doen't want just an id
+            it wants an array based off an id. to make this work, we will use redirection which is
+            what we use to take a user directly to the home page instead of being able to see
+            inside files which is risky*/
+            //this uses header(not the format) to redirect back to controller and call showevent passing in the id we just recieved
+            header("Location: ../controller/controller.php?action=ShowEvent&EventID=$eventID");
+
         }
     }
 

@@ -9,11 +9,11 @@
         //$dsn = 'mysql:host=localhost;dbname=s_rlbailey_techfloordemo'; //access to beckys database for local hosting purposes
         //login credentials
         /** We need to make sure we change this back before submitting $username */
-        $username = 's_rlbailey';
-        $password = 'techfloor99';
+        //$username = 's_rlbailey';
+        //$password = 'techfloor99';
         //for local testing
-        //$username = 'root';
-        //$password = '';
+        $username = 'root';
+        $password = '';
 
         try
         {
@@ -229,6 +229,41 @@
             return "";
         }
     }
+
+    //inserts a new event into the database membersignup isn't included since it defaults to zero
+    function insertEvent($eventName, $date, $time, $description, $type )
+    {
+        $db = getDBConnection();
+        $query = 'INSERT INTO events (EventName, Date, Time, Description, Type)
+                  VALUES(:eventName, :date, :time, :description, :type)';
+        $statement = $db->prepare($query);
+
+        //bindings to avoid sql injections
+        $statement->bindValue(':eventName', $eventName);
+        $statement->bindValue(':date', toMySQLDate($date));
+        $statement->bindValue(':time', $time);
+        $statement->bindValue(':description', $description);
+        $statement->bindValue(':type', $type);
+
+        $success = $statement->execute();
+        $statement->closeCursor();
+
+        if ($success)
+        {
+            return $db->lastInsertId(); //gets the last generated eventID
+        }
+        else
+        {
+            //should be code to log the sql error for out purposes we just wanna display
+            logSQLError($statement->errorInfo());
+        }
+    }
+
+    function logSQLError($errorMessage)
+    {
+        include '../view/error.php';
+    }
+
     //saves someone that has signed up for emails
     function saveMemberInfo($firstName, $lastName, $email)
     {
