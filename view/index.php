@@ -40,15 +40,8 @@ Purpose: This is the main page people will first see and the one they will be re
                 <div class = "col-4 offset-1">
                     <h1 class = "message_box_title">Twitter</h1>
                     <!--This is the content area of the twitter feed-->
-                    <div class = "message_box">
-                        <p class="lead">
-                            <strong>@TechFloor</strong>
-                            <ul class="feed_side_space">
-                                <li class = "feed">Come chill at TechFloor instead of chilling in the cold! We are open!</li>
-                                <li class = "feed">TechFloor is open!</li>
-                                <li class = "feed">There are meetings tonight! Game night is immediately afterwards! Come hang out with us!</li>
-                            </ul>
-                        </p><!--end Twitter Feed paragraph-->
+                    <div>
+                        <a class="twitter-timeline" data-width="500" data-height="600" data-theme="dark" data-link-color="#2B7BB9" href="https://twitter.com/TechFloor?ref_src=twsrc%5Etfw">Tweets by TechFloor</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
                     </div><!-- end Twitter Feed content area-->
                 </div><!-- end Twitter Feed section-->
             </div><!-- end row -->
