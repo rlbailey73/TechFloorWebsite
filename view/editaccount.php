@@ -38,7 +38,7 @@ require '../view/headerinclude.php';
                     <label for="describe">Describe your interests:</label>
                     <textarea class = "form-control suggestion_item input-length" rows = 10 value ="<?php echo $description ?>" ></textarea>
                     <label for="extraEmails">Receive our Event Information:</label>
-                    <input name = "extraEmails" type = "checkbox" <?php if($extraEmails == 'Y') echo 'checked' ?> required class = "form-control suggestion_item input_length" >
+                    <input name = "extraEmails" type = "checkbox" <?php if($extraEmails == 'Y') echo 'checked' ?> class = "form-control suggestion_item input_length" >
                     <input type = "submit" value = "Create Account" class = "form-control suggestion_item input_length"  >
                 </form><!--end the form for suggestions-->
             </div>

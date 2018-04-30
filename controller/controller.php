@@ -126,15 +126,16 @@ This is the controller which is a part of the MVC model. It takes instructions f
         $email = $_POST['email'];
         $classStanding = $_POST['classStanding'];
        // $position = $_POST['position'];
-       // $image = $_POST['image'];
-       // $description =$_POST['description'];
+        $image = $_POST['image'];
+        $description =$_POST['description'];
         if(isset($_POST['extraEmails'])){
             $extraEmails = "Y";
         }
         else{
             $extraEmails = "N";
         }
-        //$memberSince = $_POST['memberSince'];
+        date_default_timezone_set("America/New_York"); //should help make our date be more accurate
+        $memberSince = date("Y-m-d");
 
         //validation
         $errorMessage = "";
@@ -158,6 +159,13 @@ This is the controller which is a part of the MVC model. It takes instructions f
         //this will take u back to the edit page if any errors occur
         if($errorMessage != ""){
             include '../view/editaccount.php';
+        } else {
+            $memberID = insertMember($firstName, $lastName, $email, $classStanding, $image, $description, $extraEmails, $memberSince);
+
+            //after member successfully submitted into the database, we should take them to their display page for
+            //individual members. I want this to take u to the profile screen instead once thats complete
+            //send back the header of the page using a redirect
+            header("Location: ../controller/controller.php?action=ViewMember&MemberID=$memberID");
         }
     }
 
@@ -417,44 +425,6 @@ This is the controller which is a part of the MVC model. It takes instructions f
         $eventType= "";
 
         include '../view/admin.php';
-        /*
-        $eventName = $_POST['eventName'];
-        $eventDate = $_POST['eventDate'];
-        $eventTime = $_POST['eventTime'];
-        $eventDesc = $_POST['eventDesc'];
-        $eventType=$_POST['eventType'];
-
-        //validation on serverside to make sure nothing was left empty
-        if(empty($eventName))
-        {
-            $errorMessage = "Event creation error: No NAME given";
-            include '../view/error.php';
-        }
-        else if(empty($eventDate))
-        {
-            $errorMessage = "Event creation error: No DATE given";
-            include '../view/error.php';
-        }
-        else if(empty($eventTime))
-        {
-            $errorMessage = "Event creation error: No TIME given";
-            include '../view/error.php';
-        }
-        else if(empty($eventDesc))
-        {
-            $errorMessage = "Event creation error: No DESCRIPTION given";
-            include '../view/error.php';
-        }
-        else if(empty($eventType))
-        {
-            $errorMessage = "Event creation error: No TYPE given";
-            include '../view/error.php';
-        }
-        else
-        {
-            //this is where we add the event if it passes all of our tests
-        }
-        */
     }
 
     // helps us search the members using the actual db values   `

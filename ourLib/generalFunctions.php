@@ -2,6 +2,7 @@
     //takes db type date and puts it into a nicer format for us
     function toDisplayDate($date)
     {
+        date_default_timezone_set("America/New_York");
         //try to convert date from db to normal date
         if($phpDate=strtotime($date))
         {
@@ -16,6 +17,7 @@
     //takes a user formated date and converts it to the form that mysql likes
     function toMySQLDate($date)
     {
+        date_default_timezone_set("America/New_York");
         //try to convert date from db to normal date
         if($sqlDate=strtotime($date))
         {

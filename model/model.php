@@ -5,8 +5,8 @@
     function getDBConnection()
     {
         //$dsn contains where you wanna run and the db name
-        $dsn = 'mysql:host=localhost;dbname=s_bmgreggs_localtechfloor'; //access to bre's local db and to cisprod
-        //$dsn = 'mysql:host=localhost;dbname=s_rlbailey_techfloordemo'; //access to beckys database for local hosting purposes
+        //$dsn = 'mysql:host=localhost;dbname=s_bmgreggs_localtechfloor'; //access to bre's local db and to cisprod
+        $dsn = 'mysql:host=localhost;dbname=s_rlbailey_techfloordemo'; //access to beckys database for local hosting purposes
         //login credentials
         /** We need to make sure we change this back before submitting $username */
         //$username = 's_rlbailey';
@@ -251,6 +251,49 @@
         if ($success)
         {
             return $db->lastInsertId(); //gets the last generated eventID
+        }
+        else
+        {
+            //should be code to log the sql error for out purposes we just wanna display
+            logSQLError($statement->errorInfo());
+        }
+    }
+
+    /* inserts a new Member in the database
+    some of the items aren't included as they get automatically set. */
+    function insertMember($fName, $lName, $email, $classStanding, $image, $description, $extraEmails, $memberSince)
+    {
+        $db = getDBConnection();
+        $query = 'INSERT INTO member (FirstName, LastName, Email, ClassStanding, Image, Description, ExtraEmails, MemberSince)
+                  VALUES(:fName, :lName, :email, :classStanding, :image, :description, :extraEmails, :memberSince)';
+        $statement = $db->prepare($query);
+
+        //bindings to avoid sql injections
+        $statement->bindValue(':fName', $fName);
+        $statement->bindValue(':lName', $lName);
+        $statement->bindValue(':email', $email);
+        $statement->bindValue(':classStanding', $classStanding);
+        if(empty($image)){
+            $statement->bindValue(':image', null, PDO::PARAM_NULL);
+        }
+        else{
+            $statement->bindValue(':image', $image);
+        }
+        if(empty($description)){
+            $statement->bindValue(':description', null, PDO::PARAM_NULL);
+        }
+        else{
+            $statement->bindValue(':description', $description);
+        }
+        $statement->bindValue(':extraEmails', $extraEmails);
+        $statement->bindValue(':memberSince', toMySQLDate($memberSince));
+
+        $success = $statement->execute();
+        $statement->closeCursor();
+
+        if ($success)
+        {
+            return $db->lastInsertId(); //gets the last generated memberID
         }
         else
         {
