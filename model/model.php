@@ -265,7 +265,7 @@
     {
         $db = getDBConnection();
         $query = 'INSERT INTO member (FirstName, LastName, Email, ClassStanding, Image, Description, ExtraEmails, MemberSince)
-                  VALUES(:fName, :lName, :email, :classStanding, :image, :description, :extraEmails, :memberSince)';
+                  VALUES(:fName, :lName, :email, :classStanding, :image, :memberDesc, :extraEmails, :memberSince)';
         $statement = $db->prepare($query);
 
         //bindings to avoid sql injections
@@ -280,10 +280,10 @@
             $statement->bindValue(':image', $image);
         }
         if(empty($description)){
-            $statement->bindValue(':description', null, PDO::PARAM_NULL);
+            $statement->bindValue(':memberDesc', null, PDO::PARAM_NULL);
         }
         else{
-            $statement->bindValue(':description', $description);
+            $statement->bindValue(':memberDesc', $description);
         }
         $statement->bindValue(':extraEmails', $extraEmails);
         $statement->bindValue(':memberSince', toMySQLDate($memberSince));

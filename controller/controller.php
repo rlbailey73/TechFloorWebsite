@@ -125,9 +125,8 @@ This is the controller which is a part of the MVC model. It takes instructions f
         $lastName = $_POST['lName'];
         $email = $_POST['email'];
         $classStanding = $_POST['classStanding'];
-       // $position = $_POST['position'];
         $image = $_POST['image'];
-        $description =$_POST['description'];
+        $description =$_POST['memberDesc'];
         if(isset($_POST['extraEmails'])){
             $extraEmails = "Y";
         }
@@ -152,9 +151,6 @@ This is the controller which is a part of the MVC model. It takes instructions f
         if(empty($classStanding) || strlen($classStanding) > 25){
             $errorMessage .= "\\n* Class Standing required and must be selected from the drop down.";
         }
-        //if(empty($position) || strlen($position) > 30){
-          //  $errorMessage .= "Position required and must be less than 30 characters.";
-        //}
 
         //this will take u back to the edit page if any errors occur
         if($errorMessage != ""){

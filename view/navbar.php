@@ -36,14 +36,14 @@ the navigation bar goes through our controller
                 </div>
             </li>
             <!--this is the brackets page navigation dropdown item-->
-            <li class="nav-item active dropdown">
+            <!-- <li class="nav-item active dropdown">
                 <a class="nav-link dropdown-toggle disabled navbar-tf-bg navbarHov" href="../controller/controller.php?action=CurrentBrackets" id="brackets_dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Brackets</a>
                 <div class="dropdown-menu navbarDropDown" aria-labelledby="dropdown01">
                     <a class="dropdown-item navbarDropDown" href="../controller/controller.php?action=CurrentBrackets">Current Bracket</a>
                     <a class="dropdown-item navbarDropDown" href="../controller/controller.php?action=PastBrackets">Past Brackets</a>
                     <a class="dropdown-item navbarDropDown" href="../controller/controller.php?action=CreateBrackets">Create Bracket(s)</a>
                 </div>
-            </li>
+            </li> -->
             <!-- Sign Up Navigation Items
             <li class="nav-item active">
                 <a class="nav-link navbar-tf-bg navbarHov" href="../controller/controller.php?action=SignUp">Sign Up</a>
