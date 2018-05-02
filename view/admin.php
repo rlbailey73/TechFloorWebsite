@@ -167,6 +167,8 @@ require '../view/headerinclude.php';
             <div class = "message_box">
                 <h4>Enter information of the event to be added:</h4>
                 <form enctype="multipart/form-data" action="../controller/controller.php?action=CreateEvent" method = "post" class="feed_side_space row">
+                    <input type="hidden" name="eventID" value="<?php echo $eventID?>"/>
+                    <input typ="hidden" name="Mode" value="<?php echo $mode ?>" />
                     <label for="eventName" class="suggestion_item">Enter Name of Event:<span class="requiredFormInfo">*</span></label>
                     <input name="eventName" type = "text" value="<?php echo $eventName?>" required maxlength="50" class = "form-control suggestion_item input_length" >
                     <label for="eventDate" class="suggestion_item">Enter Date for Event:<span class="requiredFormInfo">*</span></label>
@@ -174,7 +176,7 @@ require '../view/headerinclude.php';
                     <label for="eventTime" class="suggestion_item">Enter Time for Event:<span class="requiredFormInfo">*</span></label>
                     <input name="eventTime" type="time" value="<?php echo $eventTime?>" required class = "form-control suggestion_item input_length button_space" >
                     <label for="eventDesc" class="suggestion_item">Enter Description of Event:<span class="requiredFormInfo">*</span></label>
-                    <textarea name="eventDesc" rows = "5" value="<?php echo $eventDesc?>" required class = "form-control suggestion_item input_length" ></textarea>
+                    <textarea name="eventDesc" rows = "5"  required class = "form-control suggestion_item input_length" ><?php echo $eventDesc?></textarea>
                     <label for="eventType" class="suggestion_item">Select Type of Event:<span class="requiredFormInfo">*</span></label>
                     <select name = "eventType" required value="<?php echo $eventType?>">
                         <option value = "None">Select the Type</option>
