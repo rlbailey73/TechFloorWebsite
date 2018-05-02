@@ -77,6 +77,25 @@
 
     }//end getDetails
 
+    function deleteEvent($eventID)
+    {
+         $db=getDBConnection();
+         $query='DELETE FROM events WHERE EventID=:eventID';
+         $statement=$db->prepare($query);
+         $statement->bindValue(':eventID', $eventID);
+         $success =$statement->execute();
+         $statement->closeCursor();
+
+         if($success)
+         {
+             return $statement->rowCount();//number of rows that were affected (should be 1 or 0)
+         }
+         else
+         {
+             logSQLError($statement->errorInfo());
+         }
+    }//end deleteEvent
+
     /*gets all rows information where it meets the query*/
     function getEventType($eventType)
     {

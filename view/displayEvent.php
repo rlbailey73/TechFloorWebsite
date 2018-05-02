@@ -34,10 +34,14 @@ require '../view/headerinclude.php';
                     <label>Members Signed up: </label>
                     <?php echo $row['MemberSignup'] ?>
                 </div>
+
+                <div class="formRow">
                     <input type="button" name="eventEdit" value="Edit"
                            onclick="document.location='../controller/controller.php?action=EditEvent&EventID=<?php echo $row['EventID'] ?>';"/>
+                </div>
                 <div class="formRow">
-
+                    <input type="button" name="eventDelete" value="Delete"
+                           onclick="document.location='../controller/controller.php?action=DeleteEvent&EventID=<?php echo $row['EventID'] ?>';"/>
                 </div>
             </div><!--end detailForm-->
 
