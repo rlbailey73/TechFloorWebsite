@@ -259,6 +259,36 @@
         }
     }
 
+    //inserts a new event into the database membersignup isn't included since it defaults to zero
+    function updateEvent($eventID, $eventName, $date, $time, $description, $type )
+    {
+        $db = getDBConnection();
+        $query = 'UPDATE events SET EventName=:eventName, Date=:date, Time=:time, Description=:description, Type=:TYPE 
+                  WHERE EventID=:eventID';
+        $statement = $db->prepare($query);
+
+        //bindings to avoid sql injections
+        $statement->bindValue(':eventID', $eventID);
+        $statement->bindValue(':eventName', $eventName);
+        $statement->bindValue(':date', toMySQLDate($date));
+        $statement->bindValue(':time', $time);
+        $statement->bindValue(':description', $description);
+        $statement->bindValue(':type', $type);
+
+        $success = $statement->execute();
+        $statement->closeCursor();
+
+        if ($success)
+        {
+            return $statement->execute(); //gets rows affected
+        }
+        else
+        {
+            //should be code to log the sql error for out purposes we just wanna display
+            logSQLError($statement->errorInfo());
+        }
+    }
+
     /* inserts a new Member in the database
     some of the items aren't included as they get automatically set. */
     function insertMember($fName, $lName, $email, $classStanding, $image, $description, $extraEmails, $memberSince)
