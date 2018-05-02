@@ -118,11 +118,64 @@ This is the controller which is a part of the MVC model. It takes instructions f
 
     /***** FUNCTIONS *****/
 
+    //will be used to create an account in the list. will add password and things soon.
+    function accountAdd(){
+        $mode = "Add"; //will be used to tell us when we are in adding mode or editing mode with account info
+
+        $memberID = 0;
+        $firstName = "";
+        $lastName = "";
+        $email = "";
+        $classStanding = "";
+        $position = "";
+        $image = "";
+        $description ="";
+        $extraEmails = "Y";
+        $memberSince = "";
+
+        include '../view/editaccount.php';
+    }
+
+    //will be used to edit a previously submitted member
+    function accountEdit(){
+        $memberID = $_GET['MemberID']; //reads value from url
+
+        //makes sure we received a value or not
+        if(!isset($memberID)){
+            $errorMessage = "A memberID must be provided to display.";
+            include "../view/error.php";
+        }
+        else{
+            $row = getMemberSingle($memberID);
+            if($row == FALSE){
+                $errorMessage = "That member was not found.";
+                include "../view/error.php";
+            }
+            else{
+                $mode = "Edit"; //will be used to tell us when we are in adding mode or editing mode with account info
+
+                $memberID = $row['MemberID'];
+                $firstName = $row['FirstName'];
+                $lastName = $row['LastName'];
+                $email = $row['Email'];
+                $classStanding = $row['ClassStanding'];
+                $position = $row['Position'];
+                $image = $row['Image'];
+                $description =$row['Description'];
+                $extraEmails = $row['ExtraEmails'];
+                $memberSince = $row['MemberSince'];
+
+                include "../view/editaccount.php";
+            }
+        }
+    }
+
     //will be used to actually submit and edit members
     function accountAddEdit(){
         print_r($_POST);
 
-        $mode = "add"; //will be used to tell us when we are in adding mode or editing mode with account info
+        $memberID = $_POST['MemberID'];
+        $mode = $_POST['Mode'];
 
         $firstName = $_POST['fName'];
         $lastName = $_POST['lName'];
@@ -166,23 +219,6 @@ This is the controller which is a part of the MVC model. It takes instructions f
             //send back the header of the page using a redirect
             header("Location: ../controller/controller.php?action=ViewMember&MemberID=$memberID");
         }
-    }
-
-    //will be used to create an account in the list. will add password and things soon.
-    function addAccount(){
-        $mode = "add"; //will be used to tell us when we are in adding mode or editing mode with account info
-
-        $firstName = "";
-        $lastName = "";
-        $email = "";
-        $classStanding = "";
-        $position = "";
-        $image = "";
-        $description ="";
-        $extraEmails = "Y";
-        $memberSince = "";
-
-        include '../view/editaccount.php';
     }
 
     function addmember()

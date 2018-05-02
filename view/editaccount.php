@@ -1,5 +1,5 @@
 <?php
-$title = "Create Account"; //necessary variable to have each pages title be unique
+$title = "$mode Account"; //necessary variable to have each pages title be unique
 require '../view/headerinclude.php';
 ?>
 
@@ -10,7 +10,7 @@ require '../view/headerinclude.php';
         <img class = "col-10 offset-1" src = "../images/Functional/temp.png" alt = "cool blue techy background"  >
 
         <div class = "col-6 offset-3 "><!-- start Suggestions message_box -->
-            <h1 class="message_box_title">Create Your TechFloor Account</h1>
+            <h1 class="message_box_title"><?php echo $mode ?> Your TechFloor Account</h1>
             <div class = "message_box">
                 <!--adding "required" makes it required on the client side (html 5)-->
                 <form enctype="multipart/form-data" action="../controller/controller.php?action=AccountAddEdit" method = "post" class="feed_side_space row">
@@ -36,7 +36,7 @@ require '../view/headerinclude.php';
                     <label for="memberIcon">Choose your Profile Image:</label>
                     <input name = "memberIcon" type = "file" class="input_length"/>
                     <label for="describe">Describe your interests:</label>
-                    <textarea name="memberDesc" rows = 5 value ="<?php echo $description ?>" class = "form-control suggestion_item input_length"></textarea>
+                    <textarea name="memberDesc" rows = 5 class = "form-control suggestion_item input_length"><?php echo $description ?></textarea>
                     <label for="extraEmails">Receive our Event Information:</label>
                     <input name = "extraEmails" type = "checkbox" <?php if($extraEmails == 'Y') echo 'checked' ?> class = "form-control suggestion_item input_length" >
                     <input type = "submit" value = "Create Account" class = "form-control suggestion_item input_length"  >
