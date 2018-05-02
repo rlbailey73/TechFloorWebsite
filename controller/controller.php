@@ -33,8 +33,11 @@ This is the controller which is a part of the MVC model. It takes instructions f
         case 'AccountAddEdit':
             accountAddEdit();
             break;
+        case 'AccountEdit':
+            accountEdit();
+            break;
         case 'AddAccount':
-            addAccount();
+            accountAdd();
             break;
         case 'AddPerson':
             addmember();
@@ -212,7 +215,11 @@ This is the controller which is a part of the MVC model. It takes instructions f
         if($errorMessage != ""){
             include '../view/editaccount.php';
         } else {
-            $memberID = insertMember($firstName, $lastName, $email, $classStanding, $image, $description, $extraEmails, $memberSince);
+            if($mode == "Add"){
+                $memberID = insertMember($firstName, $lastName, $email, $classStanding, $image, $description, $extraEmails, $memberSince);
+            }else{
+                $rowsAffected = updateMember($memberID, $firstName, $lastName, $email, $classStanding, $image, $description, $extraEmails, $memberSince);
+            }
 
             //after member successfully submitted into the database, we should take them to their display page for
             //individual members. I want this to take u to the profile screen instead once thats complete
