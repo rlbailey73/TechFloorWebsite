@@ -40,19 +40,22 @@ This is the controller which is a part of the MVC model. It takes instructions f
             addmember();
             break;
         case 'Admin':
-            loadAdmin();
+            eventAdd();
             break;
         case 'CreateBrackets':
             include("../view/createbracket.php");
             break;
         case 'CreateEvent':
-            addEvent();
+            eventAddEdit();
             break;
         case 'CurrentBrackets':
             include("../view/currentbrackets.php");
             break;
         case 'CurrentEvents':
             listCurrentEvents();
+            break;
+        case 'EditEvent':
+            eventEdit();
             break;
         case 'FindUs':
             include("../view/findus.php");
@@ -182,10 +185,61 @@ This is the controller which is a part of the MVC model. It takes instructions f
         include '../view/editaccount.php';
     }
 
-    function addEvent()
+    function addmember()
+{
+    //get the post values(keynames) and stores them into variables **adds layer of protection
+    $firstName = $_POST['fName'];
+    $lastName = $_POST['lName'];
+    $email = $_POST['email'];
+
+    //validation ensures that first and last name have values and email is valid
+    if(empty($firstName))
+    {
+        $errorMessage= "<h3>Sign up failed. You forgot your first name</h3>";
+        include '../view/error.php';
+    }
+    else if (empty($lastName))
+    {
+        $errorMessage =  "<h3>Sign up failed. You forgot your last name</h3>";
+        include '../view/error.php';
+    }
+    else if(empty($email) || !filter_var($email, FILTER_VALIDATE_EMAIL))
+    {
+        $errorMessage = "<h3>Sign up failed. Make sure that you have entered a proper email</h3>";
+        include '../view/error.php';
+    }
+    else //only adds a person if they fill out to the correct standards
+    {
+        //saves the new member using the model function
+        saveMemberInfo($firstName, $lastName, $email);
+        //gets all of the members to output them
+        $signupsheet= getMembers();
+        include '../php/add_person.php';
+    }
+}
+
+    /**this contains many parts of functions since multiple things are in admin and need loaded**/
+    function eventAdd()
+    {
+        //determine if we edit or add
+        $mode = "Add";
+        //when in add mode we need default values
+        $eventID =0;
+        $eventName = "";
+        $eventDate =  "";
+        $eventTime = "";
+        $eventDesc =  "";
+        $eventType= "";
+
+        include '../view/admin.php';
+    }
+
+    function eventAddEdit()
     {
         //this messed up odonells code so we comment out - error was that we started header already since this outputs
         //print_r($_POST);
+        $mode=$_POST['Mode'];
+        $eventID=$_POST['eventID'];
         $eventName = $_POST['eventName'];
         $eventDate = $_POST['eventDate'];
         $eventTime = $_POST['eventTime'];
@@ -223,6 +277,7 @@ This is the controller which is a part of the MVC model. It takes instructions f
         }
         else //actually add the event if no errors exist
         {
+
             //we need something to store the created id when we call our insertevent function
             $eventID = insertEvent($eventName, $eventDate, $eventTime, $eventDesc, $eventType);
             /*after adding the new event we want to display the details, but even tho we have
@@ -236,38 +291,36 @@ This is the controller which is a part of the MVC model. It takes instructions f
         }
     }
 
-
-
-    function addmember()
+    function eventEdit()
     {
-        //get the post values(keynames) and stores them into variables **adds layer of protection
-        $firstName = $_POST['fName'];
-        $lastName = $_POST['lName'];
-        $email = $_POST['email'];
-
-        //validation ensures that first and last name have values and email is valid
-        if(empty($firstName))
+        //get value from url
+        $eventID = $_GET['EventID'];
+        //make sure we got a value
+        if(!isset($eventID))
         {
-            $errorMessage= "<h3>Sign up failed. You forgot your first name</h3>";
+            $errorMessage = "You must provide an EventID to display";
             include '../view/error.php';
         }
-        else if (empty($lastName))
+        else
         {
-            $errorMessage =  "<h3>Sign up failed. You forgot your last name</h3>";
-            include '../view/error.php';
-        }
-        else if(empty($email) || !filter_var($email, FILTER_VALIDATE_EMAIL))
-        {
-            $errorMessage = "<h3>Sign up failed. Make sure that you have entered a proper email</h3>";
-            include '../view/error.php';
-        }
-        else //only adds a person if they fill out to the correct standards
-        {
-            //saves the new member using the model function
-            saveMemberInfo($firstName, $lastName, $email);
-            //gets all of the members to output them
-            $signupsheet= getMembers();
-            include '../php/add_person.php';
+            $row = getDetails($eventID);
+            if($row==false)
+            {
+                $errorMessage = "That event was not found";
+                include '../view/error.php';
+            }
+            else{
+                //determine if we edit or add
+                $mode = "Mode";
+                //when in edit mode we info related to the id that needs edited
+                $eventID = $row['EventID'];
+                $eventName = $row['EventName'];
+                $eventDate =  $row['Date'];
+                $eventTime = $row['Time'];
+                $eventDesc =  $row['Description'];
+                $eventType= $row['Type'];
+                include '../view/admin.php';
+            }
         }
     }
 
@@ -408,20 +461,6 @@ This is the controller which is a part of the MVC model. It takes instructions f
         }
     }
 
-    /**this contains many parts of functions since multiple things are in admin and need loaded**/
-    function loadAdmin()
-    {
-        //determine if we edit or add
-        $mode = "add";
-        //when in add mode we need default values
-        $eventName = "";
-        $eventDate =  "";
-        $eventTime = "";
-        $eventDesc =  "";
-        $eventType= "";
-
-        include '../view/admin.php';
-    }
 
     // helps us search the members using the actual db values   `
     function searchMembers()
