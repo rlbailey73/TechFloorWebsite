@@ -9,11 +9,6 @@ require '../view/headerinclude.php';
             <div class = "col-6 offset-3 detailForm"><!-- start member message_box -->
                 <h3 class="message_box_title">Individual Member</h3>
 
-                <!-- will have hidden types of memberID and mode to determine if we are
-                editing currently or working on adding a new member -->
-                <input type="hidden" name="MemberID" value="<?php echo $memberID ?>" />
-                <input type="hidden" name="Mode" value="<?php echo $mode ?>" />
-
                 <div class="formRow leftText">
                     <label>First Name: </label>
                     <?php echo $row['FirstName'] ?>
@@ -59,7 +54,7 @@ require '../view/headerinclude.php';
 
                 <!-- will be edit buttons for member -->
                 <div class="formRow">
-                    <input type="button" name="editAccount" value="Edit Information" id="accountEdit" onclick="document.location='../controller/controller.php?action=AccountEdit&MemberID=<?php echo $row['MemberID'] ?>';" />
+                    <input type="button" name="AccountEdit" value="Edit Information" id="accountEdit" onclick="document.location='../controller/controller.php?action=AccountEdit&MemberID=<?php echo $row['MemberID'] ?>';" />
                 </div>
 
             </div><!-- end member message_box -->

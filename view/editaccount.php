@@ -14,6 +14,12 @@ require '../view/headerinclude.php';
             <div class = "message_box">
                 <!--adding "required" makes it required on the client side (html 5)-->
                 <form enctype="multipart/form-data" action="../controller/controller.php?action=AccountAddEdit" method = "post" class="feed_side_space row">
+
+                    <!-- will have hidden types of memberID and mode to determine if we are
+                    editing currently or working on adding a new member -->
+                    <input type="hidden" name="MemberID" value="<?php echo $memberID ?>" />
+                    <input type="hidden" name="Mode" value="<?php echo $mode ?>" />
+
                     <label for="fName">First Name:<span class="requiredFormInfo">*</span></label>
                     <input name = "fName" type = "text" value ="<?php echo $firstName ?>" placeholder="First Name"
                           required class = "form-control suggestion_item input_length" maxlength="30" autofocus>
