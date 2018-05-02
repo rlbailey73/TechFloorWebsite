@@ -321,13 +321,21 @@ This is the controller which is a part of the MVC model. It takes instructions f
         else //actually add the event if no errors exist
         {
 
-            //we need something to store the created id when we call our insertevent function
-            $eventID = insertEvent($eventName, $eventDate, $eventTime, $eventDesc, $eventType);
-            /*after adding the new event we want to display the details, but even tho we have
-            an id, we can't go directly to our display details page bc it doen't want just an id
-            it wants an array based off an id. to make this work, we will use redirection which is
-            what we use to take a user directly to the home page instead of being able to see
-            inside files which is risky*/
+            //check to see if we are adding or editing
+            if($mode=="Add")
+            {
+                //we need something to store the created id when we call our insertevent function
+                $eventID = insertEvent($eventName, $eventDate, $eventTime, $eventDesc, $eventType);
+                /*after adding the new event we want to display the details, but even tho we have
+                an id, we can't go directly to our display details page bc it doen't want just an id
+                it wants an array based off an id. to make this work, we will use redirection which is
+                what we use to take a user directly to the home page instead of being able to see
+                inside files which is risky*/
+            }
+            else
+            {
+                $rowsAffected=updateEvent($eventID,$eventName, $eventDate, $eventTime, $eventDesc, $eventType);
+            }
             //this uses header(not the format) to redirect back to controller and call showevent passing in the id we just recieved
             header("Location: ../controller/controller.php?action=ShowEvent&EventID=$eventID");
 
