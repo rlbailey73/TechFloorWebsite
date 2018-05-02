@@ -280,7 +280,7 @@
 
         if ($success)
         {
-            return $statement->execute(); //gets rows affected
+            return $statement->rowCount(); //gets rows affected
         }
         else
         {
@@ -324,6 +324,48 @@
         if ($success)
         {
             return $db->lastInsertId(); //gets the last generated memberID
+        }
+        else
+        {
+            //should be code to log the sql error for out purposes we just wanna display
+            logSQLError($statement->errorInfo());
+        }
+    }
+
+    //used to update members throughout the processssssssssss
+    function updateMember($memberID, $fName, $lName, $email, $classStanding, $image, $description, $extraEmails, $memberSince){
+        $db = getDBConnection();
+        $query = 'UPDATE member SET FirstName=:fName, LastName=:lName, Email=:email, ClassStanding=:classStanding, Image=:image, Description=:memberDesc, ExtraEmails=:extraEmails, MemberSince=:memberSince
+                  WHERE MemberID=:memberID';
+        $statement = $db->prepare($query);
+
+        //bindings to avoid sql injections
+        $statement->bindValue(':memberID', $memberID);
+        $statement->bindValue(':fName', $fName);
+        $statement->bindValue(':lName', $lName);
+        $statement->bindValue(':email', $email);
+        $statement->bindValue(':classStanding', $classStanding);
+        if(empty($image)){
+            $statement->bindValue(':image', null, PDO::PARAM_NULL);
+        }
+        else{
+            $statement->bindValue(':image', $image);
+        }
+        if(empty($description)){
+            $statement->bindValue(':memberDesc', null, PDO::PARAM_NULL);
+        }
+        else{
+            $statement->bindValue(':memberDesc', $description);
+        }
+        $statement->bindValue(':extraEmails', $extraEmails);
+        $statement->bindValue(':memberSince', toMySQLDate($memberSince));
+
+        $success = $statement->execute();
+        $statement->closeCursor();
+
+        if ($success)
+        {
+            return $statement->rowCount();
         }
         else
         {
