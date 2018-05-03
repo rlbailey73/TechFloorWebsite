@@ -38,12 +38,12 @@ require '../view/headerinclude.php';
                     <label for="classStanding">Select your Class Standing:<span class="requiredFormInfo">*</span></label>
                     <select name="classStanding" class = "form-control" value ="<?php echo $classStanding ?>" >
                         <option value="">Select...</option>
-                        <option value="Freshman">Freshman</option>
-                        <option value="Sophomore">Sophomore</option>
-                        <option value="Junior">Junior</option>
-                        <option value="Senior">Senior</option>
-                        <option value="Graduate">Graduate</option>
-                        <option value="Adult?">Adult?</option>
+                        <option value="Freshman"<?php if ($classStanding == 'Freshman') echo ' selected="selected"'; ?>>Freshman</option>
+                        <option value="Sophomore"<?php if ($classStanding == 'Sophomore') echo ' selected="selected"'; ?>>Sophomore</option>
+                        <option value="Junior"<?php if ($classStanding == 'Junior') echo ' selected="selected"'; ?>>Junior</option>
+                        <option value="Senior"<?php if ($classStanding == 'Senior') echo ' selected="selected"'; ?>>Senior</option>
+                        <option value="Graduate"<?php if ($classStanding == 'Graduate') echo ' selected="selected"'; ?>>Graduate</option>
+                        <option value="Adult?"<?php if ($classStanding == 'Adult?') echo ' selected="selected"'; ?>>Adult?</option>
                     </select>
                     <label for="memberIcon">Choose your Profile Image:</label>
                     <input name = "memberIcon" type = "file" class="input_length"/>

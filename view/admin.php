@@ -178,12 +178,14 @@ require '../view/headerinclude.php';
                     <label for="eventDesc" class="suggestion_item">Enter Description of Event:<span class="requiredFormInfo">*</span></label>
                     <textarea name="eventDesc" rows = "5"  required class = "form-control suggestion_item input_length" ><?php echo htmlspecialchars($eventDesc)?></textarea>
                     <label for="eventType" class="suggestion_item">Select Type of Event:<span class="requiredFormInfo">*</span></label>
+
+
                     <select name = "eventType" required value="<?php echo $eventType?>">
                         <option value = "None">Select the Type</option>
-                        <option value = "Seminars">Seminars</option>
-                        <option value = "Tournaments">Tournaments</option>
-                        <option value="Social">Social</option>
-                        <option value="Organizational">Organizational</option>
+                        <option value="Social"<?php if ($eventType == 'Social') echo ' selected="selected"'; ?>>Social</option>
+                        <option value="Seminars"<?php if ($eventType == 'Seminars') echo ' selected="selected"'; ?>>Seminars</option>
+                        <option value="Tournaments"<?php if ($eventType == 'Tournaments') echo ' selected="selected"'; ?>>Tournaments</option>
+                        <option value="Organizational"<?php if ($eventType == 'Organizational') echo ' selected="selected"'; ?>>Organizational</option>
                     </select>
                     <input type = "submit" name = "eventSubmit" value="Save" class="form-control">
                 </form>
