@@ -7,6 +7,8 @@
     require_once '../model/model.php';
     require_once '../ourLib/generalFunctions.php';
 
+    unQuote(); //check for magic_quote_gpc and remove its effects
+
     //check the get and post for an action
     if(isset($_POST['action']))
     {
