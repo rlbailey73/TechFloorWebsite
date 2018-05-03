@@ -211,7 +211,8 @@
         $lastName = $_POST['lName'];
         $email = $_POST['email'];
         $classStanding = $_POST['classStanding'];
-        $image = $_POST['image'];
+        $imagePathTemp = ""; //defaulted so no path right now. var passed to model
+        //$image = $_POST['image'];
         $description =$_POST['memberDesc'];
         if(isset($_POST['extraEmails'])){
             $extraEmails = "Y";
@@ -237,15 +238,37 @@
         if(empty($classStanding) || strlen($classStanding) > 25){
             $errorMessage .= "\\n* Class Standing required and must be selected from the drop down.";
         }
+        if($_FILES['memberIcon']['error'] != UPLOAD_ERR_NO_FILE){
+            //this gets information from the temporary file such as width height and type
+            $image_info = getimagesize($_FILES['userpic']['tmp_name']);
+            /**BECKYYYY- code is messy bc we get an extra error message here so now we have extra stuff. jody might be mad so we neeed to discuss an alternative maybe*/
+            //store the image width (first thing in array?)
+            $img_width = $image_info[0];
+            //store the image height (second thing in the array?)
+            $img_height = $image_info[1];
+            //store the image type (third thing in the array?)
+            $img_type = $image_info[2];
+
+
+            /*if the user has a picture file to be uploaded we check to see if it something we
+            accept (png, jpeg, gif). If it isnt, we output a message saying its invalid*/
+            if ($img_type != IMAGETYPE_PNG && $img_type != IMAGETYPE_JPEG) {
+                $errorMessage.="\\n* Picture files are only accepted as .PNG, and .JPEG";
+            }else if($_FILES['memberIcon']['size']>1500000){
+                $errorMessage.="\\n* Please choose an image smaller than 1.5mb.";
+            }else{
+                $imagePathTemp=$_FILES['memberIcon']['tmp_name'];
+            }
+        }
 
         //this will take u back to the edit page if any errors occur
         if($errorMessage != ""){
             include '../view/editaccount.php';
         } else {
             if($mode == "Add"){
-                $memberID = insertMember($firstName, $lastName, $email, $classStanding, $image, $description, $extraEmails, $memberSince);
+                $memberID = insertMember($firstName, $lastName, $email, $classStanding, $imagePathTemp, $description, $extraEmails, $memberSince);
             }else{
-                $rowsAffected = updateMember($memberID, $firstName, $lastName, $email, $classStanding, $image, $description, $extraEmails, $memberSince);
+                $rowsAffected = updateMember($memberID, $firstName, $lastName, $email, $classStanding, $imagePathTemp, $description, $extraEmails, $memberSince);
             }
 
             //after member successfully submitted into the database, we should take them to their display page for
