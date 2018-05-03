@@ -60,6 +60,9 @@ This is the controller which is a part of the MVC model. It takes instructions f
         case 'CurrentEvents':
             listCurrentEvents();
             break;
+        case 'DeleteEvent':
+            eventDelete();
+            break;
         case 'EditEvent':
             eventEdit();
             break;
@@ -362,6 +365,31 @@ This is the controller which is a part of the MVC model. It takes instructions f
             //this uses header(not the format) to redirect back to controller and call showevent passing in the id we just recieved
             header("Location: ../controller/controller.php?action=ShowEvent&EventID=$eventID");
 
+        }
+    }
+
+    function eventDelete()
+    {
+        //get value from url
+        $eventID = $_GET['EventID'];
+        //make sure we got a value
+        if(!isset($eventID))
+        {
+            $errorMessage = "You must provide an EventID to display";
+            include '../view/error.php';
+        }
+        else
+        {
+            $rowsAffected=deleteEvent($eventID);
+            if($rowsAffected !=1)
+            {
+                $errorMessage= "The delete affected $rowsAffected rows";
+                include '../view/error.php';
+            }
+            else
+            {
+                header("Location:../controller/controller.php?action=PastEvents");
+            }
         }
     }
 

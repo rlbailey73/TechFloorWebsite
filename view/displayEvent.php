@@ -12,27 +12,27 @@ require '../view/headerinclude.php';
 
                 <div class="formRow leftText">
                     <label>Event Name: </label>
-                    <?php echo $row['EventName'] ?>
+                    <?php echo htmlspecialchars($row['EventName']) ?>
                 </div>
                 <div class="formRow leftText">
                     <label>Date: </label>
-                    <?php echo toDisplayDate($row['Date']) ?>
+                    <?php echo htmlspecialchars(toDisplayDate($row['Date'])) ?>
                 </div>
                 <div class="formRow leftText">
                     <label>Time: </label>
-                    <?php echo $row['Time'] ?>
+                    <?php echo htmlspecialchars($row['Time']) ?>
                 </div>
                 <div class="formRow leftText">
                     <label>Description: </label>
-                    <?php echo $row['Description'] ?>
+                    <?php echo htmlspecialchars($row['Description']) ?>
                 </div>
                 <div class="formRow leftText">
                     <label>Type: </label>
-                    <?php echo $row['Type'] ?>
+                    <?php echo htmlspecialchars($row['Type']) ?>
                 </div>
                 <div class="formRow leftText">
                     <label>Members Signed up: </label>
-                    <?php echo $row['MemberSignup'] ?>
+                    <?php echo htmlspecialchars($row['MemberSignup']) ?>
                 </div>
 
                 <div class="formRow">

@@ -168,15 +168,15 @@ require '../view/headerinclude.php';
                 <h4>Enter information of the event to be added:</h4>
                 <form enctype="multipart/form-data" action="../controller/controller.php?action=CreateEvent" method = "post" class="feed_side_space row">
                     <input type="hidden" name="eventID" value="<?php echo $eventID?>"/>
-                    <input typ="hidden" name="Mode" value="<?php echo $mode ?>" />
+                    <input typ="hidden" name="Mode" value="<?php echo htmlspecialchars($mode) ?>" />
                     <label for="eventName" class="suggestion_item">Enter Name of Event:<span class="requiredFormInfo">*</span></label>
-                    <input name="eventName" type = "text" value="<?php echo $eventName?>" required maxlength="50" class = "form-control suggestion_item input_length" >
+                    <input name="eventName" type = "text" value="<?php echo htmlspecialchars($eventName)?>" required maxlength="50" class = "form-control suggestion_item input_length" >
                     <label for="eventDate" class="suggestion_item">Enter Date for Event:<span class="requiredFormInfo">*</span></label>
-                    <input name="eventDate" type="date" placeholder="mm/dd/yy" value="<?php echo $eventDate?>" required class = "form-control suggestion_item input_length button_space" >
+                    <input name="eventDate" type="date" placeholder="mm/dd/yy" value="<?php echo htmlspecialchars($eventDate)?>" required class = "form-control suggestion_item input_length button_space" >
                     <label for="eventTime" class="suggestion_item">Enter Time for Event:<span class="requiredFormInfo">*</span></label>
-                    <input name="eventTime" type="time" value="<?php echo $eventTime?>" required class = "form-control suggestion_item input_length button_space" >
+                    <input name="eventTime" type="time" value="<?php echo htmlspecialchars($eventTime)?>" required class = "form-control suggestion_item input_length button_space" >
                     <label for="eventDesc" class="suggestion_item">Enter Description of Event:<span class="requiredFormInfo">*</span></label>
-                    <textarea name="eventDesc" rows = "5"  required class = "form-control suggestion_item input_length" ><?php echo $eventDesc?></textarea>
+                    <textarea name="eventDesc" rows = "5"  required class = "form-control suggestion_item input_length" ><?php echo htmlspecialchars($eventDesc)?></textarea>
                     <label for="eventType" class="suggestion_item">Select Type of Event:<span class="requiredFormInfo">*</span></label>
                     <select name = "eventType" required value="<?php echo $eventType?>">
                         <option value = "None">Select the Type</option>
@@ -185,7 +185,7 @@ require '../view/headerinclude.php';
                         <option value="Social">Social</option>
                         <option value="Organizational">Organizational</option>
                     </select>
-                    <input type = "submit" name = "eventSubmit" value="Add Event" class="form-control">
+                    <input type = "submit" name = "eventSubmit" value="Save" class="form-control">
                 </form>
             </div>
 

@@ -66,11 +66,11 @@ require '../view/headerinclude.php';
                                 <!-- td = table data -->
                                 <td class="leftText">
                                     <a href="../controller/controller.php?action=ShowEvent&EventID=<?php echo $row['EventID'] ?>">
-                                        <?php echo $row['EventName'] ?>
+                                        <?php echo htmlspecialchars($row['EventName']) ?>
                                     </a>
                                 </td>
-                                <td><?php echo toDisplayDate($row['Date']) ?></td>
-                                <td><?php echo $row['Time'] ?></td>
+                                <td><?php echo htmlspecialchars(toDisplayDate($row['Date'])) ?></td>
+                                <td><?php echo htmlspecialchars($row['Time']) ?></td>
                             </tr>
                             <!--here is where we end our php loop-->
                         <?php   }   ?>
