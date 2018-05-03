@@ -66,7 +66,7 @@ the navigation bar goes through our controller
                 <div class="dropdown-menu navbarDropDown" aria-labelledby="dropdown01">
                     <a class="dropdown-item navbarDropDown" href="../controller/controller.php?action=AddAccount">Create Account</a>
                     <a class="dropdown-item navbarDropDown" href="../controller/controller.php?action=SignUp">Sign Up</a>
-                    <a class="dropdown-item navbarDropDown" href="../controller/controller.php?action=Profile">Profile</a>
+                    <!--<a class="dropdown-item navbarDropDown" href="../controller/controller.php?action=Profile">Profile</a>-->
                     <a class="dropdown-item navbarDropDown" href="../controller/controller.php?action=SearchMembers">Member Search</a>
                 </div>
             </li>
