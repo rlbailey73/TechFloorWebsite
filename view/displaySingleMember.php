@@ -9,6 +9,16 @@ require '../view/headerinclude.php';
             <div class = "col-6 offset-3 detailForm"><!-- start member message_box -->
                 <h3 class="message_box_title">Individual Member</h3>
 
+
+                <div class="formRow leftText">
+                    <label>Profile Image: </label>
+                    <?php if($row['MemberImagePath']!= ""){ ?>
+                        <div id="memberImage">
+                            <img src="<?php echo htmlspecialchars($row['MemberImagePath']) ?> ?foolcache=<?php echo time() ?>" alt="Member Image"
+                                 height="220" width="220" >
+                        </div>
+                    <?php } ?>
+                </div>
                 <div class="formRow leftText">
                     <label>First Name: </label>
                     <?php echo htmlspecialchars($row['FirstName']) ?>
@@ -40,16 +50,6 @@ require '../view/headerinclude.php';
                 <div class="formRow leftText">
                     <label>Member Since: </label>
                     <?php echo htmlspecialchars(toDisplayDate($row['MemberSince'])) ?>
-                </div>
-                <div class="formRow leftText">
-                    <label>Profile Image: </label>
-                    <?php echo $row['Image'] ?>
-                    <?php if($row['MemberImagePath']!= ""){ ?>
-                    <div id="memberImage">
-                        <img src="<?php echo htmlspecialchars($row['MemberImagePath']) ?>" alt="Member Image"
-                             height="220" width="220" >
-                    </div>
-                    <?php } ?>
                 </div>
 
                 <!-- will be edit buttons for member -->

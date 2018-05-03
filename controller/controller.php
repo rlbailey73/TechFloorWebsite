@@ -237,7 +237,7 @@
         }
         if($_FILES['memberIcon']['error'] != UPLOAD_ERR_NO_FILE){
             //this gets information from the temporary file such as width height and type
-            $image_info = getimagesize($_FILES['userpic']['tmp_name']);
+            $image_info = getimagesize($_FILES['memberIcon']['tmp_name']);
             /**BECKYYYY- code is messy bc we get an extra error message here so now we have extra stuff. jody might be mad so we neeed to discuss an alternative maybe*/
             //store the image width (first thing in array?)
             $img_width = $image_info[0];

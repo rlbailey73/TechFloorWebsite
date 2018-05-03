@@ -5,8 +5,8 @@
     function getDBConnection()
     {
         //$dsn contains where you wanna run and the db name
-        $dsn = 'mysql:host=localhost;dbname=s_bmgreggs_localtechfloor'; //access to bre's local db and to cisprod
-        //$dsn = 'mysql:host=localhost;dbname=s_rlbailey_techfloordemo'; //access to beckys database for local hosting purposes
+        //$dsn = 'mysql:host=localhost;dbname=s_bmgreggs_localtechfloor'; //access to bre's local db and to cisprod
+        $dsn = 'mysql:host=localhost;dbname=s_rlbailey_techfloordemo'; //access to beckys database for local hosting purposes
         //login credentials
         /** We need to make sure we change this back before submitting $username */
         //$username = 's_rlbailey';
@@ -288,7 +288,7 @@
             $statement->bindValue(':memberID', $memberID);
             $statement->execute();
             $memList = $statement->fetch();
-            $memList['MemberImagePath']= getMemberImage($memberID);
+            $memList['MemberImagePath']= memberCheckImagePath($memberID);
             $statement->closeCursor();
             return $memList;
         }
@@ -301,11 +301,17 @@
 
     }//end getMemberList
 
-    //method ot get image path
+    //method ot get image path no matter wht
     function getMemberImage($memberID){
         $memberImages = "../DataFiles/memberimages";
-        $memberFilePath = "$memberImages/$memberID.png";
+        return "$memberImages/$memberID.jpg";
+    }
 
+    //cehcks to see if the image exists and if it doesnt return blank
+    function memberCheckImagePath($memberID){
+        //just retrieves the path name
+        $memberFilePath = getMemberImage($memberID);
+        //checks if existing file
         if(is_file($memberFilePath)){
             return $memberFilePath;
         }else{
@@ -315,9 +321,26 @@
 
     //will be used to save image in th edb based on filepath
     function memberSaveImageFile($memberID, $imageTempPath){
+        //this call helps determine where we are saving it permanently
         if($imageTempPath != ""){
             $newImagePath = getMemberImage($memberID);
+            //try to move the file to its permanent location
+            if(move_uploaded_file($imageTempPath, $newImagePath) == FALSE){
+                $errorMessage = "Unable to move the image file.";
+                include'../view/error.php';
             }
+        }
+    }
+
+    //used to delete the image files when deleting a record
+    function memberDeleteImage($memberID){
+        $imageFilePath = memberCheckImagePath($memberID);
+        if($imageFilePath != ""){
+            if (unlink($imageFilePath)==FALSE){
+                $errorMessage ="Unable to delete image file at $imageFilePath";
+                include '../view/error.php';
+            }
+        }
     }
 
     //inserts a new event into the database membersignup isn't included since it defaults to zero
@@ -385,7 +408,7 @@
     {
         $db = getDBConnection();
         $query = 'INSERT INTO member (FirstName, LastName, Email, ClassStanding, Image, Description, ExtraEmails, MemberSince)
-                  VALUES(:fName, :lName, :email, :classStanding, :image, :memberDesc, :extraEmails, :memberSince)';
+                  VALUES(:fName, :lName, :email, :classStanding, :imageTempPath, :memberDesc, :extraEmails, :memberSince)';
         $statement = $db->prepare($query);
 
         //bindings to avoid sql injections
@@ -394,10 +417,10 @@
         $statement->bindValue(':email', $email);
         $statement->bindValue(':classStanding', $classStanding);
         if(empty($image)){
-            $statement->bindValue(':image', null, PDO::PARAM_NULL);
+            $statement->bindValue(':imageTempPath', null, PDO::PARAM_NULL);
         }
         else{
-            $statement->bindValue(':image', $image);
+            $statement->bindValue(':imageTempPath', $image);
         }
         if(empty($description)){
             $statement->bindValue(':memberDesc', null, PDO::PARAM_NULL);
@@ -413,6 +436,8 @@
 
         if ($success)
         {
+            //b4 return, we need to save the image file if we were given one
+            memberSaveImageFile($db->lastInsertId(),$imageTempPath);
             return $db->lastInsertId(); //gets the last generated memberID
         }
         else
@@ -425,7 +450,7 @@
     //used to update members throughout the processssssssssss
     function updateMember($memberID, $fName, $lName, $email, $classStanding, $imageTempPath, $description, $extraEmails, $memberSince){
         $db = getDBConnection();
-        $query = 'UPDATE member SET FirstName=:fName, LastName=:lName, Email=:email, ClassStanding=:classStanding, Image=:image, Description=:memberDesc, ExtraEmails=:extraEmails, MemberSince=:memberSince
+        $query = 'UPDATE member SET FirstName=:fName, LastName=:lName, Email=:email, ClassStanding=:classStanding, Image=:imageTempPath, Description=:memberDesc, ExtraEmails=:extraEmails, MemberSince=:memberSince
                   WHERE MemberID=:memberID';
         $statement = $db->prepare($query);
 
@@ -436,10 +461,10 @@
         $statement->bindValue(':email', $email);
         $statement->bindValue(':classStanding', $classStanding);
         if(empty($imageTempPath)){
-            $statement->bindValue(':image', null, PDO::PARAM_NULL);
+            $statement->bindValue(':imageTempPath', null, PDO::PARAM_NULL);
         }
         else{
-            $statement->bindValue(':image', $imageTempPath);
+            $statement->bindValue(':imageTempPath', $imageTempPath);
         }
         if(empty($description)){
             $statement->bindValue(':memberDesc', null, PDO::PARAM_NULL);
@@ -455,6 +480,8 @@
 
         if ($success)
         {
+            //before we accept save our image file
+            memberSaveImageFile($memberID, $imageTempPath);
             return $statement->rowCount();
         }
         else
@@ -477,6 +504,8 @@
         $statement->closeCursor();
 
         if($success){
+            //we need to check if htey have an image, and if they do dlete it.
+            memberDeleteImage($memberID);
             //number of rows affected
             //in this case there should be only one row affected as this deletes a specific member
             return $statement->rowCount();
