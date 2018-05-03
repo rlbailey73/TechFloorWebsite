@@ -208,15 +208,18 @@ Purpose: Used to create a space between two div elements
 
 .table_format table, th, td
 {
-    border: 1px solid;
+    /*border: 1px solid;*/
+    border-radius: 15px;
 }
 .table_format th
 {
     background-color: #03002f;
+
 }
 .table_format th, td
 {
     padding: 5px;
+
 }
 
 /*formating for both the tables and the detailforms of the tables*/

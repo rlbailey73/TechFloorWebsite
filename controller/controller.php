@@ -82,8 +82,8 @@
         case 'PastBrackets':
             include("../view/pastbrackets.php");
             break;
-        case 'PastEvents':
-            listPreviousEvents();
+        case 'ListEvents':
+            listEvents();
             break;
         case 'Profile':
             include("../view/profile.php");
@@ -102,9 +102,6 @@
             break;
         case 'ShowEvent':
             displayEventDetails();
-            break;
-        case 'ShowEventType':
-            eventType();
             break;
         case 'UploadMemberIcon':
             include("../php/uploadedMemberIcons.php");
@@ -474,9 +471,9 @@
             }
         }
     }
-
+/*
     //this will pull the events with  specific type
-    function eventType()
+    unction eventType()
     {
         //get value from url
         $eventType = $_GET['Type'];
@@ -509,7 +506,7 @@
     }
 
     //will be used to list all the current/upcoming events in a table on the webpage
-    function listCurrentEvents()
+    unction listCurrentEvents()
     {
         //gets any rows that occur on or after current date **we want to select all bc in our output we can specify what actually shows(we need the id later)
         $query = "SELECT * FROM events WHERE Date>=CURRENT_DATE order by Date";
@@ -532,7 +529,7 @@
     }//end listCurrenEvents
 
     //used to list all previous events on the webpage
-    function listPreviousEvents()
+    unction listPreviousEvents()
     {
         //gets any rows that occured before current date **we want to select all(*) bc in our output we are able to specify what actually shows(we need the id later)
         $query = "SELECT * FROM events WHERE Date<CURRENT_DATE order by Date";
@@ -552,6 +549,66 @@
             include("../view/pastevents.php");
         }
     }//end listPreviousEvents
+*/
+    //this will search the events based on what a user is looking for
+    function listEvents()
+    {
+        $listEventType=$_GET['EventSearchType'];
+        //displays a user selected type of event
+        if($listEventType == 'TypeOfEvent')
+        {
+            $type = $_GET['Type'];
+            if($type=='None')
+            {
+                $errorMessage = "Select a type of event you wish to see";
+            }
+            else {
+                $eventList = getEventType($type);
+                $eventTableTitle = "Event Type: " . $type;
+            }
+        }
+        //displays the ongoing events
+        else if($listEventType=='Ongoing')
+        {
+            $eventList=getOngoingEvents();
+            $eventTableTitle= "Ongoing Events";
+        }
+        //display past events
+        else if ($listEventType=='Past')
+        {
+            $eventList=getPastEvents();
+            $eventTableTitle= "Past Events";
+        }
+        //does a general search through database on events
+        else if($listEventType=='General')
+        {
+            $eventList=getGeneralEventSearch($_GET['Criteria']);
+            $eventTableTitle= "Your search for: " . $_GET['Criteria'];
+        }
+        //if not one of these we just output the general list of events
+        else
+        {
+            $eventList=getAllEvents();
+            $eventTableTitle= "All of the Events";
+        }
+
+        //if nothing is returned let user know
+        if(count($eventList)==0)
+        {
+            $errorMessage="No events of that type found at this time!";
+        }
+        //if only one event of that type is found, we just show the details of that one row on displayEvent
+        else if(count($eventList)==1)
+        {
+            $row=$eventList[0];
+            include "../view/displayEvent.php";
+        }
+        //if we have a list being returned we output it on our search page
+        else
+        {
+            include "../view/pastevents.php";
+        }
+    }
 
     //will be used in order to display the list of users that meet a certain type
     function listMembers()

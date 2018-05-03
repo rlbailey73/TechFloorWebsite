@@ -168,7 +168,7 @@ require '../view/headerinclude.php';
                 <h4>Enter information of the event to be added:</h4>
                 <form enctype="multipart/form-data" action="../controller/controller.php?action=CreateEvent" method = "post" class="feed_side_space row">
                     <input type="hidden" name="eventID" value="<?php echo $eventID?>"/>
-                    <input typ="hidden" name="Mode" value="<?php echo htmlspecialchars($mode) ?>" />
+                    <input type="hidden" name="Mode" value="<?php echo htmlspecialchars($mode) ?>" />
                     <label for="eventName" class="suggestion_item">Enter Name of Event:<span class="requiredFormInfo">*</span></label>
                     <input name="eventName" type = "text" value="<?php echo htmlspecialchars($eventName)?>" required maxlength="50" class = "form-control suggestion_item input_length" >
                     <label for="eventDate" class="suggestion_item">Enter Date for Event:<span class="requiredFormInfo">*</span></label>

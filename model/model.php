@@ -30,16 +30,35 @@
         return $db;
     }
 
-    //get the information of current events(events that are going to occur current day
-    // or after current date)using function above should connect to database
-    function getEvents($query)
+    function getAllEvents()
+    {
+        try{
+            //get our connection again
+            $db = getDBConnection();
+            $query = "SELECT * FROM events ORDER BY Date DESC";
+            $statement=$db->prepare($query);
+            $statement->execute();
+            $memList = $statement->fetchAll();
+            $statement->closeCursor();
+            return $memList;
+        }
+        catch(PDOException $e)
+        {
+            $errorMessage = $e->getMessage();
+            include '../view/error.php';
+            die;
+        }
+    }//end getAllEvents
+
+    /*
+    * purpose: return a list of the ongoing events - based on the currentday
+    */
+    function getOngoingEvents()
     {
         try
         {
             $db = getDBConnection();
-            /* ***Becky*** in the videos there was a line of code right here that had the query on it. i moved the query to the controller and have
-                it passed in as an argument rn because for the events it doesnt make sense to have two functions where the only line was the query
-                not sure if we want to use this funciton for all of the querys since in reality it will be the same steps just different "requests"*/
+            $query = "SELECT * FROM events WHERE Date>=CURRENT_DATE ORDER BY Date DESC";
             $statement = $db->prepare($query);
             $statement->execute();
             $results = $statement->fetchAll();
@@ -52,7 +71,54 @@
             include '../view/error.php';
             die;
         }
-    }
+    }//end ongoing events
+
+    /*
+     * purpose: return a list of the previous events - based on the currentday
+     */
+    function getPastEvents()
+    {
+        try
+        {
+            $db = getDBConnection();
+            $query = "SELECT * FROM events WHERE Date<CURRENT_DATE ORDER BY Date DESC";
+            $statement = $db->prepare($query);
+            $statement->execute();
+            $results = $statement->fetchAll();
+            $statement->closeCursor();
+            return $results;
+        }
+        catch(PDOException $e)
+        {
+            $errorMessage = $e->getMessage();
+            include '../view/error.php';
+            die;
+        }
+    }//end pastevents
+
+    /*
+     * purpose: perform a search on the events table that allows user to search for any value
+     */
+   function getGeneralEventSearch($criteria)
+   {
+       try{
+           //get our connection again
+           $db = getDBConnection();
+           $query = "SELECT * FROM events WHERE * = :criteria ORDER BY Date DESC";
+           $statement=$db->prepare($query);
+           $statement->bindValue(':criteria', '%$criteria%');
+           $statement->execute();
+           $result = $statement->fetchAll();
+           $statement->closeCursor();
+           return $result;
+       }
+       catch(PDOException $e)
+       {
+           $errorMessage = $e->getMessage();
+           include '../view/error.php';
+           die;
+       }
+   }//end getGeneralEventSearch
 
     /*gets a rows information -- using just fetch will save memory by returning 1 row at a time*/
     function getDetails($eventID)
@@ -102,7 +168,7 @@
         try{
             //get our connection again
             $db = getDBConnection();
-            $query = "SELECT * FROM events WHERE Type = :eventType";
+            $query = "SELECT * FROM events WHERE Type = :eventType ORDER BY Date DESC";
             $statement=$db->prepare($query);
             $statement->bindValue(':eventType', $eventType);
             $statement->execute();

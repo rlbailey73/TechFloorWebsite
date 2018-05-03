@@ -32,7 +32,7 @@ the navigation bar goes through our controller
                 <a class="nav-link dropdown-toggle navbar-tf-bg navbarHov" href="..controller/controller.php?action=CurrentEvents" id="events_dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Events</a>
                 <div class="dropdown-menu navbarDropDown" aria-labelledby="dropdown01">
                     <a class="dropdown-item navbarDropDown" href="../controller/controller.php?action=CurrentEvents">Current Events</a>
-                    <a class="dropdown-item navbarDropDown" href="../controller/controller.php?action=PastEvents">Past Events</a>
+                    <a class="dropdown-item navbarDropDown" href="../controller/controller.php?action=ListEvents">Past Events</a>
                 </div>
             </li>
             <!--this is the brackets page navigation dropdown item-->
