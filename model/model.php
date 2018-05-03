@@ -5,8 +5,8 @@
     function getDBConnection()
     {
         //$dsn contains where you wanna run and the db name
-        $dsn = 'mysql:host=localhost;dbname=s_bmgreggs_localtechfloor'; //access to bre's local db and to cisprod
-        //$dsn = 'mysql:host=localhost;dbname=s_rlbailey_techfloordemo'; //access to beckys database for local hosting purposes
+        //$dsn = 'mysql:host=localhost;dbname=s_bmgreggs_localtechfloor'; //access to bre's local db and to cisprod
+        $dsn = 'mysql:host=localhost;dbname=s_rlbailey_techfloordemo'; //access to beckys database for local hosting purposes
         //login credentials
         /** We need to make sure we change this back before submitting $username */
         //$username = 's_rlbailey';
@@ -448,7 +448,7 @@
     }
 
     //used to update members throughout the processssssssssss
-    function updateMember($memberID, $fName, $lName, $email, $classStanding, $imageTempPath, $description, $extraEmails, $memberSince){
+    function updateMember($memberID, $fName, $lName, $email, $classStanding, $imageTempPath, $deleteImage, $description, $extraEmails, $memberSince){
         $db = getDBConnection();
         $query = 'UPDATE member SET FirstName=:fName, LastName=:lName, Email=:email, ClassStanding=:classStanding, Image=:imageTempPath, Description=:memberDesc, ExtraEmails=:extraEmails, MemberSince=:memberSince
                   WHERE MemberID=:memberID';
@@ -482,6 +482,9 @@
         {
             //before we accept save our image file
             memberSaveImageFile($memberID, $imageTempPath);
+            if($deleteImage && $imageTempPath == ""){
+                memberDeleteImage($memberID);
+            }
             return $statement->rowCount();
         }
         else

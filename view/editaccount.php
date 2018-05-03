@@ -20,6 +20,12 @@ require '../view/headerinclude.php';
                     <input type="hidden" name="MemberID" value="<?php echo $memberID ?>" />
                     <input type="hidden" name="Mode" value="<?php echo htmlspecialchars($mode) ?>" />
 
+                    <?php if($row['MemberImagePath']!= ""){ ?>
+                        <div id="memberImage">
+                            <img src="<?php echo htmlspecialchars($row['MemberImagePath']) ?> ?foolcache=<?php echo time() ?>" alt="Member Image"
+                                 height="220" width="220" >
+                        </div>
+                    <?php } ?>
                     <label for="fName">First Name:<span class="requiredFormInfo">*</span></label>
                     <input name = "fName" type = "text" value ="<?php echo htmlspecialchars($firstName) ?>" placeholder="First Name"
                           required class = "form-control suggestion_item input_length" maxlength="30" autofocus>
@@ -41,6 +47,10 @@ require '../view/headerinclude.php';
                     </select>
                     <label for="memberIcon">Choose your Profile Image:</label>
                     <input name = "memberIcon" type = "file" class="input_length"/>
+                    <?php if($row['Image'] != ""){ ?>
+                        <label for="MemberImageDelete">Delete Selected Image:</label>
+                        <input type="checkbox" name="memberDeleteImage" id="MemberImageDelete">
+                    <?php } ?>
                     <label for="describe">Describe your interests:</label>
                     <textarea name="memberDesc" rows = 5 class = "form-control suggestion_item input_length"><?php echo htmlspecialchars($description) ?></textarea>
                     <label for="extraEmails">Receive our Event Information:</label>

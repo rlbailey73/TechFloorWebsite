@@ -209,7 +209,11 @@
         $email = $_POST['email'];
         $classStanding = $_POST['classStanding'];
         $imagePathTemp = ""; //defaulted so no path right now. var passed to model
-        //$image = $_POST['image'];
+        if(isset($_POST['memberDeleteImage'])){
+            $deleteImage = TRUE;
+        }else{
+            $deleteImage = FALSE;
+        }
         $description =$_POST['memberDesc'];
         if(isset($_POST['extraEmails'])){
             $extraEmails = "Y";
@@ -265,7 +269,7 @@
             if($mode == "Add"){
                 $memberID = insertMember($firstName, $lastName, $email, $classStanding, $imagePathTemp, $description, $extraEmails, $memberSince);
             }else{
-                $rowsAffected = updateMember($memberID, $firstName, $lastName, $email, $classStanding, $imagePathTemp, $description, $extraEmails, $memberSince);
+                $rowsAffected = updateMember($memberID, $firstName, $lastName, $email, $classStanding, $imagePathTemp, $deleteImage, $description, $extraEmails, $memberSince);
             }
 
             //after member successfully submitted into the database, we should take them to their display page for
