@@ -113,7 +113,7 @@
             include("../php/uploadedimages.php");
             break;
         case 'UploadQuotes':
-            include("../php/uploadedquotes.php");
+            include("../php/uploadquotes.php");
             break;
         case 'ViewMember':
             viewMember();
@@ -617,17 +617,21 @@
         if($listType == 'Position')
         {
             $memList = getBoardMembers();
+            $memberTableTitle = "Board Members";
         }
         else if($listType == 'NewsLetterList')
         {
             $memList = getNewsLetterList();
+            $memberTableTitle = "Newsletter List";
         }
         else if ($listType == 'GeneralSearch')
         {
             $memList = getGeneralSearch($_GET['Criteria']);
+            $memberTableTitle= "Your search for: " . $_GET['Criteria'];
         }
         else{
             $memList = getMemberList();
+            $memberTableTitle = "All of the Members";
         }
         if(count($memList) == 0){
             $errorMessage = "No members found.";
@@ -658,6 +662,8 @@
             include "../view/displaySingleMember.php";
         }
         else{
+            //adds a nice relavant title to the table
+            $memberTableTitle = "All of the Members";
             //need to include our view
             include "../view/membersearch.php";
         }

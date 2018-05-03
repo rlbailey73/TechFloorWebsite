@@ -38,19 +38,19 @@ require '../view/headerinclude.php';
 
                 <!--search for specific criteria across all columns-->
                 <div class="formRow">
-                    <label>Search Criteria:</label>
+                    <label>Search Event Names:</label>
                     <input type ="text" id="Criteria"/>
-                    <input type="button" onclick="generalEventSearch()" value="General Search" />
+                    <input type="button" onclick="generalEventSearch()" value="Search" />
                 </div>
 
                 <!--search for ongoing events-->
                 <div class="formRow">
                     <a href="../controller/controller.php?action=ListEvents&EventSearchType=None"><h3 class="message_box_title">Click for all events!</h3></a>
                 </div>
-            </div>
+            </div> <!--end Message box formrow tag-->
         </div>
 
-        <!-- start Past Events table -->
+        <!-- start Events table -->
         <div class = "col-4 offset-1 table_format">
             <h1 class="message_box_title"><?php echo $eventTableTitle ?></h1>
 
@@ -60,9 +60,9 @@ require '../view/headerinclude.php';
                     <!-- tr = table row -->
                     <tr>
                         <!-- th = table head -->
-                        <th><h6>Event Name</h6></th>
-                        <th><h6>Date</h6></th>
-                        <th><h6>Time</h6></th>
+                        <th><h5><u>Event Name</u></h5></th>
+                        <th><h5><u>Date</u></h5></th>
+                        <th><h5><u>Time</u></h5></th>
                     </tr>
                 </thead>
                 <tbody>

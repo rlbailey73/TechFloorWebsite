@@ -9,10 +9,11 @@ require '../view/headerinclude.php';
         <!-- border across top-->
         <img class = "col-10 offset-1" src = "../images/Functional/temp.png" alt = "cool blue techy background"  >
 
-        <div class = "col-6 offset-3 detailForm"><!-- start message_box -->
+        <!-- Search -->
+        <div class = "col-4 offset-1 detailForm">
             <h1 class="message_box_title">Search Members</h1>
 
-            <div class="formRow">
+            <div class="message_box formRow">
                 <label>Select a Member:</label>
                 <select id="MemberSelect">
                     <option value="0">Choose a Member</option>
@@ -23,33 +24,38 @@ require '../view/headerinclude.php';
 
                 </select>
                 <input type="button" onclick="memberLookUp()" value="Search! :D" />
-            </div>
-            <!--search part of words-->
-            <div class="formRow">
-                <label>Search Criteria:</label>
-                <input type ="text" id="Criteria"/>
-                <input type="button" onclick="generalSearch()" value="General Search" />
-            </div>
-            <!--find those that are part of the board-->
-            <div class="formRow">
-                <a href="../controller/controller.php?action=ListMembers&ListType=Position"><h1 class="message_box_title">Members by Organization Position</h1></a>
-            </div>
-            <!--find those that are part of the newsletter list-->
-            <div class="formRow">
-                <a href="../controller/controller.php?action=ListMembers&ListType=NewsLetterList"><h1 class="message_box_title">News Letter List</h1></a>
-            </div>
 
-            <!-- Member List View -->
+                <!--search part of words-->
+                <div class="formRow">
+                    <label>Search Criteria:</label>
+                    <input type ="text" id="Criteria"/>
+                    <input type="button" onclick="generalSearch()" value="General Search" />
+                </div>
+                <!--find those that are part of the board-->
+                <div class="formRow">
+                    <a href="../controller/controller.php?action=ListMembers&ListType=Position"><h3>Members by Organization Position</h3></a>
+                </div>
+                <!--find those that are part of the newsletter list-->
+                <div class="formRow">
+                    <a href="../controller/controller.php?action=ListMembers&ListType=NewsLetterList"><h3 class="message_box_title">News Letter List</h3></a>
+                </div>
+            </div><!--end Message box formrow tag-->
+        </div><!--end search-->
+
+        <!-- Member List View -->
+        <div class = "col-5 offset-1 table_format">
+            <h1 class="message_box_title"><?php echo $memberTableTitle ?></h1>
+
             <table class="text-white">
                 <thead>
                 <!-- tr = table row -->
                 <tr>
                     <!-- th = table head -->
-                    <th><h6>First Name</h6></th>
-                    <th><h6>Last Name</h6></th>
-                    <th><h6>Position</h6></th>
-                    <th><h6>Newsletter</h6></th>
-                    <th><h6>Member Since</h6></th>
+                    <th><h5><u>First Name</u></h5></th>
+                    <th><h5><u>Last Name</u></h5></th>
+                    <th><h5><u>Position</u></h5></th>
+                    <th><h5><u>Newsletter</u></h5></th>
+                    <th><h5><u>Member Since</u></h5></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -85,7 +91,8 @@ require '../view/headerinclude.php';
 
                 </tfoot>
             </table>
-        </div><!-- end message_box -->
+
+        </div><!-- end memberview -->
     </div><!-- end row -->
 </div><!--end index-template-->
 
