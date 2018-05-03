@@ -1,8 +1,7 @@
-<!--
-This is the controller which is a part of the MVC model. It takes instructions from
-    the browser and will output a view or will interact with the model to get info
-    from the database-->
 <?php
+    /* This is the controller which is a part of the MVC model. It takes instructions from
+    the browser and will output a view or will interact with the model to get info
+    from the database */
     //this allows us access to the functions in this file these are okay here
       //since our controller is a part of our views due to include?
     require_once '../model/model.php';
@@ -201,7 +200,7 @@ This is the controller which is a part of the MVC model. It takes instructions f
 
     //will be used to actually submit and edit members
     function accountAddEdit(){
-        print_r($_POST);
+        //print_r($_POST);
 
         $memberID = $_POST['MemberID'];
         $mode = $_POST['Mode'];
@@ -563,7 +562,6 @@ This is the controller which is a part of the MVC model. It takes instructions f
         }
     }
 
-
     // helps us search the members using the actual db values   `
     function searchMembers()
     {
@@ -604,5 +602,3 @@ This is the controller which is a part of the MVC model. It takes instructions f
             }
         }
     }
-
-?>
