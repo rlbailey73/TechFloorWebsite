@@ -26,6 +26,13 @@ require '../view/headerinclude.php';
                 </select>
                 <input type = "button" onclick = "eventLookUp()" value="Search"/>
 
+                <!--search for specific criteria across all columns-->
+                <div class="formRow">
+                    <label>Search Event Names:</label>
+                    <input type ="text" id="Criteria"/>
+                    <input type="button" onclick="generalEventSearch()" value="Search" />
+                </div>
+
                 <!--search for ongoing events-->
                 <div class="formRow">
                     <a href="../controller/controller.php?action=ListEvents&EventSearchType=Ongoing"><h3 class="message_box_title">Click for the ongoing events!</h3></a>
@@ -34,13 +41,6 @@ require '../view/headerinclude.php';
                 <!--search for past events-->
                 <div class="formRow">
                     <a href="../controller/controller.php?action=ListEvents&EventSearchType=Past"><h3 class="message_box_title">Click for the past events!</h3></a>
-                </div>
-
-                <!--search for specific criteria across all columns-->
-                <div class="formRow">
-                    <label>Search Event Names:</label>
-                    <input type ="text" id="Criteria"/>
-                    <input type="button" onclick="generalEventSearch()" value="Search" />
                 </div>
 
                 <!--search for ongoing events-->
@@ -60,9 +60,9 @@ require '../view/headerinclude.php';
                     <!-- tr = table row -->
                     <tr>
                         <!-- th = table head -->
-                        <th><h5><u>Event Name</u></h5></th>
-                        <th><h5><u>Date</u></h5></th>
-                        <th><h5><u>Time</u></h5></th>
+                        <th><h6><u>Event Name</u></h6></th>
+                        <th><h6><u>Date</u></h6></th>
+                        <th><h6><u>Time</u></h6></th>
                     </tr>
                 </thead>
                 <tbody>

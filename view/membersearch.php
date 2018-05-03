@@ -33,7 +33,7 @@ require '../view/headerinclude.php';
                 </div>
                 <!--find those that are part of the board-->
                 <div class="formRow">
-                    <a href="../controller/controller.php?action=ListMembers&ListType=Position"><h3>Members by Organization Position</h3></a>
+                    <a href="../controller/controller.php?action=ListMembers&ListType=Position"><h3 class="message_box_title">Members by Organization Position</h3></a>
                 </div>
                 <!--find those that are part of the newsletter list-->
                 <div class="formRow">
@@ -51,11 +51,11 @@ require '../view/headerinclude.php';
                 <!-- tr = table row -->
                 <tr>
                     <!-- th = table head -->
-                    <th><h5><u>First Name</u></h5></th>
-                    <th><h5><u>Last Name</u></h5></th>
-                    <th><h5><u>Position</u></h5></th>
-                    <th><h5><u>Newsletter</u></h5></th>
-                    <th><h5><u>Member Since</u></h5></th>
+                    <th><h6><u>First Name</u></h6></th>
+                    <th><h6><u>Last Name</u></h6></th>
+                    <th><h6><u>Position</u></h6></th>
+                    <th><h6><u>Newsletter</u></h6></th>
+                    <th><h6><u>Member Since</u></h6></th>
                 </tr>
                 </thead>
                 <tbody>

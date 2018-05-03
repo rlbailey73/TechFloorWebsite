@@ -31,7 +31,7 @@ require '../view/headerinclude.php';
         </div><!-- end HOME edits -->
 
         <!--start PICTURES admin-->
-        <div class = "col-6 offset-3">
+        <div class = "col-5">
             <h1 class="message_box_title">Add Images</h1>
             <!--upload the news-->
             <div class = "message_box ">
@@ -88,7 +88,7 @@ require '../view/headerinclude.php';
         </div><!-- end PICTURES edits -->
 
         <!--start QUOTES admin-->
-        <div class = "col-6 offset-3">
+        <div class = "col-5 offset-1">
             <h1 class="message_box_title">Add QUOTES</h1>
             <!--upload the QUOTES-->
             <div class = "message_box ">
@@ -102,7 +102,7 @@ require '../view/headerinclude.php';
         </div><!-- end QUOTES edits -->
 
         <!--SEND EMAILS-->
-        <div class = "col-6 offset-3">
+        <div class = "col-5">
             <h1 class = "message_box_title">Send Emails</h1>
             <div class = "message_box">
                 <!--we will need code to upload message here-->
@@ -113,7 +113,7 @@ require '../view/headerinclude.php';
         </div><!--end of sending emails-->
 
         <!-- start ABOUT_PAGE admin -->
-        <div class = "col-6 offset-3">
+        <div class = "col-5 offset-1">
             <h1 class="message_box_title">Edit the About Page</h1>
             <!--description of organization-->
             <div class = "message_box ">
@@ -162,7 +162,7 @@ require '../view/headerinclude.php';
         </div><!-- end ABOUT edits -->
 
         <!-- EVENTS ADD/EDIT -->
-        <div class = "col-6 offset-3">
+        <div class = "col-5">
             <h1 class = "message_box_title">Event Additions</h1>
             <div class = "message_box">
                 <h4>Enter information of the event to be added:</h4>

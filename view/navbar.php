@@ -27,14 +27,18 @@ the navigation bar goes through our controller
             <li class="nav-item active">
                 <a class="nav-link navbar-tf-bg navbarHov" href="../controller/controller.php?action=About">About</a>
             </li>
-            <!--this is the Events page navigation dropdown item-->
+            <!-- Events page navigation-->
+            <li class="nav-item active">
+                <a class="nav-link navbar-tf-bg navbarHov" href="../controller/controller.php?action=ListEvents&EventSearchType=None">Events</a>
+            </li>
+            <!--this is the Events page navigation dropdown item
             <li class="nav-item active dropdown">
-                <a class="nav-link dropdown-toggle navbar-tf-bg navbarHov" href="..controller/controller.php?action=CurrentEvents" id="events_dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Events</a>
+                <a class="nav-link dropdown-toggle navbar-tf-bg navbarHov" href="../controller/controller.php?action=CurrentEvents" id="events_dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Events</a>
                 <div class="dropdown-menu navbarDropDown" aria-labelledby="dropdown01">
                     <a class="dropdown-item navbarDropDown" href="../controller/controller.php?action=CurrentEvents">Current Events</a>
                     <a class="dropdown-item navbarDropDown" href="../controller/controller.php?action=ListEvents&EventSearchType=None">Past Events</a>
                 </div>
-            </li>
+            </li>-->
             <!--this is the brackets page navigation dropdown item-->
             <!-- <li class="nav-item active dropdown">
                 <a class="nav-link dropdown-toggle disabled navbar-tf-bg navbarHov" href="../controller/controller.php?action=CurrentBrackets" id="brackets_dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Brackets</a>
