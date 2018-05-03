@@ -5,8 +5,8 @@
     function getDBConnection()
     {
         //$dsn contains where you wanna run and the db name
-        $dsn = 'mysql:host=localhost;dbname=s_bmgreggs_localtechfloor'; //access to bre's local db and to cisprod
-        //$dsn = 'mysql:host=localhost;dbname=s_rlbailey_techfloordemo'; //access to beckys database for local hosting purposes
+        //$dsn = 'mysql:host=localhost;dbname=s_bmgreggs_localtechfloor'; //access to bre's local db and to cisprod
+        $dsn = 'mysql:host=localhost;dbname=s_rlbailey_techfloordemo'; //access to beckys database for local hosting purposes
         //login credentials
         /** We need to make sure we change this back before submitting $username */
         //$username = 's_rlbailey';
@@ -390,6 +390,28 @@
         {
             //should be code to log the sql error for out purposes we just wanna display
             logSQLError($statement->errorInfo());
+        }
+    }
+
+    //will be ussd to delete a specific member from the table in the db
+    function deleteMemberOne($memberID){
+        $db = getDBConnection();
+        //delete statement to delete a specific member
+        $query = 'DELETE FROM member WHERE MemberID = :memberID';
+
+        $statement = $db->prepare($query);
+        $statement->bindValue(':memberID', $memberID);
+
+        $success = $statement->execute();
+        $statement->closeCursor();
+
+        if($success){
+            //number of rows affected
+            //in this case there should be only one row affected as this deletes a specific member
+            return $statement->rowCount();
+        }else {
+            //displays the error message in case something wonky happens
+            logSQLError($statement->errorInfo()); //log error
         }
     }
 

@@ -69,13 +69,13 @@ require '../view/headerinclude.php';
                             bc html will not read our $row['columnName']. Forgetting the "echo" wont cause a syntax error but the text will be missing-->
                         <td class="leftText">
                             <a href="../controller/controller.php?action=ViewMember&MemberID=<?php echo $row['MemberID'] ?>" >
-                                <?php echo $row['FirstName'] ?>
+                                <?php echo htmlspecialchars($row['FirstName']) ?>
                             </a>
                         </td>
-                        <td class="leftText"><?php echo $row['LastName'] ?></td>
-                        <td class="leftText"><?php echo $row['Position'] ?></td>
-                        <td><?php echo $row['ExtraEmails'] ?></td>
-                        <td><?php echo toDisplayDate($row['MemberSince']) ?></td>
+                        <td class="leftText"><?php echo htmlspecialchars($row['LastName']) ?></td>
+                        <td class="leftText"><?php echo htmlspecialchars($row['Position']) ?></td>
+                        <td><?php echo htmlspecialchars($row['ExtraEmails']) ?></td>
+                        <td><?php echo htmlspecialchars(toDisplayDate($row['MemberSince'])) ?></td>
                     </tr>
                     <!--here is where we end our php loop
                     in between the two tags is the line that gets repeated over and over again-->

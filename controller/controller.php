@@ -33,6 +33,9 @@ This is the controller which is a part of the MVC model. It takes instructions f
         case 'AccountAddEdit':
             accountAddEdit();
             break;
+        case 'AccountDeleteOne':
+            accountDeleteOne();
+            break;
         case 'AccountEdit':
             accountEdit();
             break;
@@ -137,6 +140,26 @@ This is the controller which is a part of the MVC model. It takes instructions f
         $memberSince = "";
 
         include '../view/editaccount.php';
+    }
+
+    //function to retrieve user info then delete only the one user from the db
+    function accountDeleteOne(){
+        $memberID = $_GET['MemberID']; //reads value from url
+
+        //makes sure we received a value or not
+        if(!isset($memberID)){
+            $errorMessage = "A memberID must be provided to display.";
+            include "../view/error.php";
+        }
+        else{
+            $rowCount = deleteMemberOne($memberID);
+            if($rowCount != 1){
+                $errorMessage = "Attempting to delete $rowCount rows. It should only be deleting 1, or it has already been deleted.";
+                include "../view/error.php";
+            }else{
+                header("Location: ../controller/controller.php?action=ListMembers&ListType=none");
+            }
+        }
     }
 
     //will be used to edit a previously submitted member
